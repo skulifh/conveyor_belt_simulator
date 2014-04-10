@@ -10,6 +10,11 @@ namespace G12_Robust_Software_Systems
     {
         static void Main(string[] args)
         {
+            while(true) 
+            {
+                Console.WriteLine("Testing git");
+            }
         }
+
     }
 }
