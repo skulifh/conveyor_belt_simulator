@@ -76,6 +76,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Components\Airplane.cs" />
+    <Compile Include="Model\Components\Buffer.cs" />
+    <Compile Include="Model\Components\CheckInCounter.cs" />
+    <Compile Include="Model\Components\ConveyorBelt.cs" />
+    <Compile Include="Model\Components\ConveyorBeltSplitter.cs" />
+    <Compile Include="Model\Components\SortingMachine.cs" />
+    <Compile Include="Model\Components\Truck.cs" />
+    <Compile Include="Model\Components\XRayMachine.cs" />
+    <Compile Include="Model\LuggageProcessor\Forward.cs" />
+    <Compile Include="Model\LuggageProcessor\LuggageProcessor.cs" />
+    <Compile Include="Model\LuggageProcessor\Receive.cs" />
+    <Compile Include="Model\LuggageProcessor\Sink.cs" />
+    <Compile Include="Model\LuggageProcessor\Source.cs" />
+    <Compile Include="Model\Personnel\LoaderRole.cs" />
+    <Compile Include="Model\Personnel\Personnel.cs" />
+    <Compile Include="Model\Personnel\StuckLuggageRole.cs" />
+    <Compile Include="Model\Personnel\XRayRole.cs" />
+    <Compile Include="Model\Problem\Problem.cs" />
+    <Compile Include="Model\Problem\StopWorking.cs" />
+    <Compile Include="Model\Problem\Stuck.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Simulation\Genpop.cs" />
