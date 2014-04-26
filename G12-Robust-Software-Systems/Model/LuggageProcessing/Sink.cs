@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace G12_Robust_Software_Systems.Model
+namespace G12_Robust_Software_Systems.Model.LuggageProcessing
 {
-    class Stuck : Problem
+    class Sink : ILuggageProcessor
     {
-        public void Fail()
+        public void processLuggage()
         {
             throw new NotImplementedException();
         }
