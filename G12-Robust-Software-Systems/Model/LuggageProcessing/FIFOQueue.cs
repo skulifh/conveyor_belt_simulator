@@ -8,20 +8,34 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
 {
     class FIFOQueue : ILuggageQueue
     {
-        private List<long> queue;
+        private Queue<long> queue;
 
         public FIFOQueue()
         {
-            this.queue = new List<long>();
+            this.queue = new Queue<long>();
         }
-        public void enqueueLuggage()
+        public void enqueueLuggage(int dequeueDeltaMiliSeconds)
         {
-            this.queue.Add(DateTime.Now.Ticks);
+            this.queue.Enqueue(DateTime.Now.Ticks + dequeueDeltaMiliSeconds*1000);
         }
 
-        public bool checkLuggageQueue()
+        public int checkLuggageQueue()
         {
-            throw new NotImplementedException();
+            if (this.queue.Count() < 1)
+            {
+                return 0;
+            }
+            long now = DateTime.Now.Ticks;
+            int luggage_departing_count = 0;
+            // While there is elements in the queue, and the elements
+            // have been in the queue long enough for them to be dequeued.
+            while (this.queue.Count() > 0 && this.queue.ElementAt<long>(0) > now)
+            {
+                // Increment counter and remove element from queue.
+                luggage_departing_count++;
+                this.queue.Dequeue();
+            }
+            return luggage_departing_count;
         }
     }
 }

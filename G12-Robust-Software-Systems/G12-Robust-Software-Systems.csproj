@@ -81,6 +81,7 @@
     <Compile Include="Model\Components\CheckInCounter.cs" />
     <Compile Include="Model\Components\ConveyorBelt.cs" />
     <Compile Include="Model\Components\ConveyorBeltSplitter.cs" />
+    <Compile Include="Model\Components\IComponent.cs" />
     <Compile Include="Model\Components\SortingMachine.cs" />
     <Compile Include="Model\Components\Truck.cs" />
     <Compile Include="Model\Components\XRayMachine.cs" />

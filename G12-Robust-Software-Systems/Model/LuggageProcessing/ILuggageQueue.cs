@@ -8,8 +8,8 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
 {
     interface ILuggageQueue
     {
-        void enqueueLuggage();
+        void enqueueLuggage(int dequeueDeltaMiliSeconds);
 
-        Boolean checkLuggageQueue();
+        int checkLuggageQueue();
     }
 }
