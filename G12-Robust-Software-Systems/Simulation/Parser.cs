@@ -18,6 +18,7 @@ namespace G12_Robust_Software_Systems.Simulation
             List<CheckInCounter> checkins = new List<CheckInCounter>();
             List<ConveyorBelt> belts = new List<ConveyorBelt>();
             List<XRayMachine> xrays = new List<XRayMachine>();
+            List<ConveyorBeltSplitter> splitters = new List<ConveyorBeltSplitter>();
 
             while ((line = file.ReadLine()) != null)
             {
@@ -35,6 +36,10 @@ namespace G12_Robust_Software_Systems.Simulation
                 else if (type.Equals("XRAY"))
                 {
                     xrays.Add(new XRayMachine());
+                }
+                else if (type.Equals("SPLITTER"))
+                {
+                    splitters.Add(new ConveyorBeltSplitter());
                 }
                 else if (type.Equals("ROUTING"))
                 {
