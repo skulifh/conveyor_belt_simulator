@@ -16,6 +16,33 @@ namespace G12_Robust_Software_Systems.Simulation
             System.Threading.Thread.Sleep(10000);
 
         }*/
+        public static List<int> GetBags(int time, double lambda)
+        {
+            List<int> bags = new List<int>();
+            int tala;
+            Genpop bla = new Genpop();
+            while (bags.Sum() < time)
+            {
+                tala = Genpop.GetPoisson(lambda);
+                bags.Add(tala);
+                System.Threading.Thread.Sleep(100);
+            }
+            return bags;
+        }
+
+        public static Boolean Failure(double like)
+        {
+            int number = Convert.ToInt32(Math.Floor(100 / like));
+            Random random = new Random();
+            int randomNumber = random.Next(1, (number+1));
+            Console.WriteLine(number);
+            Console.WriteLine(randomNumber);
+            if (number == randomNumber)
+                return true;
+            else
+                return false;
+        }
+
         public static int GetPoisson(double lambda)
         {
             return (lambda < 30.0) ? PoissonSmall(lambda) : PoissonLarge(lambda);
