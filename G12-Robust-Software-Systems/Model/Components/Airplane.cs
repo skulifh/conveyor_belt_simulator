@@ -6,7 +6,26 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model.Components
 {
-    class Airplane
+    class Airplane : IComponent
     {
+        public Airplane()
+        {
+            
+        }
+        public void EnqueueLuggage()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DequeueLuggage()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void setNextComponent(IComponent next)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
