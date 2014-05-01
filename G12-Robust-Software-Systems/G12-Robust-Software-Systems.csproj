@@ -96,7 +96,7 @@
     <Compile Include="Model\Personnel\Personnel.cs" />
     <Compile Include="Model\Personnel\StuckLuggageRole.cs" />
     <Compile Include="Model\Personnel\XRayRole.cs" />
-    <Compile Include="Model\Problem\Problem.cs" />
+    <Compile Include="Model\Problem\IProblem.cs" />
     <Compile Include="Model\Problem\StopWorking.cs" />
     <Compile Include="Model\Problem\Stuck.cs" />
     <Compile Include="Program.cs" />
