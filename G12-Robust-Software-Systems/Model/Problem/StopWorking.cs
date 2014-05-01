@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model
 {
-    class StopWorking : Problem
+    class StopWorking : IProblem
     {
         public void Fail()
         {

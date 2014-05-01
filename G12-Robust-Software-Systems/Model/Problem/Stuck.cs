@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model
 {
-    class Stuck : Problem
+    class Stuck : IProblem
     {
         public void Fail()
         {
