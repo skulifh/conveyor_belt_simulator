@@ -8,9 +8,15 @@ namespace G12_Robust_Software_Systems.Model
 {
     class StopWorking : IProblem
     {
-        public void Fail()
+        private double stop_constant;
+
+        public StopWorking(double stop_constant)
         {
-            throw new NotImplementedException();
+            this.stop_constant = stop_constant;
+        }
+        public bool Fail()
+        {
+           return Simulation.Genpop.Failure(stop_constant);  
         }
     }
 }

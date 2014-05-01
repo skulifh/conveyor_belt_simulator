@@ -8,9 +8,15 @@ namespace G12_Robust_Software_Systems.Model
 {
     class Stuck : IProblem
     {
-        public void Fail()
+        private double stuck_constant;
+
+        public Stuck(double stuck_constant)
         {
-            throw new NotImplementedException();
+            this.stuck_constant = stuck_constant;
+        }
+        public bool Fail()
+        {
+            return Simulation.Genpop.Failure(stuck_constant);
         }
     }
 }

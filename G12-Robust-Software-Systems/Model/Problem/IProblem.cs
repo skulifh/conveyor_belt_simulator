@@ -8,6 +8,6 @@ namespace G12_Robust_Software_Systems.Model
 {
     interface IProblem
     {
-        void Fail();
+        bool Fail();
     }
 }
