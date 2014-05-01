@@ -20,7 +20,7 @@ namespace G12_Robust_Software_Systems.Model.Components
 
         public void setNextComponent(IComponent next)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
