@@ -36,9 +36,9 @@ namespace G12_Robust_Software_Systems.Model.Components
             }
         }
 
-        public void setNextComponent(List<IComponent> nextComponents)
+        public void setNextComponent(IComponent next, List<IComponent> sinks)
         {
-            this.dequeueBehaviour = new SortingForwarder(this.queue, nextComponents);
+            this.dequeueBehaviour = new SortingForwarder(this.queue, sinks);
             this.initialized = true;
         }
     }

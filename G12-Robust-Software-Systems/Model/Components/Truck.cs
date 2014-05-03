@@ -43,7 +43,7 @@ namespace G12_Robust_Software_Systems.Model.Components
             }
         }
 
-        public void setNextComponent(IComponent next)
+        public void setNextComponent(IComponent next, List<IComponent> sinks)
         {
             this.dequeueBehaviour = new Forward(this.queue, next);
             this.initialized = true;

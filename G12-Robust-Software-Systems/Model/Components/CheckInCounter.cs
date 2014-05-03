@@ -16,7 +16,6 @@ namespace G12_Robust_Software_Systems.Model.Components
         public CheckInCounter(int dequeueDeltaMiliSeconds)
         {
             this.queue = new FIFOQueue();
-            throw new NotImplementedException();
             //this.enqueueBehaviour = new Source(Nullable, this.queue, )
             this.enqueueBehaviour = new Receive(this.queue, dequeueDeltaMiliSeconds);
             this.initialized = false;
@@ -45,7 +44,7 @@ namespace G12_Robust_Software_Systems.Model.Components
             }
         }
 
-        public void setNextComponent(IComponent next)
+        public void setNextComponent(IComponent next, List<IComponent> sinks)
         {
             this.dequeueBehaviour = new Forward(this.queue, next);
             this.initialized = true;
