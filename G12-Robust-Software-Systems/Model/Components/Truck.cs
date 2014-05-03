@@ -42,7 +42,11 @@ namespace G12_Robust_Software_Systems.Model.Components
 
         public void DequeueLuggage()
         {
-            dequeueBehaviour.processLuggage(null);
+            while (true)
+            {
+                dequeueBehaviour.processLuggage(null);
+                Thread.Sleep(10);
+            }
         }
 
         public void setNextComponent(IComponent next, List<IComponent> sinks)
