@@ -1,6 +1,7 @@
 ﻿using G12_Robust_Software_Systems.Model.LuggageProcessing;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -17,6 +18,8 @@ namespace G12_Robust_Software_Systems.Model.Components
         private Boolean initialized_thread;
         public Airplane(int dequeueDeltaMiliSeconds)
         {
+            Contract.Requires(queue != null, "Queue must not be null");
+            Contract.Requires(initialized != true, "Initialized must not be true");
             this.queue = new FIFOQueue();
             this.enqueueBehaviour = new Receive(this.queue, dequeueDeltaMiliSeconds);
             this.initialized = false;
@@ -24,7 +27,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         public void EnqueueLuggage(LuggageBag luggage)
         {
             if (this.initialized)
-            {
+            {   
                 enqueueBehaviour.processLuggage(luggage);
             }
             else
