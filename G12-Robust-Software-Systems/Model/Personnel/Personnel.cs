@@ -22,6 +22,10 @@ namespace G12_Robust_Software_Systems.Model.Personnel
                 roles != null,
                 "roles cannot be null"
             );
+            Contract.Requires<ArgumentOutOfRangeException>(
+                roles.Count > 0,
+                "Personnel must have at least one role"
+            );
 
             this.id = id;
             this.roles = roles;
