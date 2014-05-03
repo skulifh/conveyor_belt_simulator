@@ -10,7 +10,7 @@ namespace G12_Robust_Software_Systems.Model.Components
     {
         void EnqueueLuggage(LuggageBag luggage);
 
-        void DequeueLuggage(LuggageBag luggage);
+        void DequeueLuggage();
 
         void setNextComponent(IComponent next, List<IComponent> sinks);
 

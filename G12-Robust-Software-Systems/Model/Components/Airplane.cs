@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model.Components
@@ -13,6 +14,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         private ILuggageProcessor dequeueBehaviour;
         private ILuggageQueue queue;
         private Boolean initialized;
+        private Boolean initialized_thread;
         public Airplane(int dequeueDeltaMiliSeconds)
         {
             this.queue = new FIFOQueue();
@@ -31,11 +33,18 @@ namespace G12_Robust_Software_Systems.Model.Components
             }
         }
 
-        public void DequeueLuggage(LuggageBag luggage)
+        public void EnqueueLuggage(LuggageBag luggage)
         {
             if (this.initialized)
             {
-                dequeueBehaviour.processLuggage(luggage);
+                if (this.initialized_thread == false)
+                {
+                    Thread DequeueThread = new Thread(new ThreadStart(this.DequeueLuggage));
+                    DequeueThread.Start();
+                    while (!DequeueThread.IsAlive) ;
+                    this.initialized_thread = true;
+                }
+                enqueueBehaviour.processLuggage(luggage);
             }
             else
             {
@@ -43,10 +52,9 @@ namespace G12_Robust_Software_Systems.Model.Components
             }
         }
 
-        public void setNextComponent(IComponent next, List<IComponent> sinks)
+        public void DequeueLuggage()
         {
-            this.dequeueBehaviour = new Forward(this.queue, next);
-            this.initialized = true;
+            dequeueBehaviour.processLuggage(null);
         }
 
         public List<IComponent> getSinks()
