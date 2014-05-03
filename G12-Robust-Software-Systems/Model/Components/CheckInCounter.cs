@@ -49,5 +49,11 @@ namespace G12_Robust_Software_Systems.Model.Components
             this.dequeueBehaviour = new Forward(this.queue, next);
             this.initialized = true;
         }
+
+        public List<IComponent> getSinks()
+        {
+            // Intentionally not implemented.
+            throw new NotImplementedException();
+        }
     }
 }

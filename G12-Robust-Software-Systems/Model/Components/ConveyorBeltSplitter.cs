@@ -13,6 +13,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         private ILuggageProcessor dequeueBehaviour;
         private ILuggageQueue queue;
         private Boolean initialized;
+        private List<IComponent> sinks;
         public ConveyorBeltSplitter(int dequeueDeltaMiliSeconds)
         {
             this.queue = new FIFOQueue();
@@ -38,8 +39,14 @@ namespace G12_Robust_Software_Systems.Model.Components
 
         public void setNextComponent(IComponent next, List<IComponent> sinks)
         {
+            this.sinks = sinks;
             this.dequeueBehaviour = new SortingForwarder(this.queue, sinks);
             this.initialized = true;
+        }
+
+        public List<IComponent> getSinks()
+        {
+            return this.sinks;
         }
     }
 }
