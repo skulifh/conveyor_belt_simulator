@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model.Components
@@ -13,6 +14,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         ILuggageProcessor dequeueBehaviour;
         ILuggageQueue queue;
         Boolean initialized;
+        private Boolean initialized_thread;
         public ConveyorBelt(int dequeueDeltaMiliSeconds)
         {
             this.queue = new FIFOQueue();
@@ -21,20 +23,26 @@ namespace G12_Robust_Software_Systems.Model.Components
         }
         public void EnqueueLuggage(LuggageBag luggage)
         {
-            enqueueBehaviour.processLuggage(luggage);
-        }
-
-        public void DequeueLuggage(LuggageBag luggage)
-        {
             if (this.initialized)
             {
-                dequeueBehaviour.processLuggage(luggage);
+                if (this.initialized_thread == false)
+                {
+                    Thread DequeueThread = new Thread(new ThreadStart(this.DequeueLuggage));
+                    DequeueThread.Start();
+                    while (!DequeueThread.IsAlive) ;
+                    this.initialized_thread = true;
+                }
+                enqueueBehaviour.processLuggage(luggage);
             }
             else
             {
                 throw new NotImplementedException();
             }
-            
+        }
+
+        public void DequeueLuggage()
+        {
+            dequeueBehaviour.processLuggage(null);
         }
 
         public void setNextComponent(IComponent next, List<IComponent> sinks)
