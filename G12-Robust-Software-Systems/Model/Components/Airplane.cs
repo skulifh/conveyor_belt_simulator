@@ -27,7 +27,8 @@ namespace G12_Robust_Software_Systems.Model.Components
         public void EnqueueLuggage(LuggageBag luggage)
         {
             if (this.initialized)
-            {   
+            {
+                
                 enqueueBehaviour.processLuggage(luggage);
             }
             else
@@ -38,9 +39,10 @@ namespace G12_Robust_Software_Systems.Model.Components
 
         public void EnqueueLuggage(LuggageBag luggage)
         {
-            if (this.initialized)
-            {
-                if (this.initialized_thread == false)
+
+            Contract.Requires(initialized != false, "Initialized must be true");
+            Contract.Requires(luggage != null, "Luggage must not be null");
+            if (this.initialized_thread == false)
                 {
                     Thread DequeueThread = new Thread(new ThreadStart(this.DequeueLuggage));
                     DequeueThread.Start();
@@ -48,11 +50,6 @@ namespace G12_Robust_Software_Systems.Model.Components
                     this.initialized_thread = true;
                 }
                 enqueueBehaviour.processLuggage(luggage);
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
         }
 
         public void DequeueLuggage()
