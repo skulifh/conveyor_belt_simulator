@@ -1,4 +1,5 @@
-﻿using System;
+﻿using G12_Robust_Software_Systems.Model.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,34 +9,33 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
 {
     class FIFOQueue : ILuggageQueue
     {
-        private Queue<long> queue;
+        private Queue<Tuple<long, LuggageBag>> queue;
 
         public FIFOQueue()
         {
-            this.queue = new Queue<long>();
+            this.queue = new Queue<Tuple<long, LuggageBag>>();
         }
-        public void enqueueLuggage(int dequeueDeltaMiliSeconds)
+        public void enqueueLuggage(int dequeueDeltaMiliSeconds, LuggageBag luggage)
         {
-            this.queue.Enqueue(DateTime.Now.Ticks + dequeueDeltaMiliSeconds*1000);
+            Tuple<long, LuggageBag> luggageTuple = new Tuple<long, LuggageBag>(DateTime.Now.Ticks + dequeueDeltaMiliSeconds * 1000, luggage);
+            this.queue.Enqueue(luggageTuple);
         }
 
-        public int checkLuggageQueue()
+        public List<LuggageBag> checkLuggageQueue()
         {
-            if (this.queue.Count() < 1)
+            List<LuggageBag> departing_luggage = new List<LuggageBag>();
+            if (this.queue.Count() > 0)
             {
-                return 0;
+                long now = DateTime.Now.Ticks;
+                // While there is elements in the queue, and the elements
+                // have been in the queue long enough for them to be dequeued.
+                while (this.queue.Count() > 0 && this.queue.ElementAt<Tuple<long, LuggageBag>>(0).Item1 <= now)
+                {
+                    // Increment counter and remove element from queue.
+                    departing_luggage.Add(this.queue.Dequeue().Item2);
+                }
             }
-            long now = DateTime.Now.Ticks;
-            int luggage_departing_count = 0;
-            // While there is elements in the queue, and the elements
-            // have been in the queue long enough for them to be dequeued.
-            while (this.queue.Count() > 0 && this.queue.ElementAt<long>(0) > now)
-            {
-                // Increment counter and remove element from queue.
-                luggage_departing_count++;
-                this.queue.Dequeue();
-            }
-            return luggage_departing_count;
+            return departing_luggage;
         }
     }
 }

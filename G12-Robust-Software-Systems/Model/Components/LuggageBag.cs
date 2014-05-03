@@ -8,7 +8,7 @@ namespace G12_Robust_Software_Systems.Model.Components
 {
     class LuggageBag
     {
-        private IComponent destination;
+        public IComponent destination {get;set;}
         public LuggageBag(IComponent destination)
         {
             this.destination = destination;

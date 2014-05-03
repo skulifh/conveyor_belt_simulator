@@ -16,13 +16,13 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
             this.queue = queue;
             this.nextComponent = nextComponent;
         }
-        public void processLuggage()
+        public void processLuggage(LuggageBag luggage)
         {
-           int luggageToForward = this.queue.checkLuggageQueue();
-           while (luggageToForward > 0)
+           List<LuggageBag> luggageToForward = this.queue.checkLuggageQueue();
+           while (luggageToForward.Count() > 0)
            {
-               this.nextComponent.EnqueueLuggage();
-               luggageToForward--;
+               this.nextComponent.EnqueueLuggage(luggageToForward[0]);
+               luggageToForward.RemoveAt(0);
            }
         }
     }

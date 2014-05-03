@@ -1,4 +1,6 @@
-﻿using System;
+﻿using G12_Robust_Software_Systems.Model.Components;
+using G12_Robust_Software_Systems.Simulation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,17 +13,20 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
         private double distributionInput;
         private ILuggageQueue queue;
         private int dequeueDeltaMiliSeconds;
-        public Source(double distributionInput, ILuggageQueue queue, int dequeueDeltaMiliSeconds)
+        private int executionTime;
+        public Source(double distributionInput, int executionTime, ILuggageQueue queue, int dequeueDeltaMiliSeconds)
         {
             this.distributionInput = distributionInput;
             this.queue = queue;
             this.dequeueDeltaMiliSeconds = dequeueDeltaMiliSeconds;
+            this.executionTime = executionTime;
         }
 
-        public void processLuggage()
+        public void processLuggage(LuggageBag luggage)
         {
+            Genpop.GetBags(this.executionTime, this.distributionInput);
             while (true){
-                this.queue.enqueueLuggage(this.dequeueDeltaMiliSeconds);
+                //this.queue.enqueueLuggage(this.dequeueDeltaMiliSeconds);
                 System.Threading.Thread.Sleep(10);
             }
         }

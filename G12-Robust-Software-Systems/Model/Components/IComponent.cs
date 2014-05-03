@@ -8,10 +8,12 @@ namespace G12_Robust_Software_Systems.Model.Components
 {
     interface IComponent
     {
-        void EnqueueLuggage();
+        void EnqueueLuggage(LuggageBag luggage);
 
-        void DequeueLuggage();
+        void DequeueLuggage(LuggageBag luggage);
 
-        void setNextComponent(IComponent next);
+        void setNextComponent(IComponent next, List<IComponent> sinks);
+
+        List<IComponent> getSinks();
     }
 }

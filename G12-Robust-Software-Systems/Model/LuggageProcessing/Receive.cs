@@ -1,4 +1,5 @@
-﻿using System;
+﻿using G12_Robust_Software_Systems.Model.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,9 +17,9 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
             this.dequeueDeltaMiliSeconds = dequeueDeltaMiliSeconds;
         }
 
-        public void processLuggage()
+        public void processLuggage(LuggageBag luggage)
         {
-           this.queue.enqueueLuggage(this.dequeueDeltaMiliSeconds);
+           this.queue.enqueueLuggage(this.dequeueDeltaMiliSeconds, luggage);
         }
     }
 }
