@@ -66,6 +66,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -94,8 +98,10 @@
     <Compile Include="Model\LuggageProcessing\Sink.cs" />
     <Compile Include="Model\LuggageProcessing\SortingForwarder.cs" />
     <Compile Include="Model\LuggageProcessing\Source.cs" />
+    <Compile Include="Model\Personnel\IRole.cs" />
     <Compile Include="Model\Personnel\LoaderRole.cs" />
     <Compile Include="Model\Personnel\Personnel.cs" />
+    <Compile Include="Model\Personnel\Personnel_Test.cs" />
     <Compile Include="Model\Personnel\StuckLuggageRole.cs" />
     <Compile Include="Model\Personnel\XRayRole.cs" />
     <Compile Include="Model\Problem\IProblem.cs" />
