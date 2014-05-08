@@ -16,7 +16,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         private ILuggageQueue queue;
         private Boolean initialized;
         private Boolean initialized_thread;
-        public Airplane(int dequeueDeltaMiliSeconds)
+        public Airplane(int dequeueDeltaMiliSeconds, List<IProblem> problems)
         {
             Contract.Requires(queue != null, "Queue must not be null");
             Contract.Requires(initialized != true, "Initialized must not be true");

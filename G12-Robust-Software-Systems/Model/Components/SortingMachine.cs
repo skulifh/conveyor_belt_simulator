@@ -17,7 +17,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         private Boolean initialized;
         private List<IComponent> sinks;
         private Boolean initialized_thread;
-        public SortingMachine(int dequeueDeltaMiliSeconds)
+        public SortingMachine(int dequeueDeltaMiliSeconds, List<IProblem> problems)
         {
             Contract.Requires(queue != null, "Queue must not be null");
             Contract.Requires(initialized != true, "Initialized must not be true");
