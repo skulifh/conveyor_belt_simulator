@@ -12,7 +12,7 @@ namespace G12_Robust_Software_Systems.Model.Components
 
         void DequeueLuggage();
 
-        void setNextComponent(IComponent next, List<IComponent> sinks);
+        void setNextComponent(List<IComponent> nextComponents);
 
         List<IComponent> getSinks();
     }

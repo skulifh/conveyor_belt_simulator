@@ -16,7 +16,9 @@ namespace G12_Robust_Software_Systems.Model.Components
         private ILuggageQueue queue;
         private Boolean initialized;
         private Boolean initialized_thread;
-        public XRayMachine(int dequeueDeltaMiliSeconds)
+        private List<IProblem> problems;
+        private IComponent nextComponent;
+        public XRayMachine(int dequeueDeltaMiliSeconds, List<IProblem> problems)
         {
             Contract.Requires(queue != null, "Queue must not be null");
             Contract.Requires(initialized != true, "Initialized must not be true");
@@ -24,19 +26,20 @@ namespace G12_Robust_Software_Systems.Model.Components
             this.enqueueBehaviour = new Receive(this.queue, dequeueDeltaMiliSeconds);
             this.initialized = false;
             this.initialized_thread = false;
+            this.problems = problems;
         }
         public void EnqueueLuggage(LuggageBag luggage)
         {
             Contract.Requires(initialized != false, "Initialized must be true");
             Contract.Requires(luggage != null, "Luggage must not be null");
-                if (this.initialized_thread == false)
-                {
-                    Thread DequeueThread = new Thread(new ThreadStart(this.DequeueLuggage));
-                    DequeueThread.Start();
-                    while (!DequeueThread.IsAlive);
-                    this.initialized_thread = true;
-                }
-                enqueueBehaviour.processLuggage(luggage);
+            if (this.initialized_thread == false)
+            {
+                Thread DequeueThread = new Thread(new ThreadStart(this.DequeueLuggage));
+                DequeueThread.Start();
+                while (!DequeueThread.IsAlive);
+                this.initialized_thread = true;
+            }
+            enqueueBehaviour.processLuggage(luggage);
         }
 
         public void DequeueLuggage()
@@ -48,16 +51,17 @@ namespace G12_Robust_Software_Systems.Model.Components
             }
         }
 
-        public void setNextComponent(IComponent next, List<IComponent> sinks)
+        public void setNextComponent(List<IComponent> nextComponents)
         {
-            this.dequeueBehaviour = new Forward(this.queue, next);
+            this.dequeueBehaviour = new Forward(this.queue, nextComponents[0]);
+            this.nextComponent = nextComponents[0];
             this.initialized = true;
         }
 
         public List<IComponent> getSinks()
         {
-            // Intentionally not implemented.
-            throw new NotImplementedException();
+            Contract.Requires(initialized != false, "Initialized must be true");
+            return this.nextComponent.getSinks();
         }
     }
 }

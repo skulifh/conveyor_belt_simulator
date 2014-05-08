@@ -22,34 +22,21 @@ namespace G12_Robust_Software_Systems.Model.Components
             Contract.Requires(initialized != true, "Initialized must not be true");
             this.queue = new FIFOQueue();
             this.enqueueBehaviour = new Receive(this.queue, dequeueDeltaMiliSeconds);
-            this.initialized = false;
-        }
-        public void EnqueueLuggage(LuggageBag luggage)
-        {
-            if (this.initialized)
-            {
-                
-                enqueueBehaviour.processLuggage(luggage);
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
+            this.dequeueBehaviour = new Sink(this.queue);
         }
 
         public void EnqueueLuggage(LuggageBag luggage)
         {
-
             Contract.Requires(initialized != false, "Initialized must be true");
             Contract.Requires(luggage != null, "Luggage must not be null");
             if (this.initialized_thread == false)
-                {
-                    Thread DequeueThread = new Thread(new ThreadStart(this.DequeueLuggage));
-                    DequeueThread.Start();
-                    while (!DequeueThread.IsAlive) ;
-                    this.initialized_thread = true;
-                }
-                enqueueBehaviour.processLuggage(luggage);
+            {
+                Thread DequeueThread = new Thread(new ThreadStart(this.DequeueLuggage));
+                DequeueThread.Start();
+                while (!DequeueThread.IsAlive) ;
+                this.initialized_thread = true;
+            }
+            enqueueBehaviour.processLuggage(luggage);
         }
 
         public void DequeueLuggage()
@@ -61,10 +48,15 @@ namespace G12_Robust_Software_Systems.Model.Components
             }
         }
 
+        public void setNextComponent(List<IComponent> nextComponents)
+        {
+            // Intentionally not implemented, as airplane is always the last element.
+            throw new NotImplementedException();
+        }
+
         public List<IComponent> getSinks()
         {
-            // Intentionally not implemented.
-            throw new NotImplementedException();
+            return new List<IComponent> { this };
         }
     }
 }

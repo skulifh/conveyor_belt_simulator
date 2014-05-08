@@ -22,8 +22,6 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
         }
         public void processLuggage(LuggageBag luggage)
         {
-            Contract.Requires(luggage != null, "luggage cannot be null");
-
             List<LuggageBag> luggageToForward = this.queue.checkLuggageQueue();
             while (luggageToForward.Count() > 0)
             {
@@ -38,7 +36,7 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
                     }
                     catch (ArgumentNullException)
                     {
-
+                        // Do nothing
                     }
                 }
             }
