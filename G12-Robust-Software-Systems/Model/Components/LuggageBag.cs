@@ -9,7 +9,7 @@ namespace G12_Robust_Software_Systems.Model.Components
 {
     class LuggageBag
     {
-        public IComponent destination {get;set;}
+        public IComponent destination {get; private set;}
         public LuggageBag(IComponent destination)
         {
             Contract.Requires(destination != null, "Destination can't be null");

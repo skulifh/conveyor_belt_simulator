@@ -48,16 +48,22 @@ namespace G12_Robust_Software_Systems.Model.Components
             }
         }
 
-        public void setNextComponent(IComponent next, List<IComponent> sinks)
+        public void setNextComponent(List<IComponent> nextComponents)
         {
-            this.sinks = sinks;
-            this.dequeueBehaviour = new SortingForwarder(this.queue, sinks);
+            this.sinks = nextComponents;
+            this.dequeueBehaviour = new SortingForwarder(this.queue, nextComponents);
             this.initialized = true;
         }
 
         public List<IComponent> getSinks()
         {
-            return this.sinks;
+            // Merge getsinks from other components.
+            List<IComponent> allSinks = new List<IComponent>();
+            foreach (IComponent sink in this.sinks)
+            {
+                allSinks.Concat(sink.getSinks());
+            }
+            return allSinks;
         }
     }
 }
