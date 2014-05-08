@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="cb637721-800f-4779-a732-b16a1fd402d5"
+  name="Model"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="bb9908f1-beca-4c98-b420-bcf787cf4761"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DG12_Robust_Software_Systems.Model"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="2d6e818c-d367-4301-9c90-ffa61274a044"
+        LastKnownName="Components"
+        LastKnownLocation="Package2_1049.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="d3306cc5-723b-41fa-ba84-6d5541986be9"
+        LastKnownName="LuggageProcessing"
+        LastKnownLocation="Package6_1049.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="4d0764eb-2280-4274-a9a4-03ade55db436"
+        LastKnownName="Personnel"
+        LastKnownLocation="Package_1054.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
