@@ -48,7 +48,7 @@ namespace G12_Robust_Software_Systems.Model.Components
             }
         }
 
-        public void setNextComponent(List<IComponent> nextComponents)
+        public void addNextComponent(IComponent nextComponent)
         {
             // Intentionally not implemented, as airplane is always the last element.
             throw new NotImplementedException();

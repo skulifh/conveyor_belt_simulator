@@ -22,14 +22,14 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
         }
         public void processLuggage(LuggageBag luggage)
         {
-           Contract.Requires(luggage != null, "luggage cannot be null");
+            Contract.Requires(luggage != null, "luggage cannot be null");
 
             List<LuggageBag> luggageToForward = this.queue.checkLuggageQueue();
-           while (luggageToForward.Count() > 0)
-           {
-               this.nextComponent.EnqueueLuggage(luggageToForward[0]);
-               luggageToForward.RemoveAt(0);
-           }
+            while (luggageToForward.Count() > 0)
+            {
+                this.nextComponent.EnqueueLuggage(luggageToForward[0]);
+                luggageToForward.RemoveAt(0);
+            }
         }
     }
 }
