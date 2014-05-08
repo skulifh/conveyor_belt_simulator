@@ -16,6 +16,12 @@
         Id="532ea607-fb19-44b8-8502-3351b05452be"
         name="StandardProfileL3" />
     </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="ec328bbb-2a90-421b-9049-fcdf8b0c1635">
+      <profileInstance
+        Id="8154c36a-6d30-43fa-a81f-c6196aaff039"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
   </profileInstances>
   <packagedElements>
     <packageHasNamedElement>
