@@ -13,7 +13,7 @@ namespace G12_Robust_Software_Systems.Model
 
         public StopWorking(double stop_constant)
         {
-            Contract.Requires(stop_constant <= 0 && stop_constant > 100, "Wrong value for stuck constant");
+            Contract.Requires(stop_constant >= 0 && stop_constant <= 100, "Wrong value for stuck constant");
             this.stop_constant = stop_constant;
         }
         public bool Fail()
