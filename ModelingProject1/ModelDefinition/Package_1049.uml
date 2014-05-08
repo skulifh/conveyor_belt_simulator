@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="c4bd4013-0032-4015-9956-f8034de4aca8"
+  name="G12_Robust_Software_Systems"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="4b358889-3b98-4f66-8ab1-d74771ed3c59"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DG12_Robust_Software_Systems"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="cb637721-800f-4779-a732-b16a1fd402d5"
+        LastKnownName="Model"
+        LastKnownLocation="Package1_1049.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="a83e2813-a637-4ed0-90ac-d83f839d7df8"
+        LastKnownName="Simulation"
+        LastKnownLocation="Package_1057.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
