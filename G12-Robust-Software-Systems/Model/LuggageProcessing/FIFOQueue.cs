@@ -1,6 +1,7 @@
 ﻿using G12_Robust_Software_Systems.Model.Components;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,9 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
         }
         public void enqueueLuggage(int dequeueDeltaMiliSeconds, LuggageBag luggage)
         {
+            Contract.Requires(dequeueDeltaMiliSeconds >= 0, "dequeueDeltaMiliSeconds cannot be less than zero");
+            Contract.Requires(luggage != null, "luggage cannot be null");
+
             Tuple<long, LuggageBag> luggageTuple = new Tuple<long, LuggageBag>(DateTime.Now.Ticks + dequeueDeltaMiliSeconds * 1000, luggage);
             this.queue.Enqueue(luggageTuple);
         }

@@ -12,10 +12,11 @@ namespace G12_Robust_Software_Systems.Model.Personnel
         {
             List<IRole> roles = new List<IRole>();
 
-            roles.Add(new LoaderRole());
             Console.WriteLine("Add LoaderRole");
-            roles.Add(new StuckLuggageRole());
+            roles.Add(new LoaderRole());
+
             Console.WriteLine("Add StuckLuggageRole");
+            roles.Add(new StuckLuggageRole());
 
             Personnel p = new Personnel(1,roles);
 
@@ -34,8 +35,8 @@ namespace G12_Robust_Software_Systems.Model.Personnel
                 Console.WriteLine(role);
             }
 
-            p.add_role(new XRayRole());
             Console.WriteLine("Add XRayRole");
+            p.add_role(new XRayRole());
 
             Console.WriteLine("Roles:");
             foreach (IRole role in p.get_roles())
