@@ -21,22 +21,24 @@ namespace G12_Robust_Software_Systems.Model.Components
         {
             Contract.Requires(queue != null, "Queue must not be null");
             Contract.Requires(initialized != true, "Initialized must not be true");
+            this.sinks = new List<IComponent>();
             this.queue = new FIFOQueue();
             this.enqueueBehaviour = new Receive(this.queue, dequeueDeltaMiliSeconds);
             this.initialized = false;
+            this.initialized_thread = false;
         }
         public void EnqueueLuggage(LuggageBag luggage)
         {
             Contract.Requires(initialized != false, "Initialized must be true");
             Contract.Requires(luggage != null, "Luggage must not be null");
-                if (this.initialized_thread == false)
-                {
-                    Thread DequeueThread = new Thread(new ThreadStart(this.DequeueLuggage));
-                    DequeueThread.Start();
-                    while (!DequeueThread.IsAlive) ;
-                    this.initialized_thread = true;
-                }
-                enqueueBehaviour.processLuggage(luggage);
+            if (this.initialized_thread == false)
+            {
+                Thread DequeueThread = new Thread(new ThreadStart(this.DequeueLuggage));
+                DequeueThread.Start();
+                while (!DequeueThread.IsAlive) ;
+                this.initialized_thread = true;
+            }
+            enqueueBehaviour.processLuggage(luggage);
         }
 
         public void DequeueLuggage()
@@ -48,11 +50,16 @@ namespace G12_Robust_Software_Systems.Model.Components
             }
         }
 
-        public void setNextComponent(List<IComponent> nextComponents)
+        public void addNextComponent(IComponent nextComponent)
         {
-            this.sinks = nextComponents;
-            this.dequeueBehaviour = new SortingForwarder(this.queue, nextComponents);
-            this.initialized = true;
+            Contract.Requires(this.initialized == false, "System is already initialized");
+            Contract.Requires(this.sinks.Count < 2, "Splitter only supports two \"outputs\"");
+            this.sinks.Add(nextComponent);
+            if (this.sinks.Count == 2)
+            {
+                this.dequeueBehaviour = new SortingForwarder(this.queue, this.sinks);
+                this.initialized = true;
+            }
         }
 
         public List<IComponent> getSinks()

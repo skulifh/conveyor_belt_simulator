@@ -48,10 +48,11 @@ namespace G12_Robust_Software_Systems.Model.Components
             }
         }
 
-        public void setNextComponent(List<IComponent> nextComponents)
+        public void addNextComponent(IComponent nextComponent)
         {
-            this.dequeueBehaviour = new Forward(this.queue, nextComponents[0]);
-            this.nextComponent = nextComponents[0];
+            Contract.Requires(this.initialized == false, "System is already initialized");
+            this.dequeueBehaviour = new Forward(this.queue, nextComponent);
+            this.nextComponent = nextComponent;
             this.initialized = true;
         }
 

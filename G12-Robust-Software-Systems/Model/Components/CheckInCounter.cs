@@ -28,19 +28,19 @@ namespace G12_Robust_Software_Systems.Model.Components
         }
         public void EnqueueLuggage(LuggageBag luggage)
         {
-            Contract.Requires(initialized != false, "Initialized must be true");
-            Contract.Requires(luggage != null, "Luggage must not be null");
-            if (this.initialized_thread == false)
-                {
-                    Thread DequeueThread = new Thread(new ThreadStart(this.DequeueLuggage));
-                    DequeueThread.Start();
-                    while (!DequeueThread.IsAlive) ;
-                    this.initialized_thread = true;
-                }
-            enqueueBehaviour.processLuggage(luggage);
+            // intentionally not implemented.
+            throw new NotImplementedException();
         }
 
         public void DequeueLuggage()
+        {
+            Thread DequeueThread = new Thread(new ThreadStart(this.DequeueWorker));
+            DequeueThread.Start();
+            while (!DequeueThread.IsAlive) ;
+            this.initialized_thread = true;
+        }
+
+        private void DequeueWorker()
         {
             while (true)
             {
@@ -49,10 +49,11 @@ namespace G12_Robust_Software_Systems.Model.Components
             }
         }
 
-        public void setNextComponent(List<IComponent> nextComponents)
+        public void addNextComponent(IComponent nextComponent)
         {
-            this.dequeueBehaviour = new Forward(this.queue, nextComponents[0]);
-            this.nextComponent = nextComponents[0];
+            Contract.Requires(this.initialized == false, "System is already initialized");
+            this.dequeueBehaviour = new Forward(this.queue, nextComponent);
+            this.nextComponent = nextComponent;
             this.initialized = true;
         }
 
