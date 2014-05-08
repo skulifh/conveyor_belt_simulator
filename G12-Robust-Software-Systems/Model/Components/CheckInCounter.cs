@@ -17,7 +17,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         private Boolean initialized;
         private Boolean initialized_thread;
         private IComponent nextComponent;
-        public CheckInCounter(int dequeueDeltaMiliSeconds)
+        public CheckInCounter(int dequeueDeltaMiliSeconds, List<Tuple<int, LuggageBag>> luggageAndDequeueDelta)
         {
             Contract.Requires(queue != null, "Queue must not be null");
             Contract.Requires(initialized != true, "Initialized must not be true");
