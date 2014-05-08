@@ -67,7 +67,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>G12_Robust_Software_Systems.Model.Personnel.Personnel_Test</StartupObject>
+    <StartupObject>G12_Robust_Software_Systems.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

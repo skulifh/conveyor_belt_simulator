@@ -30,7 +30,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         }
         public void EnqueueLuggage(LuggageBag luggage)
         {
-            Contract.Requires(initialized != false, "Initialized must be true");
+            //Contract.Requires(initialized != false, "Initialized must be true");
             Contract.Requires(luggage != null, "Luggage must not be null");
             if (this.initialized_thread == false)
             {
@@ -61,7 +61,7 @@ namespace G12_Robust_Software_Systems.Model.Components
 
         public List<IComponent> getSinks()
         {
-            Contract.Requires(initialized != false, "Initialized must be true");
+            //Contract.Requires(initialized != false, "Initialized must be true");
             return this.nextComponent.getSinks();
         }
     }

@@ -17,8 +17,8 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
         private int executionTime;
         public Source(double distributionInput, int executionTime, ILuggageQueue queue, int dequeueDeltaMiliSeconds)
         {
-            Contract.Requires(distributionInput != null, "distributionInput cannot be null");
-            Contract.Requires(executionTime != null, "executionTime cannot be null");
+            Contract.Requires(distributionInput != 0, "distributionInput cannot be zero");
+            Contract.Requires(executionTime != 0, "executionTime cannot be zero");
             Contract.Requires(queue != null, "queue cannot be null");
             Contract.Requires(dequeueDeltaMiliSeconds >= 0, "dequeueDeltaMiliSeconds cannot be less than zero");
 

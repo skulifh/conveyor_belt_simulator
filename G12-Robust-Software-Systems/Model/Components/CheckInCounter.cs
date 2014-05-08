@@ -19,8 +19,8 @@ namespace G12_Robust_Software_Systems.Model.Components
         private IComponent nextComponent;
         public CheckInCounter(int dequeueDeltaMiliSeconds, List<Tuple<int, LuggageBag>> luggageAndDequeueDelta, List<IProblem> problems)
         {
-            Contract.Requires(queue != null, "Queue must not be null");
-            Contract.Requires(initialized != true, "Initialized must not be true");
+            //Contract.Requires(queue != null, "Queue must not be null");
+            //Contract.Requires(initialized != true, "Initialized must not be true");
             this.queue = new FIFOQueue();
             //this.enqueueBehaviour = new Source(Nullable, this.queue, )
             this.enqueueBehaviour = new Receive(this.queue, dequeueDeltaMiliSeconds);
@@ -51,7 +51,7 @@ namespace G12_Robust_Software_Systems.Model.Components
 
         public void addNextComponent(IComponent nextComponent)
         {
-            Contract.Requires(this.initialized == false, "System is already initialized");
+            //Contract.Requires(this.initialized == false, "System is already initialized");
             this.dequeueBehaviour = new Forward(this.queue, nextComponent);
             this.nextComponent = nextComponent;
             this.initialized = true;
@@ -59,7 +59,7 @@ namespace G12_Robust_Software_Systems.Model.Components
 
         public List<IComponent> getSinks()
         {
-            Contract.Requires(initialized != false, "Initialized must be true");
+            //Contract.Requires(initialized != false, "Initialized must be true");
             return this.nextComponent.getSinks();
         }
     }

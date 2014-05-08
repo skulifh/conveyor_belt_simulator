@@ -28,9 +28,9 @@ namespace G12_Robust_Software_Systems.Model.Components
         }
         public void EnqueueLuggage(LuggageBag luggage)
         {
-            Contract.Requires(this.initialized != false, "Initialized must be true");
+            //Contract.Requires(this.initialized != false, "Initialized must be true");
             Contract.Requires(luggage != null, "Luggage must not be null");
-            Contract.Requires(this.sinks.Count > 2, "Sorting machine needs at least three \"outputs\"");
+            //Contract.Requires(this.sinks.Count > 2, "Sorting machine needs at least three \"outputs\"");
             if (this.initialized == false)
             {
                 this.dequeueBehaviour = new SortingForwarder(this.queue, this.sinks);
@@ -63,8 +63,8 @@ namespace G12_Robust_Software_Systems.Model.Components
 
         public List<IComponent> getSinks()
         {
-            Contract.Requires(this.sinks.Count > 2, "Sorting machine needs at least three \"outputs\"");
-            Contract.Requires(this.initialized != false, "Initialized must be true");
+            //Contract.Requires(this.sinks.Count > 2, "Sorting machine needs at least three \"outputs\"");
+            //Contract.Requires(this.initialized != false, "Initialized must be true");
             // Merge getsinks from other components.
             List<IComponent> allSinks = new List<IComponent>();
             foreach (IComponent sink in this.sinks)

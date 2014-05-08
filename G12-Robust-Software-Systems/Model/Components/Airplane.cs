@@ -18,8 +18,8 @@ namespace G12_Robust_Software_Systems.Model.Components
         private Boolean initialized_thread;
         public Airplane(int dequeueDeltaMiliSeconds, List<IProblem> problems)
         {
-            Contract.Requires(queue != null, "Queue must not be null");
-            Contract.Requires(initialized != true, "Initialized must not be true");
+            //Contract.Requires(queue != null, "Queue must not be null");
+            //Contract.Requires(initialized != true, "Initialized must not be true");
             this.queue = new FIFOQueue();
             this.enqueueBehaviour = new Receive(this.queue, dequeueDeltaMiliSeconds);
             this.dequeueBehaviour = new Sink(this.queue);
@@ -27,7 +27,7 @@ namespace G12_Robust_Software_Systems.Model.Components
 
         public void EnqueueLuggage(LuggageBag luggage)
         {
-            Contract.Requires(initialized != false, "Initialized must be true");
+            //Contract.Requires(initialized != false, "Initialized must be true");
             Contract.Requires(luggage != null, "Luggage must not be null");
             if (this.initialized_thread == false)
             {
