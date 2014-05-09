@@ -24,7 +24,6 @@ namespace G12_Robust_Software_Systems.Simulation
                 switch (line)
                 {
                     case "DESTINATION":
-                        file.ReadLine(); // Send it to the next line
                         Console.WriteLine("BAG DESTINATION: " + Multi("check_1"));
                         break;
                 }
@@ -81,7 +80,7 @@ namespace G12_Robust_Software_Systems.Simulation
                         return j;
 
                     }
-                    if (j == 3)
+                    if (j == likelyhoodVector.Length - 1)
                         j = -1; //reset
                 }
             }
