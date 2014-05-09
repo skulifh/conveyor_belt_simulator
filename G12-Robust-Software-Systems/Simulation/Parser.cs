@@ -12,9 +12,15 @@ namespace G12_Robust_Software_Systems.Simulation
     {
         private double[,] routingMatrix;
         List<CheckInCounter> checkins = new List<CheckInCounter>();
+        List<Airplane> airplanes = new List<Airplane>();
+        List<ConveyorBelt> belts = new List<ConveyorBelt>();
+        List<XRayMachine> xrays = new List<XRayMachine>();
+        List<ConveyorBeltSplitter> splitters = new List<ConveyorBeltSplitter>();
+        List<Truck> trucks = new List<Truck>();
+        List<SortingMachine> sortingmachines = new List<SortingMachine>();
         public Parser()
         {
-            string path = "c:\\test.txt";
+            string path = "C:\\Users\\Lenovo\\Documents\\test.txt";
             System.IO.StreamReader file = new System.IO.StreamReader(path);
 
             string val = validate(path);
@@ -32,9 +38,7 @@ namespace G12_Robust_Software_Systems.Simulation
 
             bool cont = true;
             
-            List<ConveyorBelt> belts = new List<ConveyorBelt>();
-            List<XRayMachine> xrays = new List<XRayMachine>();
-            List<ConveyorBeltSplitter> splitters = new List<ConveyorBeltSplitter>();
+            
 
             while (((line = file.ReadLine()) != null) && (cont))
             {
@@ -50,11 +54,11 @@ namespace G12_Robust_Software_Systems.Simulation
                 {
                     case "CHECKIN":
                         //checkins.Add(new CheckInCounter(time, new List<IProblem> { new Stuck(5), new StopWorking(5) }));
-                        this.addCheckin(time);
+                        this.addCheckin(time, checkins.Count() + 1);
                         break;
 
                     case "BELT":
-                        belts.Add(new ConveyorBelt(time));
+                        belts.Add(new ConveyorBelt(time, new List<IProblem> { new Stuck(5), new StopWorking(5) }));
                         break;
 
                     case "XRAY":
@@ -62,7 +66,19 @@ namespace G12_Robust_Software_Systems.Simulation
                         break;
 
                     case "SPLITTER":
-                        splitters.Add(new ConveyorBeltSplitter(time));
+                        splitters.Add(new ConveyorBeltSplitter(time, new List<IProblem> { new Stuck(5), new StopWorking(5) }));
+                        break;
+
+                    case "AIRPLANE":
+                        airplanes.Add(new Airplane(time, new List<IProblem> { new Stuck(5), new StopWorking(5) }));
+                        break;
+
+                    case "TRUCK":
+                        trucks.Add(new Truck(time, new List<IProblem> { new Stuck(5), new StopWorking(5) }));
+                        break;
+
+                    case "SORTINGMACHINE":
+                        sortingmachines.Add(new SortingMachine(time, new List<IProblem> { new Stuck(5), new StopWorking(5) }));
                         break;
 
                     case "ROUTING":
@@ -99,13 +115,22 @@ namespace G12_Robust_Software_Systems.Simulation
                         switch (compNext)
                         {
                             case "belt":
-                                checkins[ind].setNextComponent(new List<IComponent> {belts[indNext]});
+                                checkins[ind].addNextComponent(belts[indNext]);
                                 break;
                             case "x":
-                                checkins[ind].setNextComponent(new List<IComponent> {xrays[indNext]});
+                                checkins[ind].addNextComponent(xrays[indNext]);
                                 break;
                             case "splitter":
-                                checkins[ind].setNextComponent(new List<IComponent> {splitters[indNext]});
+                                checkins[ind].addNextComponent(splitters[indNext]);
+                                break;
+                            case "plane":
+                                checkins[ind].addNextComponent(airplanes[indNext]);
+                                break;
+                            case "truck":
+                                checkins[ind].addNextComponent(trucks[indNext]);
+                                break;
+                            case "sort":
+                                checkins[ind].addNextComponent(sortingmachines[indNext]);
                                 break;
                         }
                         break;
@@ -114,13 +139,22 @@ namespace G12_Robust_Software_Systems.Simulation
                         switch (compNext)
                         {
                             case "belt":
-                                belts[ind].setNextComponent(new List<IComponent> {belts[indNext]});
+                                belts[ind].addNextComponent(belts[indNext]);
                                 break;
                             case "x":
-                                belts[ind].setNextComponent(new List<IComponent> {xrays[indNext]});
+                                belts[ind].addNextComponent(xrays[indNext]);
                                 break;
                             case "splitter":
-                                belts[ind].setNextComponent(new List<IComponent> {splitters[indNext]});
+                                belts[ind].addNextComponent(splitters[indNext]);
+                                break;
+                            case "plane":
+                                belts[ind].addNextComponent(airplanes[indNext]);
+                                break;
+                            case "truck":
+                                belts[ind].addNextComponent(trucks[indNext]);
+                                break;
+                            case "sort":
+                                belts[ind].addNextComponent(sortingmachines[indNext]);
                                 break;
                         }
                         break;
@@ -129,31 +163,97 @@ namespace G12_Robust_Software_Systems.Simulation
                         switch (compNext)
                         {
                             case "belt":
-                                xrays[ind].setNextComponent(new List<IComponent> {belts[indNext]});
+                                xrays[ind].addNextComponent(belts[indNext]);
                                 break;
                             case "x":
-                                xrays[ind].setNextComponent(new List<IComponent> {xrays[indNext]});
+                                xrays[ind].addNextComponent(xrays[indNext]);
                                 break;
                             case "splitter":
-                                xrays[ind].setNextComponent(new List<IComponent> {splitters[indNext]});
+                                xrays[ind].addNextComponent(splitters[indNext]);
+                                break;
+                            case "plane":
+                                xrays[ind].addNextComponent(airplanes[indNext]);
+                                break;
+                            case "truck":
+                                xrays[ind].addNextComponent(trucks[indNext]);
+                                break;
+                            case "sort":
+                                xrays[ind].addNextComponent(sortingmachines[indNext]);
                                 break;
                         }
                         break;
 
-                    /*case "splitter":
+                    case "splitter":
                         switch (compNext)
                         {
                             case "belt":
-                                splitters[ind].setNextComponent(belts[indNext]);
+                                splitters[ind].addNextComponent(belts[indNext]);
                                 break;
                             case "x":
-                                splitters[ind].setNextComponent(xrays[indNext]);
+                                splitters[ind].addNextComponent(xrays[indNext]);
                                 break;
                             case "splitter":
-                                splitters[ind].setNextComponent(splitters[indNext]);
+                                splitters[ind].addNextComponent(splitters[indNext]);
+                                break;
+                            case "plane":
+                                splitters[ind].addNextComponent(airplanes[indNext]);
+                                break;
+                            case "truck":
+                                splitters[ind].addNextComponent(trucks[indNext]);
+                                break;
+                            case "sort":
+                                splitters[ind].addNextComponent(sortingmachines[indNext]);
                                 break;
                         }
-                        break;*/
+                        break;
+
+                    case "truck":
+                        switch (compNext)
+                        {
+                            case "belt":
+                                trucks[ind].addNextComponent(belts[indNext]);
+                                break;
+                            case "x":
+                                trucks[ind].addNextComponent(xrays[indNext]);
+                                break;
+                            case "splitter":
+                                trucks[ind].addNextComponent(splitters[indNext]);
+                                break;
+                            case "plane":
+                                trucks[ind].addNextComponent(airplanes[indNext]);
+                                break;
+                            case "truck":
+                                trucks[ind].addNextComponent(trucks[indNext]);
+                                break;
+                            case "sort":
+                                trucks[ind].addNextComponent(sortingmachines[indNext]);
+                                break;
+                        }
+                        break;
+
+                    case "sort":
+                        switch (compNext)
+                        {
+                            case "belt":
+                                sortingmachines[ind].addNextComponent(belts[indNext]);
+                                break;
+                            case "x":
+                                sortingmachines[ind].addNextComponent(xrays[indNext]);
+                                break;
+                            case "splitter":
+                                sortingmachines[ind].addNextComponent(splitters[indNext]);
+                                break;
+                            case "plane":
+                                sortingmachines[ind].addNextComponent(airplanes[indNext]);
+                                break;
+                            case "truck":
+                                sortingmachines[ind].addNextComponent(trucks[indNext]);
+                                break;
+                            case "sort":
+                                sortingmachines[ind].addNextComponent(sortingmachines[indNext]);
+                                break;
+                        }
+                        break;
 
                     case "END":
                         cont = false;
@@ -169,9 +269,21 @@ namespace G12_Robust_Software_Systems.Simulation
             
         }*/
 
-        public void addCheckin(int time)
+        public void addCheckin(int time, int index)
         {
             Genpop gen = new Genpop();
+            List<Tuple<int, LuggageBag>> luggageAndDequeueDelta = new List<Tuple<int, LuggageBag>>();
+            List<int> bags = Genpop.GetBags(200, 30);
+            int dest;
+
+            foreach (int elem in bags)
+            {
+                //luggageAndDequeueDelta.Add(new Tuple<int, LuggageBag> { elem, new LuggageBag(new Airplane(time, new List<IProblem> {new Stuck(10)}) }); //Change the input for the LuggageBag
+                dest = Genpop.Multi(index);
+                luggageAndDequeueDelta.Add(new Tuple<int, LuggageBag>(time, new LuggageBag(airplanes[dest])));
+                Console.WriteLine("bla");
+                System.Threading.Thread.Sleep(3000);
+            }
 
         }
 
@@ -194,18 +306,18 @@ namespace G12_Robust_Software_Systems.Simulation
                     counter += 1;
                     continue;
                 }
+                else if (line.Equals("ROUTING"))
+                    break;
                 else if (lineSplit.Length < 3)
                 {
                     results = "Initialisation commands need to have 3 arguments (line: " + counter + ")";
                     break;
                 }
-                else if (line.Equals("ROUTING"))
-                    break;
                 else
                 {
                     index0 = lineSplit[0];
                     index2 = lineSplit[2];
-                    if (!((index0.Equals("CHECKIN")) || (index0.Equals("BELT")) || (index0.Equals("XRAY")) || (index0.Equals("SPLITTER")) || (index0.Equals("SORT"))))
+                    if (!((index0.Equals("CHECKIN")) || (index0.Equals("BELT")) || (index0.Equals("TRUCK")) || (index0.Equals("SORTINGMACHINE")) || (index0.Equals("AIRPLANE")) || (index0.Equals("XRAY")) || (index0.Equals("SPLITTER")) || (index0.Equals("SORT"))))
                     {
                         results = "Components need to be either of type CHECKIN, BELT, XRAY, SPLITTER or SORT (line: " + counter + ")";
                         break;
