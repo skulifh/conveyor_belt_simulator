@@ -45,7 +45,7 @@ namespace G12_Robust_Software_Systems.Simulation
             }
             return bags;
         }
-        public static int Multi(String CheckinID)
+        public static int Multi(int CheckinID)
         {
             int likelyhoodCount;
             string[] likelyhoodVector;
@@ -54,7 +54,7 @@ namespace G12_Robust_Software_Systems.Simulation
             while ((line = file.ReadLine()) != null)
             {
                 Console.WriteLine(line);
-                if (Convert.ToInt32(CheckinID) != counter)
+                if (CheckinID != counter)
                 {
                     counter += 1;
                     continue;
