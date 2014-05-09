@@ -16,16 +16,16 @@ namespace G12_Robust_Software_Systems.Model.Components
         private ILuggageQueue queue;
         private Boolean initialized;
         private List<IComponent> sinks;
+        private List<IProblem> problems;
         private Boolean initialized_thread;
         public ConveyorBeltSplitter(int dequeueDeltaMiliSeconds, List<IProblem> problems)
         {
-            Contract.Requires(queue != null, "Queue must not be null");
-            Contract.Requires(initialized != true, "Initialized must not be true");
             this.sinks = new List<IComponent>();
             this.queue = new FIFOQueue();
             this.enqueueBehaviour = new Receive(this.queue, dequeueDeltaMiliSeconds);
             this.initialized = false;
             this.initialized_thread = false;
+            this.problems = problems;
         }
         public void EnqueueLuggage(LuggageBag luggage)
         {

@@ -17,13 +17,13 @@ namespace G12_Robust_Software_Systems.Model.Components
         private Boolean initialized;
         private Boolean initialized_thread;
         private IComponent nextComponent;
+        private List<IProblem> problems;
         public Truck(int dequeueDeltaMiliSeconds, List<IProblem> problems)
         {
-            Contract.Requires(queue != null, "Queue must not be null");
-            Contract.Requires(initialized != true, "Initialized must not be true");
             this.queue = new FIFOQueue();
             this.enqueueBehaviour = new Receive(this.queue, dequeueDeltaMiliSeconds);
             this.initialized = false;
+            this.problems = problems;
         }
         public void EnqueueLuggage(LuggageBag luggage)
         {
