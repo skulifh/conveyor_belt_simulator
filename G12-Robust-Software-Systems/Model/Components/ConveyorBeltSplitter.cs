@@ -18,6 +18,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         private List<IComponent> sinks;
         private List<IProblem> problems;
         private Boolean initialized_thread;
+        private Boolean stuck;
         public ConveyorBeltSplitter(int dequeueDeltaMiliSeconds, List<IProblem> problems)
         {
             this.sinks = new List<IComponent>();
@@ -26,17 +27,28 @@ namespace G12_Robust_Software_Systems.Model.Components
             this.initialized = false;
             this.initialized_thread = false;
             this.problems = problems;
+            this.stuck = false;
         }
         public void EnqueueLuggage(LuggageBag luggage)
         {
             //Contract.Requires(initialized != false, "Initialized must be true");
             Contract.Requires(luggage != null, "Luggage must not be null");
+            while (!this.stuck) ;
             if (this.initialized_thread == false)
             {
                 Thread DequeueThread = new Thread(new ThreadStart(this.DequeueLuggage));
                 DequeueThread.Start();
                 while (!DequeueThread.IsAlive) ;
                 this.initialized_thread = true;
+            }
+            foreach (IProblem problem in this.problems)
+            {
+                if (problem.Fail())
+                {
+                    this.stuck = true;
+                    problem.HandleProblem();
+                    this.stuck = false;
+                }
             }
             enqueueBehaviour.processLuggage(luggage);
         }
