@@ -8,14 +8,17 @@ namespace G12_Robust_Software_Systems.Simulation
 {
     class Genpop
     {
-        /*static void Main(string[] args)
+        static void Main(string[] args)
         {
             Genpop bla = new Genpop();
             int tala = GetPoisson(2.0);
             Console.WriteLine(tala);
             System.Threading.Thread.Sleep(10000);
 
-        }*/
+            int destination = Multi("Checkin_0");
+            Console.WriteLine("Bag Destination: " + destination);
+
+        }
         public static List<int> GetBags(int time, double lambda)
         {
             List<int> bags = new List<int>();
@@ -29,12 +32,56 @@ namespace G12_Robust_Software_Systems.Simulation
             }
             return bags;
         }
+        public static int Multi(String CheckinID)
+        {
+            System.IO.StreamReader file = new System.IO.StreamReader("C:\\Users\\Asgeir\\matrix.txt");
+            string line;
+            int likelyhoodCount;
+            string[] likelyhoodVector;
+            int counter = 0;
+            String ID = CheckinID.Split('_')[1];
+
+            while ((line = file.ReadLine()) != null)
+            {
+                Console.WriteLine(line);
+                if (Convert.ToInt32(ID) != counter)
+                {
+                    counter += 1;
+                    continue;
+                }
+
+                likelyhoodVector = line.Split(' ');
+                likelyhoodCount = likelyhoodVector.Length;
+
+                //   var numbers = new int[3,4] { { 20, 10, 30, 40 }, 
+                //   { 5, 70, 15, 10 }, { 30, Convert.ToInt32(type), 40, 10 }};
+
+                for (int j = 0; j < likelyhoodVector.Length; j++)
+                {
+                    int bla = Convert.ToInt32(likelyhoodVector[j]);
+                    Boolean result = Failure(bla);
+                    Console.WriteLine("Destination: " + j);
+                    Console.WriteLine(bla);
+                    Console.WriteLine(result + "\n");
+                    System.Threading.Thread.Sleep(1000);
+                    if (result.Equals(true))
+                    {
+                        return j;
+
+                    }
+                    if (j == 3)
+                        j = -1; //reset
+                }
+            }
+            return 1000;
+
+        }
 
         public static Boolean Failure(double like)
         {
             int number = Convert.ToInt32(Math.Floor(100 / like));
             Random random = new Random();
-            int randomNumber = random.Next(1, (number+1));
+            int randomNumber = random.Next(1, (number + 1));
             Console.WriteLine(number);
             Console.WriteLine(randomNumber);
             if (number == randomNumber)
