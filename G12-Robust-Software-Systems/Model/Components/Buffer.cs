@@ -16,6 +16,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         private ILuggageQueue queue;
         private Boolean initialized;
         private Boolean initialized_thread;
+        private Boolean stuck;
         private List<IProblem> problems;
         private IComponent nextComponent;
         public Buffer(int dequeueDeltaMiliSeconds, List<IProblem> problems)
@@ -25,19 +26,29 @@ namespace G12_Robust_Software_Systems.Model.Components
             this.initialized = false;
             this.initialized_thread = false;
             this.problems = problems;
+            this.stuck = false;
         }
         public void EnqueueLuggage(LuggageBag luggage)
         {
             //Contract.Requires(initialized != false, "Initialized must be true");
             Contract.Requires(luggage != null, "Luggage must not be null");
-                if (this.initialized_thread == false)
+            if (this.initialized_thread == false)
+            {
+                Thread DequeueThread = new Thread(new ThreadStart(this.DequeueLuggage));
+                DequeueThread.Start();
+                while (!DequeueThread.IsAlive) ;
+                this.initialized_thread = true;
+            }
+            foreach (IProblem problem in this.problems)
+            {
+                if (problem.Fail())
                 {
-                    Thread DequeueThread = new Thread(new ThreadStart(this.DequeueLuggage));
-                    DequeueThread.Start();
-                    while (!DequeueThread.IsAlive) ;
-                    this.initialized_thread = true;
+                    this.stuck = true;
+                    problem.HandleProblem();
+                    this.stuck = false;
                 }
-                enqueueBehaviour.processLuggage(luggage);
+            }
+            enqueueBehaviour.processLuggage(luggage);
         }
 
         public void DequeueLuggage()

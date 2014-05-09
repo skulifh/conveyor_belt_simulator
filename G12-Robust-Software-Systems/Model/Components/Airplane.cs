@@ -16,6 +16,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         private ILuggageQueue queue;
         private List<IProblem> problems;
         private Boolean initialized_thread;
+        private Boolean stuck;
         public Airplane(int dequeueDeltaMiliSeconds, List<IProblem> problems)
         {
             this.queue = new FIFOQueue();
@@ -23,11 +24,13 @@ namespace G12_Robust_Software_Systems.Model.Components
             this.enqueueBehaviour = new Receive(this.queue, dequeueDeltaMiliSeconds);
             this.dequeueBehaviour = new Sink(this.queue);
             this.initialized_thread = false;
+            this.stuck = false;
         }
 
         public void EnqueueLuggage(LuggageBag luggage)
         {
             Contract.Requires(luggage != null, "Luggage must not be null");
+            while (!this.stuck) ;
             if (this.initialized_thread == false)
             {
                 Thread DequeueThread = new Thread(new ThreadStart(this.DequeueLuggage));
@@ -37,7 +40,12 @@ namespace G12_Robust_Software_Systems.Model.Components
             }
             foreach (IProblem problem in this.problems)
             {
-
+                if (problem.Fail())
+                {
+                    this.stuck = true;
+                    problem.HandleProblem();
+                    this.stuck = false;
+                }
             }
             enqueueBehaviour.processLuggage(luggage);
         }

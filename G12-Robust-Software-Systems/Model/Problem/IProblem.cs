@@ -9,5 +9,7 @@ namespace G12_Robust_Software_Systems.Model
     interface IProblem
     {
         bool Fail();
+
+        void HandleProblem();
     }
 }
