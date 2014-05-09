@@ -24,7 +24,7 @@ namespace G12_Robust_Software_Systems.Simulation
                 switch (line)
                 {
                     case "DESTINATION":
-                        Console.WriteLine("BAG DESTINATION: " + Multi("check_1"));
+                        Console.WriteLine("BAG DESTINATION: " + Multi("0"));
                         break;
                 }
                 System.Threading.Thread.Sleep(10000);
@@ -50,12 +50,11 @@ namespace G12_Robust_Software_Systems.Simulation
             int likelyhoodCount;
             string[] likelyhoodVector;
             int counter = 0;
-            String ID = CheckinID.Split('_')[1];
 
             while ((line = file.ReadLine()) != null)
             {
                 Console.WriteLine(line);
-                if (Convert.ToInt32(ID) != counter)
+                if (Convert.ToInt32(CheckinID) != counter)
                 {
                     counter += 1;
                     continue;
