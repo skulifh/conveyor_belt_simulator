@@ -17,24 +17,36 @@ namespace G12_Robust_Software_Systems.Model.Components
         private Boolean initialized;
         private List<IComponent> sinks;
         private Boolean initialized_thread;
+        private List<IProblem> problems;
+        private Boolean stuck;
         public SortingMachine(int dequeueDeltaMiliSeconds, List<IProblem> problems)
         {
-            Contract.Requires(queue != null, "Queue must not be null");
-            Contract.Requires(initialized != true, "Initialized must not be true");
             this.queue = new FIFOQueue();
             this.sinks = new List<IComponent>();
             this.enqueueBehaviour = new Receive(this.queue, dequeueDeltaMiliSeconds);
             this.initialized = false;
+            this.problems = problems;
+            this.stuck = false;
         }
         public void EnqueueLuggage(LuggageBag luggage)
         {
             //Contract.Requires(this.initialized != false, "Initialized must be true");
             Contract.Requires(luggage != null, "Luggage must not be null");
             //Contract.Requires(this.sinks.Count > 2, "Sorting machine needs at least three \"outputs\"");
+            while (!this.stuck) ;
             if (this.initialized == false)
             {
                 this.dequeueBehaviour = new SortingForwarder(this.queue, this.sinks);
                 this.initialized = true;
+            }
+            foreach (IProblem problem in this.problems)
+            {
+                if (problem.Fail())
+                {
+                    this.stuck = true;
+                    problem.HandleProblem();
+                    this.stuck = false;
+                }
             }
             if (this.initialized_thread == false)
             {
