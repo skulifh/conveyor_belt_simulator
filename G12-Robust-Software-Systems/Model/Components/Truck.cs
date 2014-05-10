@@ -62,7 +62,7 @@ namespace G12_Robust_Software_Systems.Model.Components
 
         public void addNextComponent(IComponent nextComponent)
         {
-            Contract.Requires(this.initialized == false, "System is already initialized");
+            //Contract.Requires(this.initialized == false, "System is already initialized");
             this.dequeueBehaviour = new Forward(this.queue, nextComponent);
             this.nextComponent = nextComponent;
             this.initialized = true;

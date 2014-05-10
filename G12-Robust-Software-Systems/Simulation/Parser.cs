@@ -1,5 +1,6 @@
 ﻿using G12_Robust_Software_Systems.Model;
 using G12_Robust_Software_Systems.Model.Components;
+using G12_Robust_Software_Systems.Model.PersonnelHandling;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace G12_Robust_Software_Systems.Simulation
 {
     class Parser
     {
-        private double[,] routingMatrix;
+        //private double[,] routingMatrix;
         List<CheckInCounter> checkins = new List<CheckInCounter>();
         List<Airplane> airplanes = new List<Airplane>();
         List<ConveyorBelt> belts = new List<ConveyorBelt>();
@@ -18,8 +19,12 @@ namespace G12_Robust_Software_Systems.Simulation
         List<ConveyorBeltSplitter> splitters = new List<ConveyorBeltSplitter>();
         List<Truck> trucks = new List<Truck>();
         List<SortingMachine> sortingmachines = new List<SortingMachine>();
+        
         public Parser()
         {
+            List<IRole> roles = new List<IRole> { new StuckLuggageRole(), new XRayRole(), new LoaderRole() };
+
+            List<Personnel> personnel = new List<Personnel> { new Personnel(0, roles) };
             string path = "C:\\Users\\Lenovo\\Documents\\test.txt";
             System.IO.StreamReader file = new System.IO.StreamReader(path);
 
@@ -58,27 +63,27 @@ namespace G12_Robust_Software_Systems.Simulation
                         break;
 
                     case "BELT":
-                        belts.Add(new ConveyorBelt(time, new List<IProblem> { new Stuck(5), new StopWorking(5) }));
+                        belts.Add(new ConveyorBelt(time, new List<IProblem> { new Stuck(5, new PersonnelController(personnel)), new StopWorking(5) }));
                         break;
 
                     case "XRAY":
-                        xrays.Add(new XRayMachine(time, new List<IProblem> {new Stuck(5), new StopWorking(5)}));
+                        xrays.Add(new XRayMachine(time, new List<IProblem> { new Stuck(5, new PersonnelController(personnel)), new StopWorking(5) }));
                         break;
 
                     case "SPLITTER":
-                        splitters.Add(new ConveyorBeltSplitter(time, new List<IProblem> { new Stuck(5), new StopWorking(5) }));
+                        splitters.Add(new ConveyorBeltSplitter(time, new List<IProblem> { new Stuck(5, new PersonnelController(personnel)), new StopWorking(5) }));
                         break;
 
                     case "AIRPLANE":
-                        airplanes.Add(new Airplane(time, new List<IProblem> { new Stuck(5), new StopWorking(5) }));
+                        airplanes.Add(new Airplane(time, new List<IProblem> { new Stuck(5, new PersonnelController(personnel)), new StopWorking(5) }));
                         break;
 
                     case "TRUCK":
-                        trucks.Add(new Truck(time, new List<IProblem> { new Stuck(5), new StopWorking(5) }));
+                        trucks.Add(new Truck(time, new List<IProblem> { new Stuck(5, new PersonnelController(personnel)), new StopWorking(5) }));
                         break;
 
                     case "SORTINGMACHINE":
-                        sortingmachines.Add(new SortingMachine(time, new List<IProblem> { new Stuck(5), new StopWorking(5) }));
+                        sortingmachines.Add(new SortingMachine(time, new List<IProblem> { new Stuck(5, new PersonnelController(personnel)), new StopWorking(5) }));
                         break;
 
                     case "ROUTING":
