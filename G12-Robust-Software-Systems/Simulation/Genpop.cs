@@ -10,6 +10,12 @@ namespace G12_Robust_Software_Systems.Simulation
     {
         
         static string line;
+        public static Random random = new Random();
+
+        public Genpop()
+        {
+            
+        }
 
         /*static void Main(string[] args)
         {
@@ -53,9 +59,9 @@ namespace G12_Robust_Software_Systems.Simulation
             int counter = 0;
             int sum = 0;
             int big = 100000;
-            Random random = new Random();
+            //Random random = new Random();
             int randomNumber = random.Next(0, big)/1000;
-            Console.WriteLine(randomNumber);
+            //Console.WriteLine(randomNumber);
             int likelyhoodNumber;
             int results = -1;
 
@@ -109,12 +115,11 @@ namespace G12_Robust_Software_Systems.Simulation
 
         public static Boolean Failure(double like)
         {
-            Random random = new Random();
             int big = 100000;
             int randomNumber = random.Next(0, big);
             double comp = (like / 100) * big;
             //Console.WriteLine(comp);
-            Console.WriteLine(randomNumber);
+            //Console.WriteLine(randomNumber);
 
             if (randomNumber < comp)
                 return true;
@@ -185,8 +190,8 @@ namespace G12_Robust_Software_Systems.Simulation
         public static double GetUniform()
         {
             // 0 <= u < 2^32
-            Random rnd = new Random();
-            double number = rnd.NextDouble();
+            //Random rnd = new Random();
+            double number = random.NextDouble();
             return number;
         }
 
