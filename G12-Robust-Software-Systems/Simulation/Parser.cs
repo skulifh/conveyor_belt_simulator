@@ -283,11 +283,10 @@ namespace G12_Robust_Software_Systems.Simulation
 
             foreach (int elem in bags)
             {
-                //luggageAndDequeueDelta.Add(new Tuple<int, LuggageBag> { elem, new LuggageBag(new Airplane(time, new List<IProblem> {new Stuck(10)}) }); //Change the input for the LuggageBag
                 dest = Genpop.Multi(index);
                 luggageAndDequeueDelta.Add(new Tuple<int, LuggageBag>(time, new LuggageBag(airplanes[dest])));
                 Console.WriteLine(dest);
-                System.Threading.Thread.Sleep(1000);
+                //System.Threading.Thread.Sleep(1000);
             }
             
             checkins.Add(new CheckInCounter(time, luggageAndDequeueDelta, new List<IProblem> { new Stuck(5, new PersonnelController(personnel)), new StopWorking(5) }));
