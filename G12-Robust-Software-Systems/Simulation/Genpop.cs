@@ -51,10 +51,18 @@ namespace G12_Robust_Software_Systems.Simulation
             int likelyhoodCount;
             string[] likelyhoodVector;
             int counter = 0;
+            int sum = 0;
+            int big = 100000;
+            Random random = new Random();
+            int randomNumber = random.Next(0, big)/1000;
+            Console.WriteLine(randomNumber);
+            int likelyhoodNumber;
+            int results = -1;
+
 
             while ((line = file.ReadLine()) != null)
             {
-                Console.WriteLine(line);
+                //Console.WriteLine(line);
                 if (CheckinID != counter)
                 {
                     counter += 1;
@@ -64,17 +72,28 @@ namespace G12_Robust_Software_Systems.Simulation
                 likelyhoodVector = line.Split(' ');
                 likelyhoodCount = likelyhoodVector.Length;
 
+                for (int j = 0; j < likelyhoodVector.Length; j++)
+                {
+                    likelyhoodNumber = Convert.ToInt32(likelyhoodVector[j]);
+                    sum += likelyhoodNumber;
+                    if (randomNumber < sum)
+                    {
+                        results = j;
+                        return j;
+                    }
+                }
+
                 //   var numbers = new int[3,4] { { 20, 10, 30, 40 }, 
                 //   { 5, 70, 15, 10 }, { 30, Convert.ToInt32(type), 40, 10 }};
 
-                for (int j = 0; j < likelyhoodVector.Length; j++)
+                /*for (int j = 0; j < likelyhoodVector.Length; j++)
                 {
                     int bla = Convert.ToInt32(likelyhoodVector[j]);
                     Boolean result = Failure(bla);
-                    Console.WriteLine("Destination: " + j);
-                    Console.WriteLine(bla);
-                    Console.WriteLine(result + "\n");
-                    System.Threading.Thread.Sleep(1000);
+                    //Console.WriteLine("Destination: " + j);
+                    //Console.WriteLine(bla);
+                    //Console.WriteLine(result + "\n");
+                    //System.Threading.Thread.Sleep(100);
                     if (result.Equals(true))
                     {
                         return j;
@@ -82,23 +101,35 @@ namespace G12_Robust_Software_Systems.Simulation
                     }
                     if (j == likelyhoodVector.Length - 1)
                         j = -1; //reset
-                }
+                }*/
             }
-            return 1000;
+            return results;
 
         }
 
         public static Boolean Failure(double like)
         {
-            int number = Convert.ToInt32(Math.Floor(100 / like));
             Random random = new Random();
-            int randomNumber = random.Next(1, (number + 1));
-            Console.WriteLine(number);
+            int big = 100000;
+            int randomNumber = random.Next(0, big);
+            double comp = (like / 100) * big;
+            //Console.WriteLine(comp);
             Console.WriteLine(randomNumber);
-            if (number == randomNumber)
+
+            if (randomNumber < comp)
                 return true;
             else
                 return false;
+
+            /*int number = Convert.ToInt32(Math.Floor(100 / like));
+            Random random = new Random();
+            int randomNumber = random.Next(1, (number + 1));
+            //Console.WriteLine(number);
+            //Console.WriteLine(randomNumber);
+            if (number == randomNumber)
+                return true;
+            else
+                return false;*/
         }
 
         public static int GetPoisson(double lambda)

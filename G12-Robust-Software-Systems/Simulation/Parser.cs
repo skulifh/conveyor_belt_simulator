@@ -59,7 +59,7 @@ namespace G12_Robust_Software_Systems.Simulation
                 {
                     case "CHECKIN":
                         //checkins.Add(new CheckInCounter(time, new List<IProblem> { new Stuck(5), new StopWorking(5) }));
-                        this.addCheckin(time, checkins.Count() + 1);
+                        this.addCheckin(time, checkins.Count(), personnel);
                         break;
 
                     case "BELT":
@@ -274,7 +274,7 @@ namespace G12_Robust_Software_Systems.Simulation
             
         }*/
 
-        public void addCheckin(int time, int index)
+        public void addCheckin(int time, int index, List<Personnel> personnel)
         {
             Genpop gen = new Genpop();
             List<Tuple<int, LuggageBag>> luggageAndDequeueDelta = new List<Tuple<int, LuggageBag>>();
@@ -286,9 +286,11 @@ namespace G12_Robust_Software_Systems.Simulation
                 //luggageAndDequeueDelta.Add(new Tuple<int, LuggageBag> { elem, new LuggageBag(new Airplane(time, new List<IProblem> {new Stuck(10)}) }); //Change the input for the LuggageBag
                 dest = Genpop.Multi(index);
                 luggageAndDequeueDelta.Add(new Tuple<int, LuggageBag>(time, new LuggageBag(airplanes[dest])));
-                Console.WriteLine("bla");
-                System.Threading.Thread.Sleep(3000);
+                Console.WriteLine(dest);
+                System.Threading.Thread.Sleep(1000);
             }
+            
+            checkins.Add(new CheckInCounter(time, luggageAndDequeueDelta, new List<IProblem> { new Stuck(5, new PersonnelController(personnel)), new StopWorking(5) }));
 
         }
 
