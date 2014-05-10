@@ -8,7 +8,7 @@ namespace G12_Robust_Software_Systems.Simulation
 {
     class Genpop
     {
-        
+        static System.IO.StreamReader file = new System.IO.StreamReader("probabilities.txt");
         static string line;
         public static Random random = new Random();
 
@@ -24,19 +24,23 @@ namespace G12_Robust_Software_Systems.Simulation
             Console.WriteLine(tala);
             System.Threading.Thread.Sleep(10000);
 
+        
+        }*/
+
+        public static void Runner(int CheckinID)
+        {
             while ((line = file.ReadLine()) != null)
             {
                 Console.WriteLine("line: " + line);
                 switch (line)
                 {
                     case "DESTINATION":
-                        Console.WriteLine("BAG DESTINATION: " + Multi("0"));
+                        Console.WriteLine("BAG DESTINATION: " + Multi(CheckinID));
                         break;
                 }
-                System.Threading.Thread.Sleep(10000);
+                System.Threading.Thread.Sleep(1000);
             }
-        }*/
-
+        }
 
         public static List<int> GetBags(int time, double lambda)
         {
@@ -53,7 +57,6 @@ namespace G12_Robust_Software_Systems.Simulation
         }
         public static int Multi(int CheckinID)
         {
-            System.IO.StreamReader file = new System.IO.StreamReader("C:\\Users\\Lenovo\\Documents\\matrix.txt");
             int likelyhoodCount;
             string[] likelyhoodVector;
             int counter = 0;
@@ -68,7 +71,7 @@ namespace G12_Robust_Software_Systems.Simulation
 
             while ((line = file.ReadLine()) != null)
             {
-                //Console.WriteLine(line);
+                Console.WriteLine(line);
                 if (CheckinID != counter)
                 {
                     counter += 1;
@@ -82,7 +85,7 @@ namespace G12_Robust_Software_Systems.Simulation
                 {
                     likelyhoodNumber = Convert.ToInt32(likelyhoodVector[j]);
                     sum += likelyhoodNumber;
-                    if (randomNumber < sum)
+                    if (randomNumber <= sum)
                     {
                         results = j;
                         return j;
