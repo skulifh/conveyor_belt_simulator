@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Simulation
 {
-    class Genpop
+    public class Genpop
     {
         static System.IO.StreamReader file = new System.IO.StreamReader("probabilities.txt");
         static string line;
