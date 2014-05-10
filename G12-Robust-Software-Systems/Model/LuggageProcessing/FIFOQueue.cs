@@ -1,5 +1,6 @@
 ﻿using G12_Robust_Software_Systems.Model.Components;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
@@ -10,11 +11,11 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
 {
     class FIFOQueue : ILuggageQueue
     {
-        private Queue<Tuple<long, LuggageBag>> queue;
+        private ConcurrentQueue<Tuple<long, LuggageBag>> queue;
 
         public FIFOQueue()
         {
-            this.queue = new Queue<Tuple<long, LuggageBag>>();
+            this.queue = new ConcurrentQueue<Tuple<long, LuggageBag>>();
         }
         public void enqueueLuggage(int dequeueDeltaMiliSeconds, LuggageBag luggage)
         {
