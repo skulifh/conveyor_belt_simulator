@@ -70,6 +70,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         public void addNextComponent(IComponent nextComponent)
         {
             //Contract.Requires(this.initialized == false, "System is already initialized");
+            Contract.Requires(nextComponent != null, "next component can't be null");
             this.sinks.Add(nextComponent);
         }
 
