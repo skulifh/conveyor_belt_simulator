@@ -9,6 +9,6 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
 {
     interface ILuggageProcessor
     {
-        void processLuggage(LuggageBag luggage);
+        public void processLuggage(LuggageBag luggage);
     }
 }
