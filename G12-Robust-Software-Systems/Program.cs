@@ -10,10 +10,15 @@ namespace G12_Robust_Software_Systems
     {
         static void Main(string[] args)
         {
-            while(true) 
+            /*while(true) 
             {
+                Simulation.Genpop bla = new Simulation.Genpop();
+
+
                 Console.WriteLine("Testing git");
-            }
+            }*/
+            Simulation.Genpop.Runner(0);
+                
         }
 
     }
