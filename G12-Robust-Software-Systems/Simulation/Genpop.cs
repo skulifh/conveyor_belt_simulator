@@ -32,7 +32,7 @@ namespace G12_Robust_Software_Systems.Simulation
                         Console.WriteLine("BAG DESTINATION: " + Multi(CheckinID));
                         break;
                 }
-                System.Threading.Thread.Sleep(10000);
+                System.Threading.Thread.Sleep(1000);
             }
         }
 
@@ -65,7 +65,7 @@ namespace G12_Robust_Software_Systems.Simulation
 
             while ((line = file.ReadLine()) != null)
             {
-                //Console.WriteLine(line);
+                Console.WriteLine(line);
                 if (CheckinID != counter)
                 {
                     counter += 1;
