@@ -37,7 +37,12 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
                 while (this.queue.Count() > 0 && this.queue.ElementAt<Tuple<long, LuggageBag>>(0).Item1 <= now)
                 {
                     // Increment counter and remove element from queue.
-                    departing_luggage.Add(this.queue.Dequeue().Item2);
+                    Tuple<long, LuggageBag> dequeuedItem;
+                    Boolean dequeuedSomething = this.queue.TryDequeue(out dequeuedItem);
+                    if (dequeuedSomething)
+                    {
+                        departing_luggage.Add(dequeuedItem.Item2);
+                    }
                 }
             }
             return departing_luggage;
