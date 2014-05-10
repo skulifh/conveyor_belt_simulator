@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "G12-Robust-Software-Systems
 EndProject
 Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "AirportModelling", "ModelingProject1\AirportModelling.modelproj", "{15494E34-383A-41B3-A9EC-D85CBD6CE824}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{404755E2-DA1E-41FD-A319-57047397AC8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{15494E34-383A-41B3-A9EC-D85CBD6CE824}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15494E34-383A-41B3-A9EC-D85CBD6CE824}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15494E34-383A-41B3-A9EC-D85CBD6CE824}.Release|Any CPU.Build.0 = Release|Any CPU
+		{404755E2-DA1E-41FD-A319-57047397AC8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{404755E2-DA1E-41FD-A319-57047397AC8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{404755E2-DA1E-41FD-A319-57047397AC8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{404755E2-DA1E-41FD-A319-57047397AC8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

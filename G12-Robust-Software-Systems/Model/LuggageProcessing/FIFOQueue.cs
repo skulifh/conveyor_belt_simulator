@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model.LuggageProcessing
 {
-    class FIFOQueue : ILuggageQueue
+    public class FIFOQueue : ILuggageQueue
     {
         private ConcurrentQueue<Tuple<long, LuggageBag>> queue;
 
