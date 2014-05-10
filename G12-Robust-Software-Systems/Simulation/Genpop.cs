@@ -8,10 +8,10 @@ namespace G12_Robust_Software_Systems.Simulation
 {
     class Genpop
     {
-        static System.IO.StreamReader file = new System.IO.StreamReader("probabilities.txt");
+        
         static string line;
 
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
             Genpop bla = new Genpop();
             int tala = GetPoisson(2.0);
@@ -29,7 +29,7 @@ namespace G12_Robust_Software_Systems.Simulation
                 }
                 System.Threading.Thread.Sleep(10000);
             }
-        }
+        }*/
 
 
         public static List<int> GetBags(int time, double lambda)
@@ -47,6 +47,7 @@ namespace G12_Robust_Software_Systems.Simulation
         }
         public static int Multi(int CheckinID)
         {
+            System.IO.StreamReader file = new System.IO.StreamReader("C:\\Users\\Lenovo\\Documents\\matrix.txt");
             int likelyhoodCount;
             string[] likelyhoodVector;
             int counter = 0;
