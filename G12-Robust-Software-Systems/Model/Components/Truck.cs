@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model.Components
 {
-    class Truck : IComponent
+    public class Truck : IComponent
     {
         private ILuggageProcessor enqueueBehaviour;
         private ILuggageProcessor dequeueBehaviour;

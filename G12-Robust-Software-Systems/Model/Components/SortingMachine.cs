@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model.Components
 {
-    class SortingMachine : IComponent
+    public class SortingMachine : IComponent
     {
         private ILuggageProcessor enqueueBehaviour;
         private ILuggageProcessor dequeueBehaviour;

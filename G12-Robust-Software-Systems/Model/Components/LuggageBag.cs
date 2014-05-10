@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model.Components
 {
-    class LuggageBag
+    public class LuggageBag
     {
         public IComponent destination {get; private set;}
         public LuggageBag(IComponent destination)

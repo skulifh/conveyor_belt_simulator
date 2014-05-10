@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model.LuggageProcessing
 {
-    class Source : ILuggageProcessor
+    public class Source : ILuggageProcessor
     {
         private double distributionInput;
         private ILuggageQueue queue;

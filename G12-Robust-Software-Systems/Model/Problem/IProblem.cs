@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model
 {
-    interface IProblem
+    public interface IProblem
     {
         bool Fail();
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model.LuggageProcessing
 {
-    class Forward : ILuggageProcessor
+    public class Forward : ILuggageProcessor
     {
         private ILuggageQueue queue;
         private IComponent nextComponent;

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model.Components
 {
-    class ConveyorBeltSplitter : IComponent
+    public class ConveyorBeltSplitter : IComponent
     {
         private ILuggageProcessor enqueueBehaviour;
         private ILuggageProcessor dequeueBehaviour;
