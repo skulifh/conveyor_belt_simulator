@@ -9,8 +9,8 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
 {
     interface ILuggageQueue
     {
-        public void enqueueLuggage(int dequeueDeltaMiliSeconds, LuggageBag luggage);
+        void enqueueLuggage(int dequeueDeltaMiliSeconds, LuggageBag luggage);
 
-        public List<LuggageBag> checkLuggageQueue();
+        List<LuggageBag> checkLuggageQueue();
     }
 }
