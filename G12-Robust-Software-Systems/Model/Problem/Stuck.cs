@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model
 {
-    class Stuck : IProblem
+    public class Stuck : IProblem
     {
         private double stuck_constant;
         private PersonnelController pc;

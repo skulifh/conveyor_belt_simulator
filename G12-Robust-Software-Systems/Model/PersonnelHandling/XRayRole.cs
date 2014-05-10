@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model.PersonnelHandling
 {
-    class XRayRole : IRole
+    public class XRayRole : IRole
     {
     }
 }

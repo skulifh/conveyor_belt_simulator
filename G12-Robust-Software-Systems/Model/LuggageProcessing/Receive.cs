@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model.LuggageProcessing
 {
-    class Receive : ILuggageProcessor
+    public class Receive : ILuggageProcessor
     {
         private ILuggageQueue queue;
         private int dequeueDeltaMiliSeconds;

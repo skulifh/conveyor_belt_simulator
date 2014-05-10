@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model
 {
-    class StopWorking : IProblem
+    public class StopWorking : IProblem
     {
         private double stop_constant;
         private const int TIMETOPROCESS = 5000;

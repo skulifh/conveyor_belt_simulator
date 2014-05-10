@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model.LuggageProcessing
 {
-    class SortingForwarder : ILuggageProcessor
+    public class SortingForwarder : ILuggageProcessor
     {
         private ILuggageQueue queue;
         private List<IComponent> nextComponents;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model.PersonnelHandling
 {
-    class Personnel
+    public class Personnel
     {
         private int id;
         private List<IRole> roles;

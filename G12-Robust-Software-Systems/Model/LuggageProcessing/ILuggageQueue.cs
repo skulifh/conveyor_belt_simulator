@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Model.LuggageProcessing
 {
-    interface ILuggageQueue
+    public interface ILuggageQueue
     {
         void enqueueLuggage(int dequeueDeltaMiliSeconds, LuggageBag luggage);
 
