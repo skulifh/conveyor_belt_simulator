@@ -66,6 +66,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         {
             //Contract.Requires(this.initialized == false, "System is already initialized");
             //Contract.Requires(this.sinks.Count < 2, "Splitter only supports two \"outputs\"");
+            Contract.Requires(nextComponent != null, "next component can't be null");
             this.sinks.Add(nextComponent);
             if (this.sinks.Count == 2)
             {
