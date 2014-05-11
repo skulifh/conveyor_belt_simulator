@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics.Contracts;
 
 namespace G12_Robust_Software_Systems.Simulation
 {
     public class Genpop
     {
-        static System.IO.StreamReader file = new System.IO.StreamReader("probabilities.txt");
-        static string line;
+        static string line = "";
         public static Random random = new Random();
+        static System.IO.StreamReader file = new System.IO.StreamReader("probabilities.txt");
+
 
         public Genpop()
         {
@@ -27,19 +29,26 @@ namespace G12_Robust_Software_Systems.Simulation
         
         }*/
 
-        public static void Runner(int CheckinID)
+        public static int Runner(int CheckinID)
         {
+            int result = 1000;
             while ((line = file.ReadLine()) != null)
             {
-                Console.WriteLine("line: " + line);
+             //   Console.WriteLine("line: " + line);
                 switch (line)
                 {
                     case "DESTINATION":
-                        Console.WriteLine("BAG DESTINATION: " + Multi(CheckinID));
+                        result = preDestination(CheckinID);
+                     //   Console.WriteLine("BAG DESTINATION: " + result);
                         break;
                 }
-                System.Threading.Thread.Sleep(1000);
+
+         //       System.Threading.Thread.Sleep(1000);
             }
+            file.DiscardBufferedData();
+            file.BaseStream.Seek(0, System.IO.SeekOrigin.Begin);
+            file.BaseStream.Position = 0;
+            return result;
         }
 
         public static List<int> GetBags(int time, double lambda)
@@ -55,65 +64,69 @@ namespace G12_Robust_Software_Systems.Simulation
             }
             return bags;
         }
-        public static int Multi(int CheckinID)
-        {
-            int likelyhoodCount;
-            string[] likelyhoodVector;
-            int counter = 0;
-            int sum = 0;
-            int big = 100000;
-            //Random random = new Random();
-            int randomNumber = random.Next(0, big)/1000;
-            //Console.WriteLine(randomNumber);
-            int likelyhoodNumber;
-            int results = -1;
 
+        public static int preDestination(int CheckinID)
+        {
+            int counter = 0;
+            String[] likelyhoodVector;
+            int result = -1;
 
             while ((line = file.ReadLine()) != null)
             {
-                Console.WriteLine(line);
+            //    Console.WriteLine(line);
                 if (CheckinID != counter)
                 {
                     counter += 1;
                     continue;
                 }
-
                 likelyhoodVector = line.Split(' ');
-                likelyhoodCount = likelyhoodVector.Length;
-
-                for (int j = 0; j < likelyhoodVector.Length; j++)
-                {
-                    likelyhoodNumber = Convert.ToInt32(likelyhoodVector[j]);
-                    sum += likelyhoodNumber;
-                    if (randomNumber <= sum)
-                    {
-                        results = j;
-                        return j;
-                    }
-                }
-
-                //   var numbers = new int[3,4] { { 20, 10, 30, 40 }, 
-                //   { 5, 70, 15, 10 }, { 30, Convert.ToInt32(type), 40, 10 }};
-
-                /*for (int j = 0; j < likelyhoodVector.Length; j++)
-                {
-                    int bla = Convert.ToInt32(likelyhoodVector[j]);
-                    Boolean result = Failure(bla);
-                    //Console.WriteLine("Destination: " + j);
-                    //Console.WriteLine(bla);
-                    //Console.WriteLine(result + "\n");
-                    //System.Threading.Thread.Sleep(100);
-                    if (result.Equals(true))
-                    {
-                        return j;
-
-                    }
-                    if (j == likelyhoodVector.Length - 1)
-                        j = -1; //reset
-                }*/
+                result = Destination(CheckinID, likelyhoodVector);
+                break;
             }
-            return results;
+            return result;
+        }
 
+        public static int Destination(int CheckinID, String [] likelyhoodVector)
+        {
+            int likelyhoodNumber;
+            int likelyhoodCount = likelyhoodVector.Length;
+            int results = -1;
+            int sum = 0;
+            int big = 100000;
+            int randomNumber = random.Next(0, big)/1000;
+
+            for (int j = 0; j < likelyhoodVector.Length; j++)
+            {
+                likelyhoodNumber = Convert.ToInt32(likelyhoodVector[j]);
+                sum += likelyhoodNumber;
+                if (randomNumber <= sum)
+                {
+                    results = j;
+                    return j;
+                }
+            }
+
+            //   var numbers = new int[3,4] { { 20, 10, 30, 40 }, 
+            //   { 5, 70, 15, 10 }, { 30, Convert.ToInt32(type), 40, 10 }};
+
+            /*for (int j = 0; j < likelyhoodVector.Length; j++)
+            {
+                int bla = Convert.ToInt32(likelyhoodVector[j]);
+                Boolean result = Failure(bla);
+                //Console.WriteLine("Destination: " + j);
+                //Console.WriteLine(bla);
+                //Console.WriteLine(result + "\n");
+                //System.Threading.Thread.Sleep(100);
+                if (result.Equals(true))
+                {
+                    return j;
+
+                }
+                if (j == likelyhoodVector.Length - 1)
+                    j = -1; //reset
+            }*/
+            
+            return results;
         }
 
         public static Boolean Failure(double like)
