@@ -18,9 +18,8 @@ namespace G12_Robust_Software_Systems
                 Console.WriteLine("Testing git");
             }*/
          //   Simulation.Genpop.Runner(2);
-            Console.WriteLine("Testing git");
-            String bla = Simulation.Parser.validate("test.txt");
-            Console.WriteLine(bla);
+            String result = Simulation.Parser.validate("test.txt");
+            Console.WriteLine(result);
             System.Threading.Thread.Sleep(10000);
                 
         }

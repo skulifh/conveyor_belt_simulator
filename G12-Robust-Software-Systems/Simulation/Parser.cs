@@ -25,7 +25,7 @@ namespace G12_Robust_Software_Systems.Simulation
             List<IRole> roles = new List<IRole> { new StuckLuggageRole(), new XRayRole(), new LoaderRole() };
 
             List<Personnel> personnel = new List<Personnel> { new Personnel(0, roles) };
-            string path = "C:\\Users\\Lenovo\\Documents\\test.txt";
+            string path = "test.txt";
             System.IO.StreamReader file = new System.IO.StreamReader(path);
 
             string val = validate(path);
@@ -283,7 +283,7 @@ namespace G12_Robust_Software_Systems.Simulation
 
             foreach (int elem in bags)
             {
-                dest = Genpop.Multi(index);
+                dest = Genpop.Runner(index);
                 luggageAndDequeueDelta.Add(new Tuple<int, LuggageBag>(time, new LuggageBag(airplanes[dest])));
                 Console.WriteLine(dest);
                 //System.Threading.Thread.Sleep(1000);
@@ -303,6 +303,8 @@ namespace G12_Robust_Software_Systems.Simulation
             string[] lineSplit;
             int number;
             int counter = 1;
+            int airplaneCounter = 0;
+            int checkinCounter = 0;
 
             while ((line = file.ReadLine()) != null)
             {
@@ -313,8 +315,8 @@ namespace G12_Robust_Software_Systems.Simulation
                     continue;
                 }
                 else if (line.Equals("ROUTING"))
-                    break;
-                else if (lineSplit.Length < 3)
+                    break; //missing counter?
+                else if (lineSplit.Length < 3   )
                 {
                     results = "Initialisation commands need to have 3 arguments (line: " + counter + ")";
                     break;
@@ -333,7 +335,10 @@ namespace G12_Robust_Software_Systems.Simulation
                         results = "Third argument of each initialisation needs to be a number (time in milliseconds) (line: " + counter + ")";
                         break;
                     }
-
+                    else if (index0.Equals("AIRPLANE"))
+                        airplaneCounter += 1;
+                    else if (index0.Equals("CHECKIN"))
+                        checkinCounter += 1;
                 }
                 counter += 1;
             }
@@ -347,9 +352,59 @@ namespace G12_Robust_Software_Systems.Simulation
                     continue;
                 }
             }
+
+            System.IO.StreamReader probfile = new System.IO.StreamReader("probabilities.txt");
+            string probline;
+            String[] probLineSplit;
+            int probcounter = 1;
+            int probcheckinCounter = 0;
+            int probnumber;
+            Boolean breakOuter = false;
+
+            while ((probline = probfile.ReadLine()) != null)
+            {
+                if ((probline.Equals("INIT")) || (probline.Trim().Length == 0))
+                {
+                    probcounter += 1;
+                    continue;
+                }
+                else if (probline.Equals("DESTINATION"))
+                {
+                    probcounter += 1;
+                    while ((probline = probfile.ReadLine()) != null)
+                    {
+                        probLineSplit = probline.Split(' ');
+                        if (probLineSplit.Length != airplaneCounter)
+                        {
+                            results = "The number of destinations in 'probabilities.txt' are not the same as the number of airplanes";
+                            breakOuter = true;
+                            break;
+                        }
+                        for (int i = 0; i < probLineSplit.Length; i++)
+                        {
+                            if (!int.TryParse(probLineSplit[i], out probnumber))
+                            {
+                                results = "The numbers in the probability matrix need to be a number (percentage in an integer) (line: " + counter + ")";
+                                breakOuter = true;
+                                break;
+                            }
+                        }
+                        probcounter += 1;
+                        probcheckinCounter += 1;
+                    }
+                    if (breakOuter == true)
+                        break;
+
+                    if (probcheckinCounter != checkinCounter)
+                    {
+                        results = "The number of checkins in 'probabilities.txt' are not the same as the number of CHECKINs";
+                        break;
+                    }
+                }
+                else if (probline.Equals("NEXT PROB STUFF"))
+                    Console.WriteLine("YOYOYOYO");
+            }
             return results;
         }
-
-
     }
 }
