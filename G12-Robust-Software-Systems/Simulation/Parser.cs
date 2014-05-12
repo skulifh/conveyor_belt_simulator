@@ -305,6 +305,8 @@ namespace G12_Robust_Software_Systems.Simulation
             int counter = 1;
             int airplaneCounter = 0;
             int checkinCounter = 0;
+            int beltCounter = 0;
+            int xrayCounter = 0;
 
             while ((line = file.ReadLine()) != null)
             {
@@ -339,6 +341,10 @@ namespace G12_Robust_Software_Systems.Simulation
                         airplaneCounter += 1;
                     else if (index0.Equals("CHECKIN"))
                         checkinCounter += 1;
+                    else if (index0.Equals("BELT"))
+                        beltCounter += 1;
+                    else if (index0.Equals("XRAY"))
+                        xrayCounter += 1;
                 }
                 counter += 1;
             }
@@ -356,23 +362,34 @@ namespace G12_Robust_Software_Systems.Simulation
             System.IO.StreamReader probfile = new System.IO.StreamReader("probabilities.txt");
             string probline;
             String[] probLineSplit;
-            int probcounter = 1;
-            int probcheckinCounter = 0;
-            int probnumber;
+            int probCounter = 1;
+            int probCheckinCounter = 0;
+            int probBeltCounter = 0;
+            int probXrayCounter = 0;
+            int probNumber;
+            double probDoubleNumber;
             Boolean breakOuter = false;
 
             while ((probline = probfile.ReadLine()) != null)
             {
                 if ((probline.Equals("INIT")) || (probline.Trim().Length == 0))
                 {
-                    probcounter += 1;
+                    probCounter += 1;
                     continue;
                 }
                 else if (probline.Equals("DESTINATION"))
                 {
-                    probcounter += 1;
+                    probCounter += 1;
                     while ((probline = probfile.ReadLine()) != null)
                     {
+                        if (probline.Trim().Length == 0)
+                        {
+                            probCounter += 1;
+                            continue;
+                        }
+                        if (probline.Equals("BELT"))
+                            break;
+
                         probLineSplit = probline.Split(' ');
                         if (probLineSplit.Length != airplaneCounter)
                         {
@@ -382,27 +399,76 @@ namespace G12_Robust_Software_Systems.Simulation
                         }
                         for (int i = 0; i < probLineSplit.Length; i++)
                         {
-                            if (!int.TryParse(probLineSplit[i], out probnumber))
+                            if (!int.TryParse(probLineSplit[i], out probNumber))
                             {
-                                results = "The numbers in the probability matrix need to be a number (percentage in an integer) (line: " + counter + ")";
+                                results = "The numbers in the probability matrix need to be a number (percentage in an integer) (line: " + probCounter + ")";
                                 breakOuter = true;
                                 break;
                             }
                         }
-                        probcounter += 1;
-                        probcheckinCounter += 1;
+
+                        probCounter += 1;
+                        probCheckinCounter += 1;
                     }
                     if (breakOuter == true)
                         break;
-
-                    if (probcheckinCounter != checkinCounter)
+                    if (probCheckinCounter != checkinCounter)
                     {
                         results = "The number of checkins in 'probabilities.txt' are not the same as the number of CHECKINs";
                         break;
                     }
                 }
-                else if (probline.Equals("NEXT PROB STUFF"))
-                    Console.WriteLine("YOYOYOYO");
+                else if (probline.Equals("BELT"))
+                {
+                    while ((probline = probfile.ReadLine()) != null)
+                    {
+                        if (probline.Trim().Length == 0)
+                            break;
+
+                        probBeltCounter += 1;
+                        if (!double.TryParse(probline, out probDoubleNumber))
+                        {
+                            results = "The numbers for the xrays need to be a number (percentage in an double) (line: " + probCounter + ")";
+                            breakOuter = true;
+                            break;
+                        }
+                    }
+                    if (probBeltCounter != beltCounter)
+                    {
+                        results = "The number of belts in 'probabilities.txt' are not the same as the number of BELTs";
+                        break;
+                    }
+                }
+                else if (probline.Equals("XRAY"))
+                {
+                    while ((probline = probfile.ReadLine()) != null)
+                    {
+                        if (probline.Trim().Length == 0)
+                        {
+                            probCounter += 1;
+                            continue;
+                        }
+                        if (probline.Equals("END"))
+                        {
+                            breakOuter = true;
+                            break;
+                        }
+                        probXrayCounter += 1;
+                        if (!double.TryParse(probline, out probDoubleNumber))
+                        {
+                            results = "The numbers for the xrays need to be a number (percentage in an double) (line: " + probCounter + ")";
+                            breakOuter = true;
+                            break;
+                        }
+                    }
+                    if (probXrayCounter != xrayCounter)
+                    {
+                        results = "The number of xrays in 'probabilities.txt' are not the same as the number of XRAYs";
+                        break;
+                    }
+                    if (breakOuter == true)
+                        break;
+                }    
             }
             return results;
         }
