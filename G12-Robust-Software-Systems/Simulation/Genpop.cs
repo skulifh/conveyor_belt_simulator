@@ -73,6 +73,12 @@ namespace G12_Robust_Software_Systems.Simulation
 
             while ((line = file.ReadLine()) != null)
             {
+                if (line.Trim().Length == 0)
+                {
+                    continue;
+                }
+                if (line.Equals("BELT"))
+                    break;
             //    Console.WriteLine(line);
                 if (CheckinID != counter)
                 {
