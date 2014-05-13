@@ -12,13 +12,13 @@ namespace G12_Robust_Software_Systems.Simulation
     public class Parser
     {
         //private double[,] routingMatrix;
-        List<CheckInCounter> checkins = new List<CheckInCounter>();
-        List<Airplane> airplanes = new List<Airplane>();
-        List<ConveyorBelt> belts = new List<ConveyorBelt>();
-        List<XRayMachine> xrays = new List<XRayMachine>();
-        List<ConveyorBeltSplitter> splitters = new List<ConveyorBeltSplitter>();
-        List<Truck> trucks = new List<Truck>();
-        List<SortingMachine> sortingmachines = new List<SortingMachine>();
+        public List<CheckInCounter> checkins = new List<CheckInCounter>();
+        public List<Airplane> airplanes = new List<Airplane>();
+        public List<ConveyorBelt> belts = new List<ConveyorBelt>();
+        public List<XRayMachine> xrays = new List<XRayMachine>();
+        public List<ConveyorBeltSplitter> splitters = new List<ConveyorBeltSplitter>();
+        public List<Truck> trucks = new List<Truck>();
+        public List<SortingMachine> sortingmachines = new List<SortingMachine>();
         
         public Parser()
         {
