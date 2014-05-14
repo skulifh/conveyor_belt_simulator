@@ -32,8 +32,18 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
                 foreach (IComponent nextComponent in nextComponents){
                     try
                     {
-                        IComponent sink = nextComponent.getSinks().Find(x => x.Equals(bag.destination));
-                        sink.EnqueueLuggage(bag);
+                        List<IComponent> sinks = nextComponent.getSinks().FindAll(x => x.Equals(bag.destination));
+                        int min_luggage_in_sink = -1;
+                        IComponent min_sink = null;
+                        foreach (IComponent sink in sinks)
+                        {
+                            if (min_sink == null || sink.Count() < min_luggage_in_sink)
+                            {
+                                min_sink = sink;
+                                min_luggage_in_sink = sink.Count();
+                            }
+                        }
+                        min_sink.EnqueueLuggage(bag);
                         this.LuggageCounter++;
                         break;
                     }
