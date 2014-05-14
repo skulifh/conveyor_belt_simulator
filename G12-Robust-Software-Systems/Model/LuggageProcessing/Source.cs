@@ -26,8 +26,12 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
             Contract.Requires(luggage != null, "luggage cannot be null");
             long now = DateTime.Now.Ticks;
             while (true){
-                //if (this.luggageAndDequeueDelta[0].Item1)
-                //this.queue.enqueueLuggage(0, );
+                while (this.luggageAndDequeueDelta[0].Item1 + now >= DateTime.Now.Ticks)
+                {
+                    LuggageBag element = this.luggageAndDequeueDelta[0].Item2;
+                    this.luggageAndDequeueDelta.RemoveAt(0);
+                    this.queue.enqueueLuggage(0, element);
+                }
                 System.Threading.Thread.Sleep(10);
             }
         }
