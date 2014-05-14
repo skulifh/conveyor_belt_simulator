@@ -14,17 +14,19 @@ namespace G12_Robust_Software_Systems.Model.Components
         private ILuggageProcessor enqueueBehaviour;
         private ILuggageProcessor dequeueBehaviour;
         private ILuggageQueue queue;
-        private Boolean initialized;
+        public Boolean initialized { get; private set; }
+        public String name { get; private set; }
         private Boolean initialized_thread;
         private List<IProblem> problems;
         private IComponent nextComponent;
-        public CheckInCounter(int dequeueDeltaMiliSeconds, List<Tuple<int, LuggageBag>> luggageAndDequeueDelta, List<IProblem> problems)
+        public CheckInCounter(List<Tuple<int, LuggageBag>> luggageAndDequeueDelta, List<IProblem> problems, int id)
         {
+            this.problems = problems;
+            this.name = "Check in counter number: " + id.ToString();
             this.queue = new FIFOQueue();
-            //this.enqueueBehaviour = new Source(Nullable, this.queue, )
+            this.enqueueBehaviour = new Source(this.queue, luggageAndDequeueDelta);
             this.initialized = false;
             this.initialized_thread = false;
-            this.problems = problems;
         }
         public void EnqueueLuggage(LuggageBag luggage)
         {

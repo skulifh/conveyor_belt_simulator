@@ -15,5 +15,8 @@ namespace G12_Robust_Software_Systems.Model.Components
         void addNextComponent(IComponent nextComponent);
 
         List<IComponent> getSinks();
+
+        string name { get; }
+        Boolean initialized { get; }
     }
 }

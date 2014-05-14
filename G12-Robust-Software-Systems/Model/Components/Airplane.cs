@@ -16,14 +16,18 @@ namespace G12_Robust_Software_Systems.Model.Components
         private ILuggageQueue queue;
         private List<IProblem> problems;
         private Boolean initialized_thread;
+        public Boolean initialized { get; private set; }
+        public String name { get; private set; }
         private Boolean stuck;
-        public Airplane(int dequeueDeltaMiliSeconds, List<IProblem> problems)
+        public Airplane(int dequeueDeltaMiliSeconds, List<IProblem> problems, int id)
         {
             this.queue = new FIFOQueue();
             this.problems = problems;
+            this.name = "Airplane number: " + id.ToString();
             this.enqueueBehaviour = new Receive(this.queue, dequeueDeltaMiliSeconds);
             this.dequeueBehaviour = new Sink(this.queue);
             this.initialized_thread = false;
+            this.initialized = true;
             this.stuck = false;
         }
 
