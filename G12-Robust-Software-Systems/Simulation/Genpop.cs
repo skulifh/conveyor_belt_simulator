@@ -161,6 +161,27 @@ namespace G12_Robust_Software_Systems.Simulation
                 return false;*/
         }
 
+        public static double FailProbability(String component)
+        {
+            double result = -1;
+            while ((line = file.ReadLine()) != null)
+            {
+                if (line.Equals(component))
+                {
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        if (line.Trim().Length == 0)
+                        {
+                            continue;
+                        }
+                        result = Convert.ToDouble(line);
+                        return result;
+                    }
+                }
+            }
+            return result;
+        }
+
         public static int GetPoisson(double lambda)
         {
             return (lambda < 30.0) ? PoissonSmall(lambda) : PoissonLarge(lambda);

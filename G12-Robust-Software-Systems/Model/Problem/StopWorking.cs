@@ -19,13 +19,16 @@ namespace G12_Robust_Software_Systems.Model
         }
         public bool Fail()
         {
-           //return Simulation.Genpop.Failure(stop_constant);  
-            return false;
+           return Simulation.Genpop.Failure(stop_constant);  
         }
 
         public void HandleProblem()
         {
-            Thread.Sleep(TIMETOPROCESS);
+            long end_time = DateTime.Now.Ticks + 10000 * TIMETOPROCESS;
+            while (end_time > DateTime.Now.Ticks) 
+            {
+                Thread.Sleep(10);
+            }
         }
     }
 }

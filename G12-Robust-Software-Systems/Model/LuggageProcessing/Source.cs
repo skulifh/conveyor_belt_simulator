@@ -26,11 +26,9 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
         public void processLuggage(LuggageBag luggage)
         {
             long start = DateTime.Now.Ticks;
-            Console.WriteLine("hej");
             while (true){
                 while (this.luggageAndDequeueDelta.Count > 0 && (((long)this.luggageAndDequeueDelta[0].Item1) * 10000000 + start) <= DateTime.Now.Ticks)
                 {
-                    Console.WriteLine("crap5 " + ((long)this.luggageAndDequeueDelta[0].Item1) * 10000000 + start); 
                     LuggageBag element = this.luggageAndDequeueDelta[0].Item2;
                     this.luggageAndDequeueDelta.RemoveAt(0);
                     this.queue.enqueueLuggage(0, element);
