@@ -20,14 +20,14 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
 
             this.LuggageCounter = 0;
             this.queue = queue;
-            this.dequeueDeltaMiliSeconds = dequeueDeltaMiliSeconds;
+            this.dequeueDeltaMiliSeconds = dequeueDeltaMiliSeconds * 10000;
         }
 
         public void processLuggage(LuggageBag luggage)
         {
             Contract.Requires(luggage != null, "luggage cannot be null");
             this.queue.enqueueLuggage(this.dequeueDeltaMiliSeconds, luggage);
-             this.LuggageCounter++;
+            this.LuggageCounter++;
         }
     }
 }
