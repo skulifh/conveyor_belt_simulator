@@ -268,8 +268,7 @@ namespace G12_Robust_Software_Systems.Simulation
                         break;
                 }
             }
-
-            System.Threading.Thread.Sleep(10000);
+            //System.Threading.Thread.Sleep(10000);
             file.Close();
         }
         /*static void Main()
@@ -281,7 +280,7 @@ namespace G12_Robust_Software_Systems.Simulation
         {
             Genpop gen = new Genpop();
             List<Tuple<int, LuggageBag>> luggageAndDequeueDelta = new List<Tuple<int, LuggageBag>>();
-            List<int> bags = Genpop.GetBags(200, 30);
+            List<int> bags = Genpop.GetBags(2000, 30);
             int dest;
 
             foreach (int elem in bags)
@@ -298,14 +297,13 @@ namespace G12_Robust_Software_Systems.Simulation
         public List<IComponent> getLists()
         {
             List<IComponent> list = new List<IComponent>();
-            list.Concat(checkins);
-            list.Concat(airplanes);
-            list.Concat(belts);
-            list.Concat(xrays);
-            list.Concat(splitters);
-            list.Concat(trucks);
-            list.Concat(sortingmachines);
-
+            list = list.Concat(this.checkins).ToList();
+            list = list.Concat(this.airplanes).ToList();
+            list = list.Concat(this.belts).ToList();
+            list = list.Concat(this.xrays).ToList();
+            list = list.Concat(this.splitters).ToList();
+            list = list.Concat(this.trucks).ToList();
+            list = list.Concat(this.sortingmachines).ToList();
             return list;
         }
 

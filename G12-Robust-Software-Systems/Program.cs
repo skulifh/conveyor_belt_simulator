@@ -26,7 +26,6 @@ namespace G12_Robust_Software_Systems
 
             foreach (CheckInCounter checkin in checkinsList)
             {
-                Console.WriteLine(checkin.name);
                 checkin.EnqueueLuggage(null);
             }
 
@@ -34,16 +33,17 @@ namespace G12_Robust_Software_Systems
 
             while (true) {
                 program.iPrinter(list);
+                System.Threading.Thread.Sleep(500);
             }
         }
 
         public void iPrinter(List<IComponent> list)
         {
             string text;
+            Console.WriteLine("---------------------------------------");
             foreach (IComponent component in list)
             {
                 text = component.name + "\t" + "bags: " + component.Count().ToString();
-                Console.Clear();
                 Console.WriteLine(text);
             }
         }
