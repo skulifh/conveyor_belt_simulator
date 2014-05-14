@@ -56,6 +56,7 @@
     <Compile Include="ModelTests\Component\ConveyorBeltSplitterTest.cs" />
     <Compile Include="ModelTests\Component\ConveyorBeltTest.cs" />
     <Compile Include="ModelTests\Component\LuggageBagTest.cs" />
+    <Compile Include="ModelTests\LuggageProcessing\SortingForwarderTest.cs" />
     <Compile Include="ModelTests\PersonnelHandling\LoaderRoleTest.cs" />
     <Compile Include="ModelTests\PersonnelHandling\PersonnelControllerTest.cs" />
     <Compile Include="ModelTests\PersonnelHandling\PersonnelTest.cs" />

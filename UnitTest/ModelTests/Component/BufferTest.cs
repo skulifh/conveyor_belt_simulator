@@ -10,7 +10,7 @@ namespace UnitTest.ModelTests
     public class BufferTest
     {
         [TestMethod]
-        public void testBufferConstructor()
+        public void testBuffer()
         {
             int dequeueDeltaMiliSeconds = 0;
             List<IProblem> problems = new List<IProblem>();
