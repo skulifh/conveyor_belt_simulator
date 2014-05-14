@@ -21,7 +21,7 @@ namespace G12_Robust_Software_Systems.Model.PersonnelHandling
             // Might have to override Equals method of roles.
             try
             {
-                Personnel person = this.personnel.Find(x => x.get_roles().Contains(role));
+                Personnel person = this.personnel.Find(x => x.HasRole(role));
                 this.personnel.Remove(person);
                 return person;
             }

@@ -2,14 +2,14 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using G12_Robust_Software_Systems.Model;
 
-namespace UnitTest.Problem
+namespace UnitTest.ModelTests.Problem
 {
     [TestClass]
     public class StopWorkingTest
     {
-        
 
-        [TestMethod]
+
+        [TestMethod, Timeout(1000)]
         public void StopWorkingTest1()
         {
             StopWorking sw = new StopWorking(0);
@@ -17,6 +17,8 @@ namespace UnitTest.Problem
 
             sw = new StopWorking(100);
             bool fail2 = sw.Fail();
+
+            sw.HandleProblem();
 
             Assert.IsFalse(fail1);
             Assert.IsTrue(fail2);
