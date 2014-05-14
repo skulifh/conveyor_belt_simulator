@@ -1,4 +1,5 @@
-﻿using System;
+﻿using G12_Robust_Software_Systems.Model.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,19 +11,18 @@ namespace G12_Robust_Software_Systems
     {
         static void Main(string[] args)
         {
-            /*while(true) 
-            {
-                Simulation.Genpop bla = new Simulation.Genpop();
 
-
-                Console.WriteLine("Testing git");
-            }*/
-         //   Simulation.Genpop.Runner(2);
-            String result = Simulation.Parser.validate("test.txt");
-            Console.WriteLine(result);
-            System.Threading.Thread.Sleep(10000);
-                
         }
+
+        public void iPrinter(List<IComponent> list)
+        {
+            string text;
+            foreach (IComponent component in list)
+            {
+                text = component.name + "\t" + "bags: ";
+            }
+        }
+            
 
     }
 }

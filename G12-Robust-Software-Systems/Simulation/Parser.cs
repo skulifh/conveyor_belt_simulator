@@ -301,6 +301,20 @@ namespace G12_Robust_Software_Systems.Simulation
 
         }
 
+        public List<IComponent> getLists()
+        {
+            List<IComponent> list = new List<IComponent>();
+            list.Concat(checkins);
+            list.Concat(airplanes);
+            list.Concat(belts);
+            list.Concat(xrays);
+            list.Concat(splitters);
+            list.Concat(trucks);
+            list.Concat(sortingmachines);
+
+            return list;
+        }
+
         public static string validate(string path)
         {
             System.IO.StreamReader file = new System.IO.StreamReader(path);
@@ -367,7 +381,7 @@ namespace G12_Robust_Software_Systems.Simulation
                 }
             }
 
-            System.IO.StreamReader probfile = new System.IO.StreamReader("probabilities.txt");
+            System.IO.StreamReader probfile = new System.IO.StreamReader("../../Files/probabilities.txt");
             string probline;
             String[] probLineSplit;
             int probCounter = 1;
