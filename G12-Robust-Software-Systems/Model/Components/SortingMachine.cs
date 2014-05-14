@@ -36,10 +36,12 @@ namespace G12_Robust_Software_Systems.Model.Components
             Contract.Requires(luggage != null, "Luggage must not be null");
             //Contract.Requires(this.sinks.Count > 2, "Sorting machine needs at least three \"outputs\"");
             while (this.stuck) ;
-            if (this.initialized == false)
+            if (this.initialized_thread == false)
             {
-                this.dequeueBehaviour = new SortingForwarder(this.queue, this.sinks);
-                this.initialized = true;
+                Thread DequeueThread = new Thread(new ThreadStart(this.DequeueLuggage));
+                DequeueThread.Start();
+                while (!DequeueThread.IsAlive) ;
+                this.initialized_thread = true;
             }
             foreach (IProblem problem in this.problems)
             {
@@ -49,13 +51,6 @@ namespace G12_Robust_Software_Systems.Model.Components
                     problem.HandleProblem();
                     this.stuck = false;
                 }
-            }
-            if (this.initialized_thread == false)
-            {
-                Thread DequeueThread = new Thread(new ThreadStart(this.DequeueLuggage));
-                DequeueThread.Start();
-                while (!DequeueThread.IsAlive) ;
-                this.initialized_thread = true;
             }
             enqueueBehaviour.processLuggage(luggage);
         }
@@ -74,6 +69,14 @@ namespace G12_Robust_Software_Systems.Model.Components
             //Contract.Requires(this.initialized == false, "System is already initialized");
             Contract.Requires(nextComponent != null, "next component can't be null");
             this.sinks.Add(nextComponent);
+        }
+
+        public void SetInitialized()
+        {
+            if (this.sinks.Count >= 2)
+            {
+                this.dequeueBehaviour = new SortingForwarder(this.queue, this.sinks);
+            }
         }
 
         public List<IComponent> getSinks()
