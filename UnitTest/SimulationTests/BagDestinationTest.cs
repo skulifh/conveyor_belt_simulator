@@ -15,7 +15,7 @@ namespace UnitTest.SimulationTests
             int counter1 = 0;
             int counter2 = 0;
             int noOfRuns = 100000;
-            String bla = Parser.validate("../../../Files/test.txt");
+            String bla = Parser.validate();
             Console.WriteLine(bla);
 
             for (int i = 0; i < noOfRuns; i++)
