@@ -30,13 +30,13 @@ namespace G12_Robust_Software_Systems.Model.Components
         }
         public void EnqueueLuggage(LuggageBag luggage)
         {
-            Thread EnqueueThread = new Thread(new ThreadStart(this.EnqueueWorker));
-            EnqueueThread.Start();
-            while (!EnqueueThread.IsAlive) ;
-            this.initialized_thread = true;
             Thread DequeueThread = new Thread(new ThreadStart(this.DequeueWorker));
             DequeueThread.Start();
             while (!DequeueThread.IsAlive) ;
+            this.initialized_thread = true;
+            Thread EnqueueThread = new Thread(new ThreadStart(this.EnqueueWorker));
+            EnqueueThread.Start();
+            while (!EnqueueThread.IsAlive) ;
             this.initialized_thread = true;
         }
 

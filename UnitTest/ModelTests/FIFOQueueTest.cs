@@ -23,7 +23,7 @@ namespace UnitTest.ModelTests
             FIFOQueue queue = new FIFOQueue();
             List<LuggageBag> returnedLuggage = queue.checkLuggageQueue();
             Assert.AreEqual(returnedLuggage.Count, 0);
-            queue.enqueueLuggage(1, new LuggageBag(new Airplane(1, new List<IProblem>())));
+            queue.enqueueLuggage(1, new LuggageBag(new Airplane(new List<IProblem>(), 1)));
             Thread.Sleep(1000);
             returnedLuggage = queue.checkLuggageQueue();
             Assert.AreEqual(returnedLuggage.Count, 1);
