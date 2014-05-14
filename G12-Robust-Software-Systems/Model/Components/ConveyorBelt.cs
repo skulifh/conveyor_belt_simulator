@@ -47,7 +47,9 @@ namespace G12_Robust_Software_Systems.Model.Components
                 if (problem.Fail())
                 {
                     this.stuck = true;
-                    problem.HandleProblem();
+                    int sc = 0;
+                    while (sc < 500) { Thread.Sleep(10); sc++; }
+                    //problem.HandleProblem();
                     this.stuck = false;
                 }
             }

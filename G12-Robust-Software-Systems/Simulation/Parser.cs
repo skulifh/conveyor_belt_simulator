@@ -69,27 +69,27 @@ namespace G12_Robust_Software_Systems.Simulation
                         break;
 
                     case "BELT":
-                        belts.Add(new ConveyorBelt(time, new List<IProblem> { new Stuck(5, new PersonnelController(personnel)), new StopWorking(5) }, belts.Count));
+                        belts.Add(new ConveyorBelt(time, new List<IProblem> { new Stuck(1, new PersonnelController(personnel)), new StopWorking(1) }, belts.Count));
                         break;
 
                     case "XRAY":
-                        xrays.Add(new XRayMachine(time, new List<IProblem> { new Stuck(5, new PersonnelController(personnel)), new StopWorking(5) }, xrays.Count));
+                        xrays.Add(new XRayMachine(time, new List<IProblem> { new Stuck(1, new PersonnelController(personnel)), new StopWorking(1) }, xrays.Count));
                         break;
 
                     case "SPLITTER":
-                        splitters.Add(new ConveyorBeltSplitter(time, new List<IProblem> { new Stuck(5, new PersonnelController(personnel)), new StopWorking(5) }, splitters.Count));
+                        splitters.Add(new ConveyorBeltSplitter(time, new List<IProblem> { new Stuck(1, new PersonnelController(personnel)), new StopWorking(1) }, splitters.Count));
                         break;
 
                     case "AIRPLANE":
-                        airplanes.Add(new Airplane(new List<IProblem> { new Stuck(5, new PersonnelController(personnel)), new StopWorking(5) }, airplanes.Count));
+                        airplanes.Add(new Airplane(new List<IProblem> { new Stuck(1, new PersonnelController(personnel)), new StopWorking(1) }, airplanes.Count));
                         break;
 
                     case "TRUCK":
-                        trucks.Add(new Truck(time, new List<IProblem> { new Stuck(5, new PersonnelController(personnel)), new StopWorking(5) }, trucks.Count));
+                        trucks.Add(new Truck(time, new List<IProblem> { new Stuck(1, new PersonnelController(personnel)), new StopWorking(1) }, trucks.Count));
                         break;
 
                     case "SORTINGMACHINE":
-                        sortingmachines.Add(new SortingMachine(time, new List<IProblem> { new Stuck(5, new PersonnelController(personnel)), new StopWorking(5) }, sortingmachines.Count));
+                        sortingmachines.Add(new SortingMachine(time, new List<IProblem> { new Stuck(1, new PersonnelController(personnel)), new StopWorking(1) }, sortingmachines.Count));
                         break;
 
                     case "ROUTING":
@@ -289,8 +289,8 @@ namespace G12_Robust_Software_Systems.Simulation
                 luggageAndDequeueDelta.Add(new Tuple<int, LuggageBag>(elem, new LuggageBag(airplanes[dest])));
                 //System.Threading.Thread.Sleep(1000);
             }
-            
-            checkins.Add(new CheckInCounter(luggageAndDequeueDelta, new List<IProblem> { new Stuck(5, new PersonnelController(personnel)), new StopWorking(5) }, index));
+
+            checkins.Add(new CheckInCounter(luggageAndDequeueDelta, new List<IProblem> { new Stuck(1, new PersonnelController(personnel)), new StopWorking(1) }, index));
 
         }
 
