@@ -45,7 +45,7 @@ namespace G12_Robust_Software_Systems
 
             while (true) {
                 program.iPrinter(list);
-                System.Threading.Thread.Sleep(500);
+                System.Threading.Thread.Sleep(100);
             }
         }
 
@@ -69,7 +69,7 @@ namespace G12_Robust_Software_Systems
             foreach (IComponent component in list)
             {
                 Tuple<int,int> tuple = component.InAndOutCounters();
-                text = component.name + "\t\t" + "Bags: " + component.Count().ToString() + "\tIn: " + 
+                text = component.name + "\t\t" + "Bags: " + component.Count().ToString() + "  \tIn: " + 
                     tuple.Item1 + "\tOut: " + tuple.Item2 + "\tStuck: " + component.stuck;
                 Console.WriteLine(text);
             }

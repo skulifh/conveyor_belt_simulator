@@ -27,7 +27,7 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
         {
             long start = DateTime.Now.Ticks;
             while (true){
-                while (this.luggageAndDequeueDelta.Count > 0 && this.luggageAndDequeueDelta[0].Item1 * 10000 + start <= DateTime.Now.Ticks)
+                while (this.luggageAndDequeueDelta.Count > 0 && (((long)this.luggageAndDequeueDelta[0].Item1) * 10000000 + start) <= DateTime.Now.Ticks)
                 {
                     LuggageBag element = this.luggageAndDequeueDelta[0].Item2;
                     this.luggageAndDequeueDelta.RemoveAt(0);
