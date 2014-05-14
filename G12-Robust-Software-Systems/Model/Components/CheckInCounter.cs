@@ -69,6 +69,7 @@ namespace G12_Robust_Software_Systems.Model.Components
             this.dequeueBehaviour = new Forward(this.queue, nextComponent);
             this.nextComponent = nextComponent;
             this.initialized = true;
+            Console.WriteLine("CC initialized");
         }
 
         public List<IComponent> getSinks()
