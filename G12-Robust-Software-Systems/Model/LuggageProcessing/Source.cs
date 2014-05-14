@@ -23,7 +23,6 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
 
         public void processLuggage(LuggageBag luggage)
         {
-            Contract.Requires(luggage != null, "luggage cannot be null");
             long now = DateTime.Now.Ticks;
             while (true){
                 while (this.luggageAndDequeueDelta[0].Item1 + now >= DateTime.Now.Ticks)
