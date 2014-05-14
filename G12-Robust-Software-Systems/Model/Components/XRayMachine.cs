@@ -15,13 +15,15 @@ namespace G12_Robust_Software_Systems.Model.Components
         private ILuggageProcessor dequeueBehaviour;
         private ILuggageQueue queue;
         private Boolean initialized { public get; private set; }
+        private String name { public get; private set; }
         private Boolean initialized_thread;
         private List<IProblem> problems;
         private IComponent nextComponent;
         private Boolean stuck;
-        public XRayMachine(int dequeueDeltaMiliSeconds, List<IProblem> problems)
+        public XRayMachine(int dequeueDeltaMiliSeconds, List<IProblem> problems, int id)
         {
             this.queue = new FIFOQueue();
+            this.name = "X-ray machine number: " + id.ToString();
             this.enqueueBehaviour = new Receive(this.queue, dequeueDeltaMiliSeconds);
             this.initialized = false;
             this.initialized_thread = false;

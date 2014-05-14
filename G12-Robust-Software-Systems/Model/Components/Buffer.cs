@@ -16,12 +16,14 @@ namespace G12_Robust_Software_Systems.Model.Components
         private ILuggageQueue queue;
         private Boolean initialized { public get; private set; }
         private Boolean initialized_thread;
+        private String name { public get; private set; }
         private Boolean stuck;
         private List<IProblem> problems;
         private IComponent nextComponent;
-        public Buffer(int dequeueDeltaMiliSeconds, List<IProblem> problems)
+        public Buffer(int dequeueDeltaMiliSeconds, List<IProblem> problems, int id)
         {
             this.queue = new FIFOQueue();
+            this.name = "Buffer number: " + id.ToString();
             this.enqueueBehaviour = new Receive(this.queue, dequeueDeltaMiliSeconds);
             this.initialized = false;
             this.initialized_thread = false;

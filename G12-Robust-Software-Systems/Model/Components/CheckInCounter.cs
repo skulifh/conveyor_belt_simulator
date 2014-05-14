@@ -16,11 +16,13 @@ namespace G12_Robust_Software_Systems.Model.Components
         private ILuggageQueue queue;
         private Boolean initialized { public get; private set; }
         private Boolean initialized_thread;
+        private String name { public get; private set; }
         private List<IProblem> problems;
         private IComponent nextComponent;
-        public CheckInCounter(List<Tuple<int, LuggageBag>> luggageAndDequeueDelta, List<IProblem> problems)
+        public CheckInCounter(List<Tuple<int, LuggageBag>> luggageAndDequeueDelta, List<IProblem> problems, int id)
         {
             this.problems = problems;
+            this.name = "Check in counter number: " + id.ToString();
             this.queue = new FIFOQueue();
             this.enqueueBehaviour = new Source(this.queue, luggageAndDequeueDelta);
             this.initialized = false;

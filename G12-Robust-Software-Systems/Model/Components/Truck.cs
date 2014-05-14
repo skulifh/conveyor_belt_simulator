@@ -15,13 +15,15 @@ namespace G12_Robust_Software_Systems.Model.Components
         private ILuggageProcessor dequeueBehaviour;
         private ILuggageQueue queue;
         private Boolean initialized { public get; private set; }
+        private String name { public get; private set; }
         private Boolean initialized_thread;
         private IComponent nextComponent;
         private List<IProblem> problems;
         private Boolean stuck;
-        public Truck(int dequeueDeltaMiliSeconds, List<IProblem> problems)
+        public Truck(int dequeueDeltaMiliSeconds, List<IProblem> problems, int id)
         {
             this.queue = new FIFOQueue();
+            this.name = "Truck number: " + id.ToString();
             this.enqueueBehaviour = new Receive(this.queue, dequeueDeltaMiliSeconds);
             this.initialized = false;
             this.problems = problems;
