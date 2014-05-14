@@ -11,7 +11,7 @@ namespace G12_Robust_Software_Systems
     {
         static void Main(string[] args)
         {
-            
+
         }
 
         public void iPrinter(List<IComponent> list)
@@ -22,6 +22,7 @@ namespace G12_Robust_Software_Systems
                 text = component.name + "\t" + "bags: ";
             }
         }
+            
 
     }
 }
