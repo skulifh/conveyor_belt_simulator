@@ -281,12 +281,16 @@ namespace G12_Robust_Software_Systems.Simulation
             Genpop gen = new Genpop();
             List<Tuple<int, LuggageBag>> luggageAndDequeueDelta = new List<Tuple<int, LuggageBag>>();
             List<int> bags = Genpop.GetBags(200, 30);
+            foreach (int bag in bags)
+            {
+                Console.WriteLine(bag);
+            }
             int dest;
 
             foreach (int elem in bags)
             {
                 dest = Genpop.Runner(index);
-                luggageAndDequeueDelta.Add(new Tuple<int, LuggageBag>(time, new LuggageBag(airplanes[dest])));
+                luggageAndDequeueDelta.Add(new Tuple<int, LuggageBag>(elem, new LuggageBag(airplanes[dest])));
                 //System.Threading.Thread.Sleep(1000);
             }
             

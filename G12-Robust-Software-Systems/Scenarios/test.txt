@@ -10,8 +10,8 @@ XRAY x_0 5000
 
 ROUTING
 
-check_0,belt_0
-belt_0,x_0
-x_0,plane_0
+check_0,x_0
+x_0,belt_0
+belt_0,plane_0
 
 END
