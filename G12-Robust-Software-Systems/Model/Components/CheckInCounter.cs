@@ -22,7 +22,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         public CheckInCounter(List<Tuple<int, LuggageBag>> luggageAndDequeueDelta, List<IProblem> problems, int id)
         {
             this.problems = problems;
-            this.name = "Check in counter number: " + id.ToString();
+            this.name = "Check in number: " + id.ToString();
             this.queue = new FIFOQueue();
             this.enqueueBehaviour = new Source(this.queue, luggageAndDequeueDelta);
             this.initialized = false;

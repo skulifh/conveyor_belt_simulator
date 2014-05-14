@@ -16,7 +16,7 @@ namespace G12_Robust_Software_Systems
             Console.WriteLine(" 88   88 88   88 88`8b 88      88      88   88  88 88    88`8b 88 88 88   ` 88");
             Console.WriteLine(" 88   88 88   88 88 88 88      88      88888P  88   88   88 88 88 88 88     88");
             Console.WriteLine(" 88   88 88   88 88 `8b88      88      88     d8888888b  88 `8b88 88 88   , \"\"");
-            Console.WriteLine(" 88888P   `888P  88  `888      88      88     88     `8b 88  `888 88  `888P 88");
+            Console.WriteLine(" 88888P   `888P  88  `888      88      88     88     `8b 88  `888 88  `888P 88\n\n");
             
             Console.WriteLine("Initializing...");
 
@@ -46,10 +46,23 @@ namespace G12_Robust_Software_Systems
         public void iPrinter(List<IComponent> list)
         {
             string text;
-            Console.WriteLine("---------------------------------------");
+            Console.Clear();
+
+            Console.WriteLine(" 88888b   d888b  888b  88 8P 888888    88888b    888     888b  88 88  d888b 88");
+            Console.WriteLine(" 88   88 88   88 88`8b 88      88      88   88  88 88    88`8b 88 88 88   ` 88");
+            Console.WriteLine(" 88   88 88   88 88 88 88      88      88888P  88   88   88 88 88 88 88     88");
+            Console.WriteLine(" 88   88 88   88 88 `8b88      88      88     d8888888b  88 `8b88 88 88   , \"\"");
+            Console.WriteLine(" 88888P   `888P  88  `888      88      88     88     `8b 88  `888 88  `888P 88\n\n");
+
+            Console.WriteLine("Initializing...");
+            Console.WriteLine("Initialization finished");
+            Console.WriteLine("Checkins enqueing...");
+            Console.WriteLine("Checkins enqueing finished, starting with rest\n");
+            Console.WriteLine("-----------------------------------------------\n");
+
             foreach (IComponent component in list)
             {
-                text = component.name + "\t" + "bags: " + component.Count().ToString();
+                text = component.name + "\t\t" + "bags: " + component.Count().ToString();
                 Console.WriteLine(text);
             }
         }
