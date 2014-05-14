@@ -4,12 +4,12 @@ using G12_Robust_Software_Systems.Model;
 using G12_Robust_Software_Systems.Model.PersonnelHandling;
 using System.Collections.Generic;
 
-namespace UnitTest.Problem
+namespace UnitTest.ModelTests.Problem
 {
     [TestClass]
     public class StuckTest
     {
-        [TestMethod]
+        [TestMethod, Timeout(1000)]
         public void StuckTest1()
         {
             List<Personnel> plist = new List<Personnel>();
@@ -24,6 +24,8 @@ namespace UnitTest.Problem
 
             s = new Stuck(100, pc);
             bool fail2 = s.Fail();
+
+            s.HandleProblem();
 
             Assert.IsFalse(fail1);
             Assert.IsTrue(fail2);
