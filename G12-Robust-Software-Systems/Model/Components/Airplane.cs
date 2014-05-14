@@ -16,8 +16,8 @@ namespace G12_Robust_Software_Systems.Model.Components
         private ILuggageQueue queue;
         private List<IProblem> problems;
         private Boolean initialized_thread;
-        private Boolean initialized { public get; private set; }
-        private String name { public get; private set; }
+        public Boolean initialized { get; private set; }
+        public String name { get; private set; }
         private Boolean stuck;
         public Airplane(int dequeueDeltaMiliSeconds, List<IProblem> problems, int id)
         {

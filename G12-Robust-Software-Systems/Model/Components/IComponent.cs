@@ -16,6 +16,7 @@ namespace G12_Robust_Software_Systems.Model.Components
 
         List<IComponent> getSinks();
 
-        string name { get; private set; }
+        string name { get; }
+        Boolean initialized { get; }
     }
 }

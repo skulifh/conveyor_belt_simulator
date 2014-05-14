@@ -14,9 +14,9 @@ namespace G12_Robust_Software_Systems.Model.Components
         private ILuggageProcessor enqueueBehaviour;
         private ILuggageProcessor dequeueBehaviour;
         private ILuggageQueue queue;
-        private Boolean initialized { public get; private set; }
+        public Boolean initialized { get; private set; }
+        public String name { get; private set; }
         private Boolean initialized_thread;
-        private String name { public get; private set; }
         private List<IProblem> problems;
         private IComponent nextComponent;
         public CheckInCounter(List<Tuple<int, LuggageBag>> luggageAndDequeueDelta, List<IProblem> problems, int id)
