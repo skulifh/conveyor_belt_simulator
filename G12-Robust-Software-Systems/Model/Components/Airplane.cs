@@ -19,12 +19,12 @@ namespace G12_Robust_Software_Systems.Model.Components
         public Boolean initialized { get; private set; }
         public String name { get; private set; }
         private Boolean stuck;
-        public Airplane(int dequeueDeltaMiliSeconds, List<IProblem> problems, int id)
+        public Airplane(List<IProblem> problems, int id)
         {
             this.queue = new FIFOQueue();
             this.problems = problems;
             this.name = "Airplane number: " + id.ToString();
-            this.enqueueBehaviour = new Receive(this.queue, dequeueDeltaMiliSeconds);
+            this.enqueueBehaviour = new Receive(this.queue, 0);
             this.dequeueBehaviour = new Sink(this.queue);
             this.initialized_thread = false;
             this.initialized = true;
