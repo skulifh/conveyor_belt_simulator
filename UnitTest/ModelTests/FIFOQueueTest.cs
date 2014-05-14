@@ -12,7 +12,7 @@ namespace UnitTest.ModelTests
     public class FIFOQueueTest
     {
         [TestMethod]
-        public void testConstructor()
+        public void testFIFOConstructor()
         {
             FIFOQueue queue = new FIFOQueue();
         }
