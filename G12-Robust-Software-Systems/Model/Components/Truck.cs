@@ -14,7 +14,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         private ILuggageProcessor enqueueBehaviour;
         private ILuggageProcessor dequeueBehaviour;
         private ILuggageQueue queue;
-        private Boolean initialized;
+        private Boolean initialized { public get; private set; }
         private Boolean initialized_thread;
         private IComponent nextComponent;
         private List<IProblem> problems;

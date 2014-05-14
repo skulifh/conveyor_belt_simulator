@@ -1,5 +1,4 @@
 ﻿using G12_Robust_Software_Systems.Model.Components;
-using G12_Robust_Software_Systems.Simulation;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
@@ -11,30 +10,24 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
 {
     public class Source : ILuggageProcessor
     {
-        private double distributionInput;
         private ILuggageQueue queue;
-        private int dequeueDeltaMiliSeconds;
-        private int executionTime;
-        public Source(double distributionInput, int executionTime, ILuggageQueue queue, int dequeueDeltaMiliSeconds)
+        private List<Tuple<int, LuggageBag>> luggageAndDequeueDelta;
+        public Source(ILuggageQueue queue, List<Tuple<int, LuggageBag>> luggageAndDequeueDelta)
         {
-            Contract.Requires(distributionInput != 0, "distributionInput cannot be zero");
-            Contract.Requires(executionTime != 0, "executionTime cannot be zero");
+            Contract.Requires(luggageAndDequeueDelta != null, "List of luggage may not be null");
+            Contract.Requires(luggageAndDequeueDelta.Count > 0, "List of luggage may not be empty.");
             Contract.Requires(queue != null, "queue cannot be null");
-            Contract.Requires(dequeueDeltaMiliSeconds >= 0, "dequeueDeltaMiliSeconds cannot be less than zero");
-
-            this.distributionInput = distributionInput;
             this.queue = queue;
-            this.dequeueDeltaMiliSeconds = dequeueDeltaMiliSeconds;
-            this.executionTime = executionTime;
+            this.luggageAndDequeueDelta = luggageAndDequeueDelta;
         }
 
         public void processLuggage(LuggageBag luggage)
         {
             Contract.Requires(luggage != null, "luggage cannot be null");
-
-            Genpop.GetBags(this.executionTime, this.distributionInput);
+            long now = DateTime.Now.Ticks;
             while (true){
-                //this.queue.enqueueLuggage(this.dequeueDeltaMiliSeconds);
+                //if (this.luggageAndDequeueDelta[0].Item1)
+                //this.queue.enqueueLuggage(0, );
                 System.Threading.Thread.Sleep(10);
             }
         }
