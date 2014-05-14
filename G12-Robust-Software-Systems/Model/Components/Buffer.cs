@@ -17,7 +17,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         public Boolean initialized { get; private set; }
         public String name { get; private set; }
         private Boolean initialized_thread;
-        private Boolean stuck;
+        public Boolean stuck { get; private set; }
         private List<IProblem> problems;
         private IComponent nextComponent;
         public Buffer(int dequeueDeltaMiliSeconds, List<IProblem> problems, int id)

@@ -19,7 +19,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         private List<IComponent> sinks;
         private Boolean initialized_thread;
         private List<IProblem> problems;
-        private Boolean stuck;
+        public Boolean stuck { get; private set; }
         public SortingMachine(int dequeueDeltaMiliSeconds, List<IProblem> problems, int id)
         {
             this.queue = new FIFOQueue();

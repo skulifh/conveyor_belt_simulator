@@ -19,7 +19,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         private Boolean initialized_thread;
         private List<IProblem> problems;
         private IComponent nextComponent;
-        private Boolean stuck;
+        public Boolean stuck { get; private set; }
         public XRayMachine(int dequeueDeltaMiliSeconds, List<IProblem> problems, int id)
         {
             this.queue = new FIFOQueue();

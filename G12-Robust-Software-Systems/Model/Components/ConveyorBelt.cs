@@ -18,7 +18,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         public String name { get; private set; }
         private List<IProblem> problems;
         private Boolean initialized_thread;
-        private Boolean stuck;
+        public Boolean stuck { get; private set; }
         private IComponent nextComponent;
         public ConveyorBelt(int dequeueDeltaMiliSeconds, List<IProblem> problems, int id)
         {
