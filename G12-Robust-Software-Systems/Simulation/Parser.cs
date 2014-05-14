@@ -396,7 +396,7 @@ namespace G12_Robust_Software_Systems.Simulation
                 }
                 else if (line.Equals("ROUTING"))
                     break; //missing counter?
-                else if (lineSplit.Length < 3   )
+                else if (lineSplit.Length < 3)
                 {
                     results = "Initialisation commands need to have 3 arguments (line: " + counter + ")";
                     break;
@@ -491,8 +491,6 @@ namespace G12_Robust_Software_Systems.Simulation
             String[] probLineSplit;
             int probCounter = 1;
             int probCheckinCounter = 0;
-            int probBeltCounter = 0;
-            int probXrayCounter = 0;
             int probNumber;
             double probDoubleNumber;
             Boolean breakOuter = false;
@@ -546,60 +544,32 @@ namespace G12_Robust_Software_Systems.Simulation
                         break;
                     }
                 }
-                if (probline.Equals("BELT"))
+                String component;
+                if (probline.Equals("BELT") || probline.Equals("BUFFER") || probline.Equals("SPLITTER") || probline.Equals("SORT") || probline.Equals("TRUCK") || probline.Equals("XRAY") || probline.Equals("CHECKIN"))
                 {
+                    component = probline;
                     while ((probline = probfile.ReadLine()) != null)
                     {
                         if (probline.Trim().Length == 0)
                             continue;
-                        if (probline.Equals("XRAY"))
+                        if (probline.Equals("-"))
                             break;
 
-                        probBeltCounter += 1;
                         if (!double.TryParse(probline, out probDoubleNumber))
                         {
-                            results = "The numbers for the belts need to be a number (percentage in an double) (line: " + probCounter + ")";
+                            results = "The numbers for the " + component + " need to be a number (percentage in an double) (line: " + probCounter + ")";
                             breakOuter = true;
-                            break;
                         }
-                    }
-
-                    if (probBeltCounter != beltCounter)
-                    {
-                        results = "The number of belts in 'probabilities.txt' are not the same as the number of BELTs";
                         break;
                     }
                 }
-                else if (probline.Equals("XRAY"))
+                else if (probline.Equals("END"))
                 {
-                    while ((probline = probfile.ReadLine()) != null)
-                    {
-                        if (probline.Trim().Length == 0)
-                        {
-                            probCounter += 1;
-                            continue;
-                        }
-                        if (probline.Equals("END"))
-                        {
-                            breakOuter = true;
-                            break;
-                        }
-                        probXrayCounter += 1;
-                        if (!double.TryParse(probline, out probDoubleNumber))
-                        {
-                            results = "The numbers for the xrays need to be a number (percentage in an double) (line: " + probCounter + ")";
-                            breakOuter = true;
-                            break;
-                        }
-                    }
-                    if (probXrayCounter != xrayCounter)
-                    {
-                        results = "The number of xrays in 'probabilities.txt' are not the same as the number of XRAYs";
-                        break;
-                    }
-                    if (breakOuter == true)
-                        break;
-                }    
+                    breakOuter = true;
+                    break;
+                }
+                if (breakOuter == true)
+                    break;
             }
             return results;
         }

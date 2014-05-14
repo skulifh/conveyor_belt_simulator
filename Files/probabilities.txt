@@ -7,35 +7,29 @@ DESTINATION
 BELT
 
 0.001
-
+-
 XRAY
 
 0.001
-
+-
 AIRPLANE
 
 0.001
-
+-
 CHECKIN
 
 0.001
-
+-
 BUFFER
 
 0.001
-
+-
 TRUCK
 
 0.001
-
+-
 SORTINGMACHINE
 
 0.001
-
-
-
-
-
-
-
+-
 END
