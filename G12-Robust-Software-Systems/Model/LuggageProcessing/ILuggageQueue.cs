@@ -12,5 +12,7 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
         void enqueueLuggage(int dequeueDeltaMiliSeconds, LuggageBag luggage);
 
         List<LuggageBag> checkLuggageQueue();
+
+        int Count();
     }
 }

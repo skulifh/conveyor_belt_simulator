@@ -18,5 +18,7 @@ namespace G12_Robust_Software_Systems.Model.Components
 
         string name { get; }
         Boolean initialized { get; }
+
+        int Count();
     }
 }

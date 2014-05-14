@@ -73,5 +73,10 @@ namespace G12_Robust_Software_Systems.Model.Components
         {
             return new List<IComponent> { this };
         }
+
+        public int Count()
+        {
+            return this.queue.Count();
+        }
     }
 }

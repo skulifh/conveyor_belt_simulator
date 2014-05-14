@@ -47,5 +47,10 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
             }
             return departing_luggage;
         }
+
+        public int Count()
+        {
+            return this.queue.Count;
+        }
     }
 }

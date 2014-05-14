@@ -87,5 +87,10 @@ namespace G12_Robust_Software_Systems.Model.Components
             }
             return allSinks;
         }
+
+        public int Count()
+        {
+            return this.queue.Count();
+        }
     }
 }

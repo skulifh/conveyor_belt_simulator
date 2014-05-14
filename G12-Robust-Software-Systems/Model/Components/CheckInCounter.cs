@@ -72,5 +72,10 @@ namespace G12_Robust_Software_Systems.Model.Components
             //Contract.Requires(initialized != false, "Initialized must be true");
             return this.nextComponent.getSinks();
         }
+
+        public int Count()
+        {
+            return this.queue.Count();
+        }
     }
 }
