@@ -50,6 +50,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Problem\StopWorkingTest.cs" />
+    <Compile Include="Problem\StuckTest.cs" />
     <Compile Include="SimulationTests\FailureTest.cs" />
     <Compile Include="SimulationTests\BagDestinationTest.cs" />
     <Compile Include="ModelTests\FIFOQueueTest.cs" />
