@@ -1,6 +1,7 @@
 INIT
 
 AIRPLANE plane_0 3000
+AIRPLANE plane_1 3000
 
 CHECKIN check_0 3000
 
@@ -13,6 +14,7 @@ BUFFER buffer_0 3000
 SORTINGMACHINE sort_0 3000
 
 TRUCK truck_0 3000
+TRUCK truck_1 3000
 
 
 
@@ -26,5 +28,7 @@ x_0,buffer_0
 buffer_0,sort_0
 sort_0,truck_0
 truck_0,plane_0
+sort_0,truck_1
+truck_1,plane_1
 
 END

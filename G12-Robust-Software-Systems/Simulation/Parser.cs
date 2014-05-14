@@ -318,6 +318,10 @@ namespace G12_Robust_Software_Systems.Simulation
                         break;
                 }
             }
+            foreach (SortingMachine sort in sortingmachines)
+            {
+                sort.SetInitialized();
+            }
             //System.Threading.Thread.Sleep(10000);
             file.Close();
         }
