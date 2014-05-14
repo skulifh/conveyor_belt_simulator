@@ -78,5 +78,10 @@ namespace G12_Robust_Software_Systems.Model.Components
         {
             return this.queue.Count();
         }
+
+        public Tuple<int, int> InAndOutCounters()
+        {
+            return new Tuple<int, int>(this.enqueueBehaviour.LuggageCounter, this.dequeueBehaviour.LuggageCounter);
+        }
     }
 }
