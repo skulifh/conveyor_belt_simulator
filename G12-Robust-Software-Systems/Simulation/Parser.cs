@@ -83,7 +83,7 @@ namespace G12_Robust_Software_Systems.Simulation
                         break;
 
                     case "AIRPLANE":
-                        airplanes.Add(new Airplane(time, new List<IProblem> { new Stuck(5, new PersonnelController(personnel)), new StopWorking(5) }, airplanes.Count));
+                        airplanes.Add(new Airplane(new List<IProblem> { new Stuck(5, new PersonnelController(personnel)), new StopWorking(5) }, airplanes.Count));
                         break;
 
                     case "TRUCK":
@@ -313,6 +313,11 @@ namespace G12_Robust_Software_Systems.Simulation
             list.Concat(sortingmachines);
 
             return list;
+        }
+
+        public List<CheckInCounter> getCheckins()
+        {
+            return checkins;
         }
 
         public static string validate(string path)

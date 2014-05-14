@@ -1,4 +1,5 @@
 ﻿using G12_Robust_Software_Systems.Model.Components;
+using G12_Robust_Software_Systems.Simulation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,17 @@ namespace G12_Robust_Software_Systems
     {
         static void Main(string[] args)
         {
+            Program program = new Program();
+            Parser parser = new Parser();
 
+            List<IComponent> list = parser.getLists();
+            List<CheckInCounter> checkinsList = parser.getCheckins();
+
+
+
+            while (true) {
+                program.iPrinter(list);
+            }
         }
 
         public void iPrinter(List<IComponent> list)
@@ -19,7 +30,9 @@ namespace G12_Robust_Software_Systems
             string text;
             foreach (IComponent component in list)
             {
-                text = component.name + "\t" + "bags: ";
+                text = component.name + "\t" + "bags: " + component.Count().ToString();
+                Console.Clear();
+                Console.WriteLine(text);
             }
         }
             
