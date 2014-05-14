@@ -33,7 +33,7 @@ namespace G12_Robust_Software_Systems.Simulation
             List<IRole> roles = new List<IRole> { new StuckLuggageRole(), new XRayRole(), new LoaderRole() };
 
             List<Personnel> personnel = new List<Personnel> { new Personnel(0, roles) };
-            string path = "../../Files/test.txt";
+            string path = "../../../Files/test.txt";
             System.IO.StreamReader file = new System.IO.StreamReader(path);
 
             string val = validate(path);
@@ -386,7 +386,7 @@ namespace G12_Robust_Software_Systems.Simulation
                 }
             }
 
-            System.IO.StreamReader probfile = new System.IO.StreamReader("../../Files/probabilities.txt");
+            System.IO.StreamReader probfile = new System.IO.StreamReader("../../../Files/probabilities.txt");
             string probline;
             String[] probLineSplit;
             int probCounter = 1;
