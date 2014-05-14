@@ -381,7 +381,7 @@ namespace G12_Robust_Software_Systems.Simulation
                 }
             }
 
-            System.IO.StreamReader probfile = new System.IO.StreamReader("probabilities.txt");
+            System.IO.StreamReader probfile = new System.IO.StreamReader("../../Files/probabilities.txt");
             string probline;
             String[] probLineSplit;
             int probCounter = 1;

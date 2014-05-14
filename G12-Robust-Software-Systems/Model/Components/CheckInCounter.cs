@@ -30,8 +30,10 @@ namespace G12_Robust_Software_Systems.Model.Components
         }
         public void EnqueueLuggage(LuggageBag luggage)
         {
-            // intentionally not implemented.
-            throw new NotImplementedException();
+            Thread EnqueueThread = new Thread(new ThreadStart(this.EnqueueWorker));
+            EnqueueThread.Start();
+            while (!EnqueueThread.IsAlive) ;
+            this.initialized_thread = true;
         }
 
         public void DequeueLuggage()
@@ -49,6 +51,11 @@ namespace G12_Robust_Software_Systems.Model.Components
                 dequeueBehaviour.processLuggage(null);
                 Thread.Sleep(10);
             }
+        }
+
+        private void EnqueueWorker()
+        {
+            this.enqueueBehaviour.processLuggage(null);
         }
 
         public void addNextComponent(IComponent nextComponent)
