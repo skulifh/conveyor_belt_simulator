@@ -50,15 +50,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ModelTests\AirplaneTest.cs" />
-    <Compile Include="ModelTests\BufferTest.cs" />
-    <Compile Include="ModelTests\CheckInCounterTest.cs" />
-    <Compile Include="ModelTests\ConveyorBeltTest.cs" />
-    <Compile Include="ModelTests\ConveyorBeltSplitterTest.cs" />
-    <Compile Include="ModelTests\LuggageBagTest.cs" />
-    <Compile Include="ModelTests\SortingMachineTest.cs" />
-    <Compile Include="ModelTests\TruckTest.cs" />
-    <Compile Include="ModelTests\XrayTest.cs" />
+    <Compile Include="ModelTests\Problem\StopWorkingTest.cs" />
+    <Compile Include="ModelTests\Problem\StuckTest.cs" />
     <Compile Include="SimulationTests\FailureTest.cs" />
     <Compile Include="SimulationTests\BagDestinationTest.cs" />
     <Compile Include="ModelTests\FIFOQueueTest.cs" />
@@ -71,6 +64,7 @@
       <Name>G12-Robust-Software-Systems</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

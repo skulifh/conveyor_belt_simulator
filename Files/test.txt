@@ -1,17 +1,29 @@
 INIT
 
 AIRPLANE plane_0 3000
+AIRPLANE plane_1 3000
 
-CHECKIN check_0 2000
+CHECKIN check_0 3000
+CHECKIN check_1 3000
 
 BELT belt_0 3000
+BELT belt_1 3000
+BELT belt_2 3000
+BELT belt_3 3000
 
-XRAY x_0 5000
+XRAY x_0 3000
+XRAY x_1 3000
+
 
 ROUTING
 
 check_0,belt_0
-belt_0,x_0
-x_0,plane_0
+belt_0,belt_1
+belt_1,x_0
+x_0,belt_2
+belt_2,plane_0
+check_1,x_1
+x_1,belt_3
+belt_3,plane_1
 
 END

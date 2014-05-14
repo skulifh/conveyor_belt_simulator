@@ -55,11 +55,13 @@ namespace G12_Robust_Software_Systems.Simulation
         {
             List<int> bags = new List<int>();
             int tala;
+            int sum = 0;
             Genpop bla = new Genpop();
-            while (bags.Sum() < time)
+            while (sum < time)
             {
                 tala = Genpop.GetPoisson(lambda);
-                bags.Add(tala);
+                sum += tala;
+                bags.Add(sum);
                 System.Threading.Thread.Sleep(100);
             }
             return bags;
