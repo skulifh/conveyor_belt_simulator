@@ -2,11 +2,9 @@ INIT
 
 AIRPLANE plane_0 3000
 AIRPLANE plane_1 4000
-AIRPLANE plane_2 5000
 
 CHECKIN check_0 2000
 CHECKIN check_1 2000
-CHECKIN check_2 2000
 
 BELT belt_0 3000
 BELT belt_1 5000
@@ -24,7 +22,8 @@ belt_1,x_0
 x_0,belt_3
 check_1,belt_2
 belt_3,plane_0
-belt_2,plane_1
+belt_2,x_1
+x_1,plane_1
 
 
 END
