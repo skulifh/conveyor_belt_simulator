@@ -11,20 +11,20 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
     public class Sink : ILuggageProcessor
     {
         private ILuggageQueue queue;
-        private int counter;
+        public int LuggageCounter { private set; get; }
         public Sink(ILuggageQueue queue)
         {
             Contract.Requires(queue != null, "queue cannot be null");
 
+            this.LuggageCounter = 0;
             this.queue = queue;
-            this.counter = 0;
         }
         public void processLuggage(LuggageBag luggage)
         {
             Contract.Requires(luggage != null, "luggage cannot be null");
 
             List<LuggageBag> receivedLuggage = this.queue.checkLuggageQueue();
-            counter += receivedLuggage.Count();
+            this.LuggageCounter += receivedLuggage.Count();
         }
     }
 }

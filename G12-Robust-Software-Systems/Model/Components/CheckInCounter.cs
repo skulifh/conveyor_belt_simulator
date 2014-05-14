@@ -16,28 +16,26 @@ namespace G12_Robust_Software_Systems.Model.Components
         private ILuggageQueue queue;
         public Boolean initialized { get; private set; }
         public String name { get; private set; }
-        private Boolean initialized_thread;
         private List<IProblem> problems;
         private IComponent nextComponent;
+        public Boolean stuck { get; private set; }
         public CheckInCounter(List<Tuple<int, LuggageBag>> luggageAndDequeueDelta, List<IProblem> problems, int id)
         {
             this.problems = problems;
-            this.name = "Check in counter number: " + id.ToString();
+            this.name = "Check in number: " + id.ToString();
             this.queue = new FIFOQueue();
             this.enqueueBehaviour = new Source(this.queue, luggageAndDequeueDelta);
             this.initialized = false;
-            this.initialized_thread = false;
+            this.stuck = false;
         }
         public void EnqueueLuggage(LuggageBag luggage)
         {
             Thread DequeueThread = new Thread(new ThreadStart(this.DequeueWorker));
             DequeueThread.Start();
             while (!DequeueThread.IsAlive) ;
-            this.initialized_thread = true;
             Thread EnqueueThread = new Thread(new ThreadStart(this.EnqueueWorker));
             EnqueueThread.Start();
             while (!EnqueueThread.IsAlive) ;
-            this.initialized_thread = true;
         }
 
         public void DequeueLuggage()
@@ -48,6 +46,7 @@ namespace G12_Robust_Software_Systems.Model.Components
 
         private void DequeueWorker()
         {
+            Contract.Requires(this.initialized == true, "System is not initialized");
             while (true)
             {
                 dequeueBehaviour.processLuggage(null);
@@ -57,6 +56,7 @@ namespace G12_Robust_Software_Systems.Model.Components
 
         private void EnqueueWorker()
         {
+            Contract.Requires(this.initialized == true, "System is not initialized");
             this.enqueueBehaviour.processLuggage(null);
         }
 
@@ -78,6 +78,11 @@ namespace G12_Robust_Software_Systems.Model.Components
         public int Count()
         {
             return this.queue.Count();
+        }
+
+        public Tuple<int, int> InAndOutCounters()
+        {
+            return new Tuple<int, int>(this.enqueueBehaviour.LuggageCounter, this.dequeueBehaviour.LuggageCounter);
         }
     }
 }

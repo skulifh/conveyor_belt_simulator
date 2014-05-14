@@ -33,11 +33,10 @@ namespace G12_Robust_Software_Systems.Simulation
             List<IRole> roles = new List<IRole> { new StuckLuggageRole(), new XRayRole(), new LoaderRole() };
 
             List<Personnel> personnel = new List<Personnel> { new Personnel(0, roles) };
-            string path = "../../../Files/test.txt";
+            string path = "../../Files/test.txt";
             System.IO.StreamReader file = new System.IO.StreamReader(path);
 
             string val = validate(path);
-            Console.WriteLine(val);
 
             string line;
             string[] lineSplit;
@@ -61,7 +60,6 @@ namespace G12_Robust_Software_Systems.Simulation
                     time = Int32.Parse(lineSplit[2]);
 
                 type = lineSplit[0];
-                Console.WriteLine(type);
 
                 switch (type)
                 {
@@ -99,7 +97,6 @@ namespace G12_Robust_Software_Systems.Simulation
                         break;
                 }
             }
-            Console.WriteLine(belts[0]);
             cont = true;
 
             while (((line = file.ReadLine()) != null) && cont)
@@ -119,8 +116,6 @@ namespace G12_Robust_Software_Systems.Simulation
 
                 ind = Int32.Parse(type.Split('_')[1]);
                 indNext = Int32.Parse(typeNext.Split('_')[1]);
-
-                Console.WriteLine(type);
 
                 switch (comp)
                 {
@@ -273,8 +268,7 @@ namespace G12_Robust_Software_Systems.Simulation
                         break;
                 }
             }
-
-            System.Threading.Thread.Sleep(10000);
+            //System.Threading.Thread.Sleep(10000);
             file.Close();
         }
         /*static void Main()
@@ -286,14 +280,13 @@ namespace G12_Robust_Software_Systems.Simulation
         {
             Genpop gen = new Genpop();
             List<Tuple<int, LuggageBag>> luggageAndDequeueDelta = new List<Tuple<int, LuggageBag>>();
-            List<int> bags = Genpop.GetBags(200, 30);
+            List<int> bags = Genpop.GetBags(2000, 30);
             int dest;
 
             foreach (int elem in bags)
             {
                 dest = Genpop.Runner(index);
                 luggageAndDequeueDelta.Add(new Tuple<int, LuggageBag>(time, new LuggageBag(airplanes[dest])));
-                Console.WriteLine(dest);
                 //System.Threading.Thread.Sleep(1000);
             }
             
@@ -304,14 +297,13 @@ namespace G12_Robust_Software_Systems.Simulation
         public List<IComponent> getLists()
         {
             List<IComponent> list = new List<IComponent>();
-            list.Concat(checkins);
-            list.Concat(airplanes);
-            list.Concat(belts);
-            list.Concat(xrays);
-            list.Concat(splitters);
-            list.Concat(trucks);
-            list.Concat(sortingmachines);
-
+            list = list.Concat(this.checkins).ToList();
+            list = list.Concat(this.airplanes).ToList();
+            list = list.Concat(this.belts).ToList();
+            list = list.Concat(this.xrays).ToList();
+            list = list.Concat(this.splitters).ToList();
+            list = list.Concat(this.trucks).ToList();
+            list = list.Concat(this.sortingmachines).ToList();
             return list;
         }
 

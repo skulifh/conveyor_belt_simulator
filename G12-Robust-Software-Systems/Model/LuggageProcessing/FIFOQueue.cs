@@ -22,7 +22,7 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
             Contract.Requires(dequeueDeltaMiliSeconds >= 0, "dequeueDeltaMiliSeconds cannot be less than zero");
             Contract.Requires(luggage != null, "luggage cannot be null");
 
-            Tuple<long, LuggageBag> luggageTuple = new Tuple<long, LuggageBag>(DateTime.Now.Ticks + dequeueDeltaMiliSeconds * 1000, luggage);
+            Tuple<long, LuggageBag> luggageTuple = new Tuple<long, LuggageBag>(DateTime.Now.Ticks + dequeueDeltaMiliSeconds * 10000, luggage);
             this.queue.Enqueue(luggageTuple);
         }
 

@@ -19,7 +19,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         private List<IComponent> sinks;
         private List<IProblem> problems;
         private Boolean initialized_thread;
-        private Boolean stuck;
+        public Boolean stuck { get; private set; }
         public ConveyorBeltSplitter(int dequeueDeltaMiliSeconds, List<IProblem> problems, int id)
         {
             this.sinks = new List<IComponent>();
@@ -35,7 +35,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         {
             //Contract.Requires(initialized != false, "Initialized must be true");
             Contract.Requires(luggage != null, "Luggage must not be null");
-            while (!this.stuck) ;
+            while (this.stuck) ;
             if (this.initialized_thread == false)
             {
                 Thread DequeueThread = new Thread(new ThreadStart(this.DequeueLuggage));
@@ -91,6 +91,11 @@ namespace G12_Robust_Software_Systems.Model.Components
         public int Count()
         {
             return this.queue.Count();
+        }
+
+        public Tuple<int, int> InAndOutCounters()
+        {
+            return new Tuple<int, int>(this.enqueueBehaviour.LuggageCounter, this.dequeueBehaviour.LuggageCounter);
         }
     }
 }
