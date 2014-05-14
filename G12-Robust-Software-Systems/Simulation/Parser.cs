@@ -37,7 +37,6 @@ namespace G12_Robust_Software_Systems.Simulation
             System.IO.StreamReader file = new System.IO.StreamReader(path);
 
             string val = validate(path);
-            Console.WriteLine(val);
 
             string line;
             string[] lineSplit;
@@ -61,7 +60,6 @@ namespace G12_Robust_Software_Systems.Simulation
                     time = Int32.Parse(lineSplit[2]);
 
                 type = lineSplit[0];
-                Console.WriteLine(type);
 
                 switch (type)
                 {
@@ -99,7 +97,6 @@ namespace G12_Robust_Software_Systems.Simulation
                         break;
                 }
             }
-            Console.WriteLine(belts[0]);
             cont = true;
 
             while (((line = file.ReadLine()) != null) && cont)
@@ -119,8 +116,6 @@ namespace G12_Robust_Software_Systems.Simulation
 
                 ind = Int32.Parse(type.Split('_')[1]);
                 indNext = Int32.Parse(typeNext.Split('_')[1]);
-
-                Console.WriteLine(type);
 
                 switch (comp)
                 {
@@ -293,7 +288,6 @@ namespace G12_Robust_Software_Systems.Simulation
             {
                 dest = Genpop.Runner(index);
                 luggageAndDequeueDelta.Add(new Tuple<int, LuggageBag>(time, new LuggageBag(airplanes[dest])));
-                Console.WriteLine(dest);
                 //System.Threading.Thread.Sleep(1000);
             }
             

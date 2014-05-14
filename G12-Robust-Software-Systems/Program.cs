@@ -12,16 +12,25 @@ namespace G12_Robust_Software_Systems
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Initializing...");
+
             Program program = new Program();
             Parser parser = new Parser();
+
+            Console.WriteLine("Initialization finished");
 
             List<IComponent> list = parser.getLists();
             List<CheckInCounter> checkinsList = parser.getCheckins();
 
+            Console.WriteLine("Checkins enqueing...");
+
             foreach (CheckInCounter checkin in checkinsList)
             {
+                Console.WriteLine(checkin.name);
                 checkin.EnqueueLuggage(null);
             }
+
+            Console.WriteLine("Checkins enqueing finished, starting with rest");
 
             while (true) {
                 program.iPrinter(list);
