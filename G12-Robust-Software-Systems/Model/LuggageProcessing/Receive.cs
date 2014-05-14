@@ -20,7 +20,7 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
 
             this.LuggageCounter = 0;
             this.queue = queue;
-            this.dequeueDeltaMiliSeconds = dequeueDeltaMiliSeconds * 10000;
+            this.dequeueDeltaMiliSeconds = dequeueDeltaMiliSeconds;
         }
 
         public void processLuggage(LuggageBag luggage)
