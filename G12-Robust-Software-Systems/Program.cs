@@ -38,7 +38,7 @@ namespace G12_Robust_Software_Systems
             Console.WriteLine("Checkins enqueing finished, starting with rest");
 
             while (true) {
-                program.iPrinter(list);
+                //program.iPrinter(list);
                 System.Threading.Thread.Sleep(500);
             }
         }

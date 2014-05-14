@@ -34,7 +34,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         public void EnqueueLuggage(LuggageBag luggage)
         {
             Contract.Requires(luggage != null, "Luggage must not be null");
-            while (!this.stuck) ;
+            while (this.stuck) ;
             if (this.initialized_thread == false)
             {
                 Thread DequeueThread = new Thread(new ThreadStart(this.DequeueLuggage));

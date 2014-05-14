@@ -35,7 +35,7 @@ namespace G12_Robust_Software_Systems.Model.Components
             //Contract.Requires(this.initialized != false, "Initialized must be true");
             Contract.Requires(luggage != null, "Luggage must not be null");
             //Contract.Requires(this.sinks.Count > 2, "Sorting machine needs at least three \"outputs\"");
-            while (!this.stuck) ;
+            while (this.stuck) ;
             if (this.initialized == false)
             {
                 this.dequeueBehaviour = new SortingForwarder(this.queue, this.sinks);

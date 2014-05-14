@@ -33,6 +33,7 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
                     this.luggageAndDequeueDelta.RemoveAt(0);
                     this.queue.enqueueLuggage(0, element);
                     this.LuggageCounter++;
+                    Console.WriteLine("Enqueueing one element");
                 }
                 if (this.luggageAndDequeueDelta.Count == 0)
                 {
