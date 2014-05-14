@@ -11,7 +11,7 @@ namespace G12_Robust_Software_Systems.Simulation
     {
         static string line = "";
         public static Random random = new Random();
-        static System.IO.StreamReader file = new System.IO.StreamReader("../../Scenarios/probabilities.txt");
+        static System.IO.StreamReader file = new System.IO.StreamReader("../../../Files/probabilities.txt");
 
 
         public Genpop()
