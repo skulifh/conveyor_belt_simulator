@@ -24,7 +24,6 @@ namespace G12_Robust_Software_Systems.Model
         public bool Fail()
         {
             return Simulation.Genpop.Failure(stuck_constant);
-            return false;
         }
 
         public void HandleProblem()
@@ -37,7 +36,11 @@ namespace G12_Robust_Software_Systems.Model
                 Thread.Sleep(10);
                 person = pc.acquirePersonWithRole(neededRole);
             }
-            Thread.Sleep(TIMETOPROCESS);
+            long end_time = DateTime.Now.Ticks + 10000 * TIMETOPROCESS;
+            while (end_time > DateTime.Now.Ticks) 
+            {
+                Thread.Sleep(10);
+            }
             pc.returnPerson(person);
         }
     }

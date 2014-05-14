@@ -14,18 +14,6 @@ namespace G12_Robust_Software_Systems.Model.PersonnelHandling
         
         public Personnel(int id, List<IRole> roles)
         {
-            Contract.Requires<ArgumentOutOfRangeException>(
-                id >= 0,
-                "id must be greater than or equal to 0"
-            );
-            Contract.Requires<ArgumentOutOfRangeException>(
-                roles != null,
-                "roles cannot be null"
-            );
-            Contract.Requires<ArgumentOutOfRangeException>(
-                roles.Count > 0,
-                "Personnel must have at least one role"
-            );
 
             this.id = id;
             this.roles = roles;
@@ -56,6 +44,17 @@ namespace G12_Robust_Software_Systems.Model.PersonnelHandling
                 roles.Count > 0,
                 "Personnel must have at least one role"
             );
+        }
+
+        public Boolean HasRole(IRole role)
+        {
+            foreach (IRole personnel_role in this.roles)
+            {
+                if (role.GetType() == personnel_role.GetType()){
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
