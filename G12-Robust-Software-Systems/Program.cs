@@ -18,7 +18,10 @@ namespace G12_Robust_Software_Systems
             List<IComponent> list = parser.getLists();
             List<CheckInCounter> checkinsList = parser.getCheckins();
 
-
+            foreach (CheckInCounter checkin in checkinsList)
+            {
+                checkin.EnqueueLuggage(null);
+            }
 
             while (true) {
                 program.iPrinter(list);
