@@ -27,7 +27,6 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
             List<LuggageBag> luggageToForward = this.queue.checkLuggageQueue();
             while (luggageToForward.Count() > 0)
             {
-                Console.WriteLine("Dequeueing one element");
                 this.nextComponent.EnqueueLuggage(luggageToForward[0]);
                 luggageToForward.RemoveAt(0);
                 this.LuggageCounter++;
