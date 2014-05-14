@@ -48,7 +48,7 @@ namespace G12_Robust_Software_Systems.Model.Components
 
         private void DequeueWorker()
         {
-            Contract.Requires(initialized == true, "System is not initialized");
+            Contract.Requires(this.initialized == true, "System is not initialized");
             while (true)
             {
                 dequeueBehaviour.processLuggage(null);
@@ -58,7 +58,7 @@ namespace G12_Robust_Software_Systems.Model.Components
 
         private void EnqueueWorker()
         {
-            Contract.Requires(initialized == true, "System is not initialized");
+            Contract.Requires(this.initialized == true, "System is not initialized");
             this.enqueueBehaviour.processLuggage(null);
         }
 
