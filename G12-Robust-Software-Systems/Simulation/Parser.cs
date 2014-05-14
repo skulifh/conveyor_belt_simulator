@@ -36,7 +36,7 @@ namespace G12_Robust_Software_Systems.Simulation
             string path = "../../../Files/test.txt";
             System.IO.StreamReader file = new System.IO.StreamReader(path);
 
-            string val = validate(path);
+            string val = validate();
 
             string line;
             string[] lineSplit;
@@ -280,13 +280,17 @@ namespace G12_Robust_Software_Systems.Simulation
         {
             Genpop gen = new Genpop();
             List<Tuple<int, LuggageBag>> luggageAndDequeueDelta = new List<Tuple<int, LuggageBag>>();
-            List<int> bags = Genpop.GetBags(2000, 30);
+            List<int> bags = Genpop.GetBags(200, 30);
+            foreach (int bag in bags)
+            {
+                Console.WriteLine(bag);
+            }
             int dest;
 
             foreach (int elem in bags)
             {
                 dest = Genpop.Runner(index);
-                luggageAndDequeueDelta.Add(new Tuple<int, LuggageBag>(time, new LuggageBag(airplanes[dest])));
+                luggageAndDequeueDelta.Add(new Tuple<int, LuggageBag>(elem, new LuggageBag(airplanes[dest])));
                 //System.Threading.Thread.Sleep(1000);
             }
             
@@ -312,9 +316,9 @@ namespace G12_Robust_Software_Systems.Simulation
             return checkins;
         }
 
-        public static string validate(string path)
+        public static string validate()
         {
-            System.IO.StreamReader file = new System.IO.StreamReader(path);
+            System.IO.StreamReader file = new System.IO.StreamReader("../../../Files/test.txt");
             string line;
             string results = "ok!";
             string index0;
@@ -368,15 +372,56 @@ namespace G12_Robust_Software_Systems.Simulation
                 counter += 1;
             }
 
-            while ((line = file.ReadLine()) != null)
+            int scenarioCheckCounter = 0;
+            int scenarioPlaneCounter = 0;
+
+            List<String> listA = new List<String>();
+            List<String> listB = new List<String>();
+
+            if (line.Equals("ROUTING"))
             {
-                lineSplit = line.Split(' ');
-                if (line.Trim().Length == 0)
+                while ((line = file.ReadLine()) != null)
                 {
-                    counter += 1;
-                    continue;
+                    if (line.Trim().Length == 0)
+                    {
+                        continue;
+                    }
+
+                    if (line.Equals("END"))
+                        break;
+
+
+                    lineSplit = line.Split(',');
+
+                    if (lineSplit[0].Split('_')[0].Equals("check"))
+                        scenarioCheckCounter += 1;
+
+                    if (lineSplit[1].Split('_')[0].Equals("plane"))
+                        scenarioPlaneCounter += 1;
+
+                    if (lineSplit[0].Split('_')[0].Equals("belt") || lineSplit[0].Split('_')[0].Equals("x"))
+                        listA.Add(lineSplit[0]);
+
+                    if (lineSplit[1].Split('_')[0].Equals("belt") || lineSplit[1].Split('_')[0].Equals("x"))
+                        listB.Add(lineSplit[1]);
+
                 }
             }
+
+            if (scenarioCheckCounter != checkinCounter)
+                results = "The number of CHECKINs are not the same as check_X in scenario";
+
+            if (scenarioPlaneCounter != airplaneCounter)
+                results = "The number of AIRPLANEs are not the same as plane_X in scenario";
+
+            var single = listA.Except(listB).Concat(listB.Except(listA));
+
+            foreach (string s in single)
+            {
+                results = "The following component is not connected at both ends:" + s;
+                return results;
+            }
+
 
             System.IO.StreamReader probfile = new System.IO.StreamReader("../../../Files/probabilities.txt");
             string probline;
@@ -410,6 +455,7 @@ namespace G12_Robust_Software_Systems.Simulation
                             break;
 
                         probLineSplit = probline.Split(' ');
+
                         if (probLineSplit.Length != airplaneCounter)
                         {
                             results = "The number of destinations in 'probabilities.txt' are not the same as the number of airplanes";
@@ -437,21 +483,24 @@ namespace G12_Robust_Software_Systems.Simulation
                         break;
                     }
                 }
-                else if (probline.Equals("BELT"))
+                if (probline.Equals("BELT"))
                 {
                     while ((probline = probfile.ReadLine()) != null)
                     {
                         if (probline.Trim().Length == 0)
+                            continue;
+                        if (probline.Equals("XRAY"))
                             break;
 
                         probBeltCounter += 1;
                         if (!double.TryParse(probline, out probDoubleNumber))
                         {
-                            results = "The numbers for the xrays need to be a number (percentage in an double) (line: " + probCounter + ")";
+                            results = "The numbers for the belts need to be a number (percentage in an double) (line: " + probCounter + ")";
                             breakOuter = true;
                             break;
                         }
                     }
+
                     if (probBeltCounter != beltCounter)
                     {
                         results = "The number of belts in 'probabilities.txt' are not the same as the number of BELTs";

@@ -21,8 +21,6 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
         }
         public void processLuggage(LuggageBag luggage)
         {
-            Contract.Requires(luggage != null, "luggage cannot be null");
-
             List<LuggageBag> receivedLuggage = this.queue.checkLuggageQueue();
             this.LuggageCounter += receivedLuggage.Count();
         }
