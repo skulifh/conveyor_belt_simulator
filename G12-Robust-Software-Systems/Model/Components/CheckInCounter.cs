@@ -34,14 +34,16 @@ namespace G12_Robust_Software_Systems.Model.Components
             EnqueueThread.Start();
             while (!EnqueueThread.IsAlive) ;
             this.initialized_thread = true;
-        }
-
-        public void DequeueLuggage()
-        {
             Thread DequeueThread = new Thread(new ThreadStart(this.DequeueWorker));
             DequeueThread.Start();
             while (!DequeueThread.IsAlive) ;
             this.initialized_thread = true;
+        }
+
+        public void DequeueLuggage()
+        {
+            // Not implemented by design
+            throw new NotImplementedException();
         }
 
         private void DequeueWorker()
