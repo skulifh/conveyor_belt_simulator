@@ -45,7 +45,7 @@ namespace G12_Robust_Software_Systems
 
             while (true) {
                 program.iPrinter(list);
-                System.Threading.Thread.Sleep(500);
+                System.Threading.Thread.Sleep(100);
             }
         }
 
