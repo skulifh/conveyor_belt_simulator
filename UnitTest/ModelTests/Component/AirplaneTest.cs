@@ -37,12 +37,12 @@ namespace UnitTest.ModelTests
             Stuck s = new Stuck(0, pc);
             problems.Add(s);
             ap.EnqueueLuggage(lb);
-            Assert.AreEqual(ap.Count(), 1);
+            Assert.AreEqual(1, ap.Count());
 
             s = new Stuck(100, pc);
             problems.Add(s);
             ap.EnqueueLuggage(lb);
-            Assert.AreEqual(ap.Count(), 1);
+            Assert.AreEqual(1, ap.Count());
             
             //DequeLuggage()
             //ap.DequeueLuggage();

@@ -10,8 +10,8 @@ namespace UnitTest.SimulationTests
         [TestMethod]
         public void ParserTest1()
         {
-            int airplanesCount = 3;
-            int checkinsCount = 3;
+            int airplanesCount = 2;
+            int checkinsCount = 2;
             int beltsCount = 4;
             int xraysCount = 2;
 
@@ -22,10 +22,10 @@ namespace UnitTest.SimulationTests
             int trueBeltsCount = parser.belts.Count;
             int trueXraysCount = parser.xrays.Count;
 
-            Assert.IsTrue(airplanesCount == trueAirplanesCount);
-            Assert.IsTrue(checkinsCount == trueCheckinsCount);
-            Assert.IsTrue(beltsCount == trueBeltsCount);
-            Assert.IsTrue(xraysCount == trueXraysCount);
+            Assert.AreEqual(airplanesCount, trueAirplanesCount);
+            Assert.AreEqual(checkinsCount, trueCheckinsCount);
+            Assert.AreEqual(beltsCount, trueBeltsCount);
+            Assert.AreEqual(xraysCount, trueXraysCount);
         }
     }
 }
