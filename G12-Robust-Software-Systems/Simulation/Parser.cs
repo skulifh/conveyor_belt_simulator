@@ -36,7 +36,7 @@ namespace G12_Robust_Software_Systems.Simulation
             string path = "../../../Files/test.txt";
             System.IO.StreamReader file = new System.IO.StreamReader(path);
 
-            string val = validate(path);
+            string val = validate();
 
             string line;
             string[] lineSplit;
