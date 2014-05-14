@@ -20,6 +20,7 @@ namespace G12_Robust_Software_Systems.Simulation
         public List<ConveyorBeltSplitter> splitters = new List<ConveyorBeltSplitter>();
         public List<Truck> trucks = new List<Truck>();
         public List<SortingMachine> sortingmachines = new List<SortingMachine>();
+        public List<G12_Robust_Software_Systems.Model.Components.Buffer> buffers = new List<G12_Robust_Software_Systems.Model.Components.Buffer>();
 
 
         [ContractInvariantMethod]
@@ -140,6 +141,9 @@ namespace G12_Robust_Software_Systems.Simulation
                             case "sort":
                                 checkins[ind].addNextComponent(sortingmachines[indNext]);
                                 break;
+                            case "buffer":
+                                checkins[ind].addNextComponent(buffers[indNext]);
+                                break;
                         }
                         break;
 
@@ -163,6 +167,9 @@ namespace G12_Robust_Software_Systems.Simulation
                                 break;
                             case "sort":
                                 belts[ind].addNextComponent(sortingmachines[indNext]);
+                                break;
+                            case "buffer":
+                                belts[ind].addNextComponent(buffers[indNext]);
                                 break;
                         }
                         break;
@@ -188,6 +195,9 @@ namespace G12_Robust_Software_Systems.Simulation
                             case "sort":
                                 xrays[ind].addNextComponent(sortingmachines[indNext]);
                                 break;
+                            case "buffer":
+                                xrays[ind].addNextComponent(buffers[indNext]);
+                                break;
                         }
                         break;
 
@@ -211,6 +221,9 @@ namespace G12_Robust_Software_Systems.Simulation
                                 break;
                             case "sort":
                                 splitters[ind].addNextComponent(sortingmachines[indNext]);
+                                break;
+                            case "buffer":
+                                splitters[ind].addNextComponent(buffers[indNext]);
                                 break;
                         }
                         break;
@@ -236,6 +249,9 @@ namespace G12_Robust_Software_Systems.Simulation
                             case "sort":
                                 trucks[ind].addNextComponent(sortingmachines[indNext]);
                                 break;
+                            case "buffer":
+                                trucks[ind].addNextComponent(buffers[indNext]);
+                                break;
                         }
                         break;
 
@@ -260,6 +276,36 @@ namespace G12_Robust_Software_Systems.Simulation
                             case "sort":
                                 sortingmachines[ind].addNextComponent(sortingmachines[indNext]);
                                 break;
+                            case "buffer":
+                                sortingmachines[ind].addNextComponent(buffers[indNext]);
+                                break;
+                        }
+                        break;
+
+                    case "buffer":
+                        switch (compNext)
+                        {
+                            case "belt":
+                                buffers[ind].addNextComponent(belts[indNext]);
+                                break;
+                            case "x":
+                                buffers[ind].addNextComponent(xrays[indNext]);
+                                break;
+                            case "splitter":
+                                buffers[ind].addNextComponent(splitters[indNext]);
+                                break;
+                            case "plane":
+                                buffers[ind].addNextComponent(airplanes[indNext]);
+                                break;
+                            case "truck":
+                                buffers[ind].addNextComponent(trucks[indNext]);
+                                break;
+                            case "sort":
+                                buffers[ind].addNextComponent(sortingmachines[indNext]);
+                                break;
+                            case "buffer":
+                                buffers[ind].addNextComponent(buffers[indNext]);
+                                break;
                         }
                         break;
 
@@ -280,7 +326,7 @@ namespace G12_Robust_Software_Systems.Simulation
         {
             Genpop gen = new Genpop();
             List<Tuple<int, LuggageBag>> luggageAndDequeueDelta = new List<Tuple<int, LuggageBag>>();
-            List<int> bags = Genpop.GetBags(2000, 30);
+            List<int> bags = Genpop.GetBags(300, 3);
             int dest;
 
             foreach (int elem in bags)
@@ -326,6 +372,10 @@ namespace G12_Robust_Software_Systems.Simulation
             int checkinCounter = 0;
             int beltCounter = 0;
             int xrayCounter = 0;
+            int bufferCounter = 0;
+            int splitterCounter = 0;
+            int sortingCounter = 0;
+            int truckCounter = 0;
 
             while ((line = file.ReadLine()) != null)
             {
@@ -346,7 +396,7 @@ namespace G12_Robust_Software_Systems.Simulation
                 {
                     index0 = lineSplit[0];
                     index2 = lineSplit[2];
-                    if (!((index0.Equals("CHECKIN")) || (index0.Equals("BELT")) || (index0.Equals("TRUCK")) || (index0.Equals("SORTINGMACHINE")) || (index0.Equals("AIRPLANE")) || (index0.Equals("XRAY")) || (index0.Equals("SPLITTER")) || (index0.Equals("SORT"))))
+                    if (!((index0.Equals("CHECKIN")) || (index0.Equals("BELT")) || (index0.Equals("BUFFER")) || (index0.Equals("TRUCK")) || (index0.Equals("SORTINGMACHINE")) || (index0.Equals("AIRPLANE")) || (index0.Equals("XRAY")) || (index0.Equals("SPLITTER")) || (index0.Equals("SORT"))))
                     {
                         results = "Components need to be either of type CHECKIN, BELT, XRAY, SPLITTER or SORT (line: " + counter + ")";
                         break;
@@ -364,6 +414,14 @@ namespace G12_Robust_Software_Systems.Simulation
                         beltCounter += 1;
                     else if (index0.Equals("XRAY"))
                         xrayCounter += 1;
+                    else if (index0.Equals("BUFFER"))
+                        bufferCounter += 1;
+                    else if (index0.Equals("SORTINGMACHINE"))
+                        sortingCounter += 1;
+                    else if (index0.Equals("TRUCK"))
+                        truckCounter += 1;
+                    else if (index0.Equals("SPLITTER"))
+                        splitterCounter += 1;
                 }
                 counter += 1;
             }
@@ -395,10 +453,10 @@ namespace G12_Robust_Software_Systems.Simulation
                     if (lineSplit[1].Split('_')[0].Equals("plane"))
                         scenarioPlaneCounter += 1;
 
-                    if (lineSplit[0].Split('_')[0].Equals("belt") || lineSplit[0].Split('_')[0].Equals("x"))
+                    if (lineSplit[0].Split('_')[0].Equals("belt") || lineSplit[0].Split('_')[0].Equals("x") || lineSplit[0].Split('_')[0].Equals("buffer") || lineSplit[0].Split('_')[0].Equals("splitter") || lineSplit[0].Split('_')[0].Equals("sort") || lineSplit[0].Split('_')[0].Equals("truck"))
                         listA.Add(lineSplit[0]);
 
-                    if (lineSplit[1].Split('_')[0].Equals("belt") || lineSplit[1].Split('_')[0].Equals("x"))
+                    if (lineSplit[1].Split('_')[0].Equals("belt") || lineSplit[1].Split('_')[0].Equals("x") || lineSplit[1].Split('_')[0].Equals("buffer") || lineSplit[1].Split('_')[0].Equals("splitter") || lineSplit[1].Split('_')[0].Equals("sort") || lineSplit[1].Split('_')[0].Equals("truck"))
                         listB.Add(lineSplit[1]);
 
                 }
