@@ -62,7 +62,8 @@ namespace G12_Robust_Software_Systems
 
             foreach (IComponent component in list)
             {
-                text = component.name + "\t\t" + "bags: " + component.Count().ToString();
+                Tuple<int,int> tuple = component.InAndOutCounters();
+                text = component.name + "\t\t" + "Bags: " + component.Count().ToString() + "\tIn: " + tuple.Item1 + "\tOut: " + tuple.Item2;
                 Console.WriteLine(text);
             }
         }
