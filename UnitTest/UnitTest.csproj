@@ -50,20 +50,20 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ModelTests\AirplaneTest.cs" />
-    <Compile Include="ModelTests\BufferTest.cs" />
-    <Compile Include="ModelTests\CheckInCounterTest.cs" />
-    <Compile Include="ModelTests\ConveyorBeltSplitterTest.cs" />
-    <Compile Include="ModelTests\ConveyorBeltTest.cs" />
-    <Compile Include="ModelTests\LuggageBagTest.cs" />
+    <Compile Include="ModelTests\Component\AirplaneTest.cs" />
+    <Compile Include="ModelTests\Component\BufferTest.cs" />
+    <Compile Include="ModelTests\Component\CheckInCounterTest.cs" />
+    <Compile Include="ModelTests\Component\ConveyorBeltSplitterTest.cs" />
+    <Compile Include="ModelTests\Component\ConveyorBeltTest.cs" />
+    <Compile Include="ModelTests\Component\LuggageBagTest.cs" />
     <Compile Include="ModelTests\Problem\StopWorkingTest.cs" />
     <Compile Include="ModelTests\Problem\StuckTest.cs" />
-    <Compile Include="ModelTests\SortingMachineTest.cs" />
-    <Compile Include="ModelTests\TruckTest.cs" />
-    <Compile Include="ModelTests\XrayTest.cs" />
+    <Compile Include="ModelTests\Component\SortingMachineTest.cs" />
+    <Compile Include="ModelTests\Component\TruckTest.cs" />
+    <Compile Include="ModelTests\Component\XrayTest.cs" />
     <Compile Include="SimulationTests\FailureTest.cs" />
     <Compile Include="SimulationTests\BagDestinationTest.cs" />
-    <Compile Include="ModelTests\FIFOQueueTest.cs" />
+    <Compile Include="ModelTests\Component\FIFOQueueTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimulationTests\UnitTest1.cs" />
   </ItemGroup>
