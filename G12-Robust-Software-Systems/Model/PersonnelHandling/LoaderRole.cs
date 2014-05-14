@@ -8,6 +8,9 @@ namespace G12_Robust_Software_Systems.Model.PersonnelHandling
 {
     public class LoaderRole : IRole
     {
-
+        public bool Equals(IRole role)
+        {
+            return role.GetType() == typeof(LoaderRole);
+        }
     }
 }
