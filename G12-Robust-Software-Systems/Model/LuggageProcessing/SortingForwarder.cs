@@ -29,29 +29,29 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
             {
                 LuggageBag bag = luggageToForward[0];
                 luggageToForward.RemoveAt(0);
-                foreach (IComponent nextComponent in nextComponents){
-                    try
+                List<IComponent> possibleRoutes = new List<IComponent>();
+                // Find components with possible routes.
+                foreach (IComponent nextComponent in nextComponents)
+                {
+                    List<IComponent> sinks = nextComponent.getSinks().FindAll(x => x.Equals(bag.destination));
+                    if (sinks != null)
                     {
-                        List<IComponent> sinks = nextComponent.getSinks().FindAll(x => x.Equals(bag.destination));
-                        int min_luggage_in_sink = -1;
-                        IComponent min_sink = null;
-                        foreach (IComponent sink in sinks)
-                        {
-                            if (min_sink == null || sink.Count() < min_luggage_in_sink)
-                            {
-                                min_sink = sink;
-                                min_luggage_in_sink = sink.Count();
-                            }
-                        }
-                        min_sink.EnqueueLuggage(bag);
-                        this.LuggageCounter++;
-                        break;
-                    }
-                    catch (ArgumentNullException)
-                    {
-                        // Do nothing
+                        possibleRoutes.Add(nextComponent);
                     }
                 }
+                // Find the route with the least amount of luggage on.
+                int min_luggage_in_sink = -1;
+                IComponent min_sink = null;
+                foreach (IComponent sink in possibleRoutes)
+                {
+                    if (min_sink == null || sink.Count() < min_luggage_in_sink)
+                    {
+                        min_sink = sink;
+                        min_luggage_in_sink = sink.Count();
+                    }
+                }
+                min_sink.EnqueueLuggage(bag);
+                this.LuggageCounter++;
             }
         }
     }

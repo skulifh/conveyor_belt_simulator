@@ -23,7 +23,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         public Truck(int dequeueDeltaMiliSeconds, List<IProblem> problems, int id)
         {
             this.queue = new FIFOQueue();
-            this.name = "Truck number: " + id.ToString();
+            this.name = "Trucky number: " + id.ToString();
             this.enqueueBehaviour = new Receive(this.queue, dequeueDeltaMiliSeconds);
             this.initialized = false;
             this.problems = problems;
