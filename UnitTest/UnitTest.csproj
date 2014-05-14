@@ -50,13 +50,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ModelTests\PersonnelHandling\PersonnelTest.cs" />
-    <Compile Include="ModelTests\PersonnelHandling\PersonnelControllerTest.cs" />
     <Compile Include="ModelTests\Problem\StopWorkingTest.cs" />
     <Compile Include="ModelTests\Problem\StuckTest.cs" />
+    <Compile Include="ModelTests\Component\SortingMachineTest.cs" />
+    <Compile Include="ModelTests\Component\TruckTest.cs" />
+    <Compile Include="ModelTests\Component\XrayTest.cs" />
     <Compile Include="SimulationTests\FailureTest.cs" />
     <Compile Include="SimulationTests\BagDestinationTest.cs" />
-    <Compile Include="ModelTests\FIFOQueueTest.cs" />
+    <Compile Include="ModelTests\Component\FIFOQueueTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimulationTests\UnitTest1.cs" />
   </ItemGroup>
