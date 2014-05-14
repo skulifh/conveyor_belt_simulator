@@ -20,5 +20,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         Boolean initialized { get; }
 
         int Count();
+
+        Tuple<int, int> InAndOutCounters();
     }
 }
