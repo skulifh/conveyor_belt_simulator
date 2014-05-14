@@ -164,10 +164,13 @@ namespace G12_Robust_Software_Systems.Simulation
         public static double FailProbability(String component)
         {
             double result = -1;
+            System.IO.StreamReader file = new System.IO.StreamReader("../../../Files/probabilities.txt");
             while ((line = file.ReadLine()) != null)
             {
+                
                 if (line.Equals(component))
                 {
+                    
                     while ((line = file.ReadLine()) != null)
                     {
                         if (line.Trim().Length == 0)

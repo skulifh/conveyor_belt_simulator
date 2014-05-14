@@ -70,27 +70,31 @@ namespace G12_Robust_Software_Systems.Simulation
                         break;
 
                     case "BELT":
-                        belts.Add(new ConveyorBelt(time, new List<IProblem> { new Stuck(1, new PersonnelController(personnel)), new StopWorking(1) }, belts.Count));
+                        belts.Add(new ConveyorBelt(time, new List<IProblem> { new Stuck(Genpop.FailProbability("BELT"), new PersonnelController(personnel)), new StopWorking(Genpop.FailProbability("BELT")) }, belts.Count));
                         break;
 
                     case "XRAY":
-                        xrays.Add(new XRayMachine(time, new List<IProblem> { new Stuck(1, new PersonnelController(personnel)), new StopWorking(1) }, xrays.Count));
+                        xrays.Add(new XRayMachine(time, new List<IProblem> { new Stuck(Genpop.FailProbability("XRAY"), new PersonnelController(personnel)), new StopWorking(Genpop.FailProbability("XRAY")) }, xrays.Count));
                         break;
 
                     case "SPLITTER":
-                        splitters.Add(new ConveyorBeltSplitter(time, new List<IProblem> { new Stuck(1, new PersonnelController(personnel)), new StopWorking(1) }, splitters.Count));
+                        splitters.Add(new ConveyorBeltSplitter(time, new List<IProblem> { new Stuck(Genpop.FailProbability("SPLITTER"), new PersonnelController(personnel)), new StopWorking(Genpop.FailProbability("SPLITTER")) }, splitters.Count));
                         break;
 
                     case "AIRPLANE":
-                        airplanes.Add(new Airplane(new List<IProblem> { new Stuck(1, new PersonnelController(personnel)), new StopWorking(1) }, airplanes.Count));
+                        airplanes.Add(new Airplane(new List<IProblem> { new Stuck(Genpop.FailProbability("AIRPLANE"), new PersonnelController(personnel)), new StopWorking(Genpop.FailProbability("AIRPLANE")) }, airplanes.Count));
                         break;
 
                     case "TRUCK":
-                        trucks.Add(new Truck(time, new List<IProblem> { new Stuck(1, new PersonnelController(personnel)), new StopWorking(1) }, trucks.Count));
+                        trucks.Add(new Truck(time, new List<IProblem> { new Stuck(Genpop.FailProbability("TRUCK"), new PersonnelController(personnel)), new StopWorking(Genpop.FailProbability("TRUCK")) }, trucks.Count));
                         break;
 
                     case "SORTINGMACHINE":
-                        sortingmachines.Add(new SortingMachine(time, new List<IProblem> { new Stuck(1, new PersonnelController(personnel)), new StopWorking(1) }, sortingmachines.Count));
+                        sortingmachines.Add(new SortingMachine(time, new List<IProblem> { new Stuck(Genpop.FailProbability("SORTINGMACHINE"), new PersonnelController(personnel)), new StopWorking(Genpop.FailProbability("SORTINGMACHINE")) }, sortingmachines.Count));
+                        break;
+
+                    case "BUFFER":
+                        buffers.Add(new G12_Robust_Software_Systems.Model.Components.Buffer(time, new List<IProblem> { new Stuck(Genpop.FailProbability("BUFFER"), new PersonnelController(personnel)), new StopWorking(Genpop.FailProbability("BUFFER")) }, buffers.Count));
                         break;
 
                     case "ROUTING":
@@ -336,7 +340,7 @@ namespace G12_Robust_Software_Systems.Simulation
                 //System.Threading.Thread.Sleep(1000);
             }
 
-            checkins.Add(new CheckInCounter(luggageAndDequeueDelta, new List<IProblem> { new Stuck(1, new PersonnelController(personnel)), new StopWorking(1) }, index));
+            checkins.Add(new CheckInCounter(luggageAndDequeueDelta, new List<IProblem> { new Stuck(Genpop.FailProbability("CHECKIN"), new PersonnelController(personnel)), new StopWorking(Genpop.FailProbability("CHECKIN")) }, index));
 
         }
 
@@ -350,6 +354,7 @@ namespace G12_Robust_Software_Systems.Simulation
             list = list.Concat(this.splitters).ToList();
             list = list.Concat(this.trucks).ToList();
             list = list.Concat(this.sortingmachines).ToList();
+            list = list.Concat(this.buffers).ToList();
             return list;
         }
 
