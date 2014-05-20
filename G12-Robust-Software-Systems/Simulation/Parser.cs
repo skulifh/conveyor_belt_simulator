@@ -33,7 +33,12 @@ namespace G12_Robust_Software_Systems.Simulation
         {
             List<IRole> roles = new List<IRole> { new StuckLuggageRole(), new XRayRole(), new LoaderRole() };
 
-            List<Personnel> personnel = new List<Personnel> { new Personnel(0, roles) };
+            List<Personnel> personnel = new List<Personnel>();
+
+            for (int i = 0; i < 50; i++)
+            {
+                personnel.Add(new Personnel(i, roles));
+            }
       //      string path = "../../../Files/system.txt";
             System.IO.StreamReader file = new System.IO.StreamReader(testPath);
 
