@@ -27,30 +27,36 @@ namespace UnitTest.ModelTests.Problem
 
             s = new Stuck(-1, pc);
 
+            bool fail3 = false;
             try
             {
                 s.Fail();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                Assert.IsFalse(false);
+                if (e.GetType().FullName == "System.Diagnostics.Contracts.__ContractsRuntime+ContractException")
+                    fail3 = true;
             }
 
             s = new Stuck(101, pc);
 
+            bool fail4 = false;
             try
             {
                 s.Fail();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                Assert.IsFalse(false);
+                if (e.GetType().FullName == "System.Diagnostics.Contracts.__ContractsRuntime+ContractException")
+                    fail4 = true;
             }
 
             //s.HandleProblem();
 
             Assert.IsFalse(fail1);
             Assert.IsTrue(fail2);
+            Assert.IsTrue(fail3);
+            Assert.IsTrue(fail4);
         }
     }
 }
