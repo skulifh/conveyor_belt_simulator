@@ -25,6 +25,28 @@ namespace UnitTest.ModelTests.Problem
             s = new Stuck(100, pc);
             bool fail2 = s.Fail();
 
+            s = new Stuck(-1, pc);
+
+            try
+            {
+                s.Fail();
+            }
+            catch (Exception)
+            {
+                Assert.IsFalse(false);
+            }
+
+            s = new Stuck(101, pc);
+
+            try
+            {
+                s.Fail();
+            }
+            catch (Exception)
+            {
+                Assert.IsFalse(false);
+            }
+
             //s.HandleProblem();
 
             Assert.IsFalse(fail1);
