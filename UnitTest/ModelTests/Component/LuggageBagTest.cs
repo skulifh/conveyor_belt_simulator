@@ -17,6 +17,8 @@ namespace UnitTest.ModelTests
             IComponent c_destination = new Airplane(problems, id);
             LuggageBag lb = new LuggageBag(c_destination);
             Assert.AreEqual(lb.destination, c_destination);
+
+            Assert.AreEqual(c_destination.getSinks().Count, 1);
         }
     }
 }

@@ -22,6 +22,15 @@ namespace UnitTest.ModelTests
             Assert.AreEqual(truck.stuck, false);
             IComponent destination = truck;
             LuggageBag lb = new LuggageBag(destination);
+
+            try {
+                truck.getSinks();
+            }
+            catch (NullReferenceException)
+            {
+                Assert.IsTrue(false);
+            }
+
             /**
             // Check count() and enqueluggage with problem and without problem
             List<Personnel> plist = new List<Personnel>();

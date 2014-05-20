@@ -21,6 +21,15 @@ namespace UnitTest.ModelTests
             luggageAndDequeueDelta.Add(Tuple.Create(1, lb));
             CheckInCounter cic = new CheckInCounter(luggageAndDequeueDelta, problems, id);
             Assert.AreEqual(cic.name, "Check in number: "+id.ToString());
+
+            try { 
+                cic.getSinks();
+            }
+            catch (NullReferenceException)
+            {
+                Assert.IsTrue(false);
+            }
+
         }
     }
 }

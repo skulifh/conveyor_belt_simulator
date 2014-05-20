@@ -22,6 +22,8 @@ namespace UnitTest.ModelTests
             Assert.AreEqual(sm.stuck, false);
             IComponent destination = sm;
             LuggageBag lb = new LuggageBag(destination);
+
+            Assert.AreEqual(sm.getSinks().Count, 0);
             /**
             // Check count() and enqueluggage with problem and without problem
             List<Personnel> plist = new List<Personnel>();

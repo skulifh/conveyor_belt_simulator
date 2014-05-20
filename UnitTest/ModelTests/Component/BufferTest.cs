@@ -24,6 +24,14 @@ namespace UnitTest.ModelTests
             IComponent destination = buf;
             LuggageBag lb = new LuggageBag(destination);
 
+            try {
+                buf.getSinks();
+            }
+            catch (NullReferenceException)
+            {
+                Assert.IsTrue(false);
+            }
+
             /**
             // Check count() and enqueluggage with problem and without problem
             List<Personnel> plist = new List<Personnel>();

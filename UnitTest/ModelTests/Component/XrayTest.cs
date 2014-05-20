@@ -22,6 +22,14 @@ namespace UnitTest.ModelTests
             Assert.AreEqual(xray.stuck, false);
             IComponent destination = xray;
             LuggageBag lb = new LuggageBag(destination);
+
+            try {
+                xray.getSinks();
+            }
+            catch(NullReferenceException)
+            {
+                Assert.IsTrue(false);
+            }
             /**
             // Check count() and enqueluggage with problem and without problem
             List<Personnel> plist = new List<Personnel>();
