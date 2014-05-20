@@ -29,15 +29,15 @@ namespace G12_Robust_Software_Systems.Simulation
             Contract.Invariant(checkins.Count >0, "Checkin has to be greater than 0");
             Contract.Invariant(airplanes.Count > 0, "Airplanes has to be greater than 0");
         }
-        public Parser()
+        public Parser(String path)
         {
             List<IRole> roles = new List<IRole> { new StuckLuggageRole(), new XRayRole(), new LoaderRole() };
 
             List<Personnel> personnel = new List<Personnel> { new Personnel(0, roles) };
-            string path = "../../../Files/test.txt";
+      //      string path = "../../../Files/test.txt";
             System.IO.StreamReader file = new System.IO.StreamReader(path);
 
-            string val = validate();
+        //    string val = validate();
 
             string line;
             string[] lineSplit;
@@ -367,9 +367,9 @@ namespace G12_Robust_Software_Systems.Simulation
             return checkins;
         }
 
-        public static string validate()
+        public static string validate(String testPath, String probPath)
         {
-            System.IO.StreamReader file = new System.IO.StreamReader("../../../Files/test.txt");
+            System.IO.StreamReader file = new System.IO.StreamReader(testPath);
             string line;
             string results = "ok!";
             string index0;
@@ -486,7 +486,7 @@ namespace G12_Robust_Software_Systems.Simulation
             }
 
 
-            System.IO.StreamReader probfile = new System.IO.StreamReader("../../../Files/probabilities.txt");
+            System.IO.StreamReader probfile = new System.IO.StreamReader(probPath);
             string probline;
             String[] probLineSplit;
             int probCounter = 1;

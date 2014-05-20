@@ -24,9 +24,6 @@ namespace G12_Robust_Software_Systems
             Console.WriteLine(" 88   88 88   88 88 `8b88      88      88     d8888888b  88 `8b88 88 88   , \"\"");
             Console.WriteLine(" 88888P   `888P  88  `888      88      88     88     `8b 88  `888 88  `888P 88\n\n");
 
-            String result = Parser.validate();
-            Console.WriteLine(result);
-
             int scenarioNumber;
             Console.WriteLine("What scenario do you want to run? (Enter 1-3)");
             while (true)
@@ -39,13 +36,13 @@ namespace G12_Robust_Software_Systems
                 }
                 break;
             }
+            String finalPathTest;
+            String finalPathProb;
             
             Console.WriteLine("Enter path for the 'testX.txt' and 'probabilitiesX.txt' files (e.g. C:/Files/) or press Enter for the default path");
             while (true)
             {
                 string path = Console.ReadLine();
-                String finalPathTest;
-                String finalPathProb;
 
                 if (path.Equals(""))
                 {
@@ -73,10 +70,13 @@ namespace G12_Robust_Software_Systems
                 }
             }
 
+            String result = Parser.validate(finalPathTest, finalPathProb);
+            Console.WriteLine(result);
+
             Console.WriteLine("Initializing...");
 
             Program program = new Program();
-            Parser parser = new Parser();
+            Parser parser = new Parser(finalPathTest);
 
             Console.WriteLine("Initialization finished");
 
