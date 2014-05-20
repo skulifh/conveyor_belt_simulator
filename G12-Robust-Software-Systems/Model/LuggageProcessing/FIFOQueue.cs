@@ -34,7 +34,9 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
                 long now = DateTime.Now.Ticks;
                 // While there is elements in the queue, and the elements
                 // have been in the queue long enough for them to be dequeued.
-                while (this.queue.Count() > 0 && this.queue.ElementAt<Tuple<long, LuggageBag>>(0).Item1 <= now)
+                Tuple<long, LuggageBag> firstElem;
+                Boolean peek_successful = this.queue.TryPeek(out firstElem);
+                while (peek_successful && firstElem.Item1 <= now)
                 {
                     // Increment counter and remove element from queue.
                     Tuple<long, LuggageBag> dequeuedItem;
@@ -43,6 +45,7 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
                     {
                         departing_luggage.Add(dequeuedItem.Item2);
                     }
+                    peek_successful = this.queue.TryPeek(out firstElem);
                 }
             }
             return departing_luggage;
