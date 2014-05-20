@@ -4,6 +4,10 @@ DESTINATION
 
 50 50
 
+BAGS
+
+300 3
+-
 BELT
 
 0.001

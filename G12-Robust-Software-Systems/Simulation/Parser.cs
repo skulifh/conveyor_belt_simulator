@@ -332,9 +332,35 @@ namespace G12_Robust_Software_Systems.Simulation
 
         public void addCheckin(int time, int index, List<Personnel> personnel)
         {
+            string line = "";
+            String[] lineSplit = new String[2];
+
+            System.IO.StreamReader file = new System.IO.StreamReader("../../../Files/scenario.txt");
+            while ((line = file.ReadLine()) != null)
+            {
+
+                if (line.Equals("BAGS"))
+                {
+
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        if (line.Trim().Length == 0)
+                        {
+                            continue;
+                        }
+                        if (line.Equals("-"))
+                            break;
+                        lineSplit = line.Split(' ');
+                   }
+                    break;
+                }
+            }
+            int numberOfBags = Convert.ToInt32(lineSplit[0]);
+            int lambda = Convert.ToInt32(lineSplit[1]);
+
             Genpop gen = new Genpop();
             List<Tuple<int, LuggageBag>> luggageAndDequeueDelta = new List<Tuple<int, LuggageBag>>();
-            List<int> bags = Genpop.GetBags(300, 3);
+            List<int> bags = Genpop.GetBags(numberOfBags, lambda);
             int dest;
 
             foreach (int elem in bags)
@@ -512,7 +538,7 @@ namespace G12_Robust_Software_Systems.Simulation
                             probCounter += 1;
                             continue;
                         }
-                        if (probline.Equals("BELT"))
+                        if (probline.Equals("BAGS"))
                             break;
 
                         probLineSplit = probline.Split(' ');
@@ -523,6 +549,7 @@ namespace G12_Robust_Software_Systems.Simulation
                             breakOuter = true;
                             break;
                         }
+
                         for (int i = 0; i < probLineSplit.Length; i++)
                         {
                             if (!int.TryParse(probLineSplit[i], out probNumber))
@@ -538,6 +565,7 @@ namespace G12_Robust_Software_Systems.Simulation
                     }
                     if (breakOuter == true)
                         break;
+
                     if (probCheckinCounter != checkinCounter)
                     {
                         results = "The number of checkins in 'scenario.txt' are not the same as the number of CHECKINs";
