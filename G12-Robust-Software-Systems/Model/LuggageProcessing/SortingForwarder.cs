@@ -31,10 +31,10 @@ namespace G12_Robust_Software_Systems.Model.LuggageProcessing
                 luggageToForward.RemoveAt(0);
                 List<IComponent> possibleRoutes = new List<IComponent>();
                 // Find components with possible routes.
-                foreach (IComponent nextComponent in nextComponents)
+                foreach (IComponent nextComponent in this.nextComponents)
                 {
                     List<IComponent> sinks = nextComponent.getSinks().FindAll(x => x.Equals(bag.destination));
-                    if (sinks != null)
+                    if (sinks.Count > 0)
                     {
                         possibleRoutes.Add(nextComponent);
                     }
