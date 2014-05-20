@@ -11,7 +11,7 @@ namespace G12_Robust_Software_Systems.Simulation
     {
         static string line = "";
         public static Random random = new Random();
-        static System.IO.StreamReader file = new System.IO.StreamReader("../../../Files/probabilities.txt");
+        static System.IO.StreamReader file = new System.IO.StreamReader("../../../Files/probabilities1.txt");
 
 
         public Genpop()
@@ -164,7 +164,7 @@ namespace G12_Robust_Software_Systems.Simulation
         public static double FailProbability(String component)
         {
             double result = -1;
-            System.IO.StreamReader file = new System.IO.StreamReader("../../../Files/probabilities.txt");
+            System.IO.StreamReader file = new System.IO.StreamReader("../../../Files/probabilities1.txt");
             while ((line = file.ReadLine()) != null)
             {
                 

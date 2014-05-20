@@ -65,7 +65,7 @@ namespace G12_Robust_Software_Systems
                 }
                 else
                 {
-                    Console.WriteLine("Path is okey!");
+                    Console.WriteLine("Path is OK!");
                     break;
                 }
             }
@@ -76,7 +76,7 @@ namespace G12_Robust_Software_Systems
             Console.WriteLine("Initializing...");
 
             Program program = new Program();
-            Parser parser = new Parser(finalPathTest);
+            Parser parser = new Parser(finalPathTest, finalPathProb);
 
             Console.WriteLine("Initialization finished");
 

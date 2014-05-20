@@ -29,13 +29,13 @@ namespace G12_Robust_Software_Systems.Simulation
             Contract.Invariant(checkins.Count >0, "Checkin has to be greater than 0");
             Contract.Invariant(airplanes.Count > 0, "Airplanes has to be greater than 0");
         }
-        public Parser(String path)
+        public Parser(String testPath, String probPath)
         {
             List<IRole> roles = new List<IRole> { new StuckLuggageRole(), new XRayRole(), new LoaderRole() };
 
             List<Personnel> personnel = new List<Personnel> { new Personnel(0, roles) };
       //      string path = "../../../Files/test.txt";
-            System.IO.StreamReader file = new System.IO.StreamReader(path);
+            System.IO.StreamReader file = new System.IO.StreamReader(testPath);
 
         //    string val = validate();
 
