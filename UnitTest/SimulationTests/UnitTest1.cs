@@ -10,10 +10,10 @@ namespace UnitTest.SimulationTests
         [TestMethod]
         public void ParserTest1()
         {
-            int airplanesCount = 2;
-            int checkinsCount = 2;
-            int beltsCount = 4;
-            int xraysCount = 2;
+            int airplanesCount = 5;
+            int checkinsCount = 12;
+            int beltsCount = 9;
+            int xraysCount = 4;
 
             Parser parser = new Parser("../../../Files/system.txt", "../../../Files/scenario.txt");
             
