@@ -18,6 +18,8 @@ namespace G12_Robust_Software_Systems
                 Console.WriteLine(bag);
             }
             System.Threading.Thread.Sleep(10000);*/
+            Console.WindowHeight = 45;
+
             Console.WriteLine(" 88888b   d888b  888b  88 8P 888888    88888b    888     888b  88 88  d888b 88");
             Console.WriteLine(" 88   88 88   88 88`8b 88      88      88   88  88 88    88`8b 88 88 88   ` 88");
             Console.WriteLine(" 88   88 88   88 88 88 88      88      88888P  88   88   88 88 88 88 88     88");

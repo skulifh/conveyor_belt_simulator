@@ -334,7 +334,7 @@ namespace G12_Robust_Software_Systems.Simulation
         {
             Genpop gen = new Genpop();
             List<Tuple<int, LuggageBag>> luggageAndDequeueDelta = new List<Tuple<int, LuggageBag>>();
-            List<int> bags = Genpop.GetBags(300, 3);
+            List<int> bags = Genpop.GetBags(100, 1);
             int dest;
 
             foreach (int elem in bags)
