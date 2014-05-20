@@ -18,7 +18,17 @@ namespace UnitTest.ModelTests.Problem
             sw = new StopWorking(100);
             bool fail2 = sw.Fail();
 
-            //sw.HandleProblem();
+
+            sw = new StopWorking(101);
+            bool fail3;
+            try
+            {
+               fail3 = sw.Fail();
+            }
+            catch (Exception)
+            {
+                Assert.IsFalse(false);
+            }
 
             Assert.IsFalse(fail1);
             Assert.IsTrue(fail2);
