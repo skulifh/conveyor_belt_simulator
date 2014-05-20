@@ -22,7 +22,7 @@ namespace UnitTest.SimulationTests
 
             for (int i = 0; i < noOfRuns; i++)
             {
-                bool result = Genpop.Failure(trueRate);
+                bool result = Statistics.Failure(trueRate);
                 if (result == true)
                     trueCounter += 1;
                 if (result == false)
@@ -60,7 +60,7 @@ namespace UnitTest.SimulationTests
 
             for (int i = 0; i < noOfRuns; i++)
             {
-                bool result = Genpop.Failure(trueRate);
+                bool result = Statistics.Failure(trueRate);
                 if (result == true)
                     trueCounter += 1;
                 if (result == false)

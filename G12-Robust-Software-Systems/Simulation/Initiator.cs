@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace G12_Robust_Software_Systems.Simulation
 {
-    public class Parser
+    public class Initiator
     {
         //private double[,] routingMatrix;
         public List<CheckInCounter> checkins = new List<CheckInCounter>();
@@ -29,7 +29,7 @@ namespace G12_Robust_Software_Systems.Simulation
             Contract.Invariant(checkins.Count >0, "Checkin has to be greater than 0");
             Contract.Invariant(airplanes.Count > 0, "Airplanes has to be greater than 0");
         }
-        public Parser(String testPath, String probPath)
+        public Initiator(String testPath, String probPath)
         {
             List<IRole> roles = new List<IRole> { new StuckLuggageRole(), new XRayRole(), new LoaderRole() };
 
@@ -75,31 +75,31 @@ namespace G12_Robust_Software_Systems.Simulation
                         break;
 
                     case "BELT":
-                        belts.Add(new ConveyorBelt(time, new List<IProblem> { new Stuck(Genpop.FailProbability("BELT"), new PersonnelController(personnel)), new StopWorking(Genpop.FailProbability("BELT")) }, belts.Count));
+                        belts.Add(new ConveyorBelt(time, new List<IProblem> { new Stuck(Statistics.FailProbability("BELT"), new PersonnelController(personnel)), new StopWorking(Statistics.FailProbability("BELT")) }, belts.Count));
                         break;
 
                     case "XRAY":
-                        xrays.Add(new XRayMachine(time, new List<IProblem> { new Stuck(Genpop.FailProbability("XRAY"), new PersonnelController(personnel)), new StopWorking(Genpop.FailProbability("XRAY")) }, xrays.Count));
+                        xrays.Add(new XRayMachine(time, new List<IProblem> { new Stuck(Statistics.FailProbability("XRAY"), new PersonnelController(personnel)), new StopWorking(Statistics.FailProbability("XRAY")) }, xrays.Count));
                         break;
 
                     case "SPLITTER":
-                        splitters.Add(new ConveyorBeltSplitter(time, new List<IProblem> { new Stuck(Genpop.FailProbability("SPLITTER"), new PersonnelController(personnel)), new StopWorking(Genpop.FailProbability("SPLITTER")) }, splitters.Count));
+                        splitters.Add(new ConveyorBeltSplitter(time, new List<IProblem> { new Stuck(Statistics.FailProbability("SPLITTER"), new PersonnelController(personnel)), new StopWorking(Statistics.FailProbability("SPLITTER")) }, splitters.Count));
                         break;
 
                     case "AIRPLANE":
-                        airplanes.Add(new Airplane(new List<IProblem> { new Stuck(Genpop.FailProbability("AIRPLANE"), new PersonnelController(personnel)), new StopWorking(Genpop.FailProbability("AIRPLANE")) }, airplanes.Count));
+                        airplanes.Add(new Airplane(new List<IProblem> { new Stuck(Statistics.FailProbability("AIRPLANE"), new PersonnelController(personnel)), new StopWorking(Statistics.FailProbability("AIRPLANE")) }, airplanes.Count));
                         break;
 
                     case "TRUCK":
-                        trucks.Add(new Truck(time, new List<IProblem> { new Stuck(Genpop.FailProbability("TRUCK"), new PersonnelController(personnel)), new StopWorking(Genpop.FailProbability("TRUCK")) }, trucks.Count));
+                        trucks.Add(new Truck(time, new List<IProblem> { new Stuck(Statistics.FailProbability("TRUCK"), new PersonnelController(personnel)), new StopWorking(Statistics.FailProbability("TRUCK")) }, trucks.Count));
                         break;
 
                     case "SORTINGMACHINE":
-                        sortingmachines.Add(new SortingMachine(time, new List<IProblem> { new Stuck(Genpop.FailProbability("SORTINGMACHINE"), new PersonnelController(personnel)), new StopWorking(Genpop.FailProbability("SORTINGMACHINE")) }, sortingmachines.Count));
+                        sortingmachines.Add(new SortingMachine(time, new List<IProblem> { new Stuck(Statistics.FailProbability("SORTINGMACHINE"), new PersonnelController(personnel)), new StopWorking(Statistics.FailProbability("SORTINGMACHINE")) }, sortingmachines.Count));
                         break;
 
                     case "BUFFER":
-                        buffers.Add(new G12_Robust_Software_Systems.Model.Components.Buffer(time, new List<IProblem> { new Stuck(Genpop.FailProbability("BUFFER"), new PersonnelController(personnel)), new StopWorking(Genpop.FailProbability("BUFFER")) }, buffers.Count));
+                        buffers.Add(new G12_Robust_Software_Systems.Model.Components.Buffer(time, new List<IProblem> { new Stuck(Statistics.FailProbability("BUFFER"), new PersonnelController(personnel)), new StopWorking(Statistics.FailProbability("BUFFER")) }, buffers.Count));
                         break;
 
                     case "ROUTING":
@@ -363,19 +363,19 @@ namespace G12_Robust_Software_Systems.Simulation
             int numberOfBags = Convert.ToInt32(lineSplit[0]);
             int lambda = Convert.ToInt32(lineSplit[1]);
 
-            Genpop gen = new Genpop();
+            Statistics gen = new Statistics();
             List<Tuple<int, LuggageBag>> luggageAndDequeueDelta = new List<Tuple<int, LuggageBag>>();
-            List<int> bags = Genpop.GetBags(numberOfBags, lambda);
+            List<int> bags = Statistics.GetBags(numberOfBags, lambda);
             int dest;
 
             foreach (int elem in bags)
             {
-                dest = Genpop.Runner(index);
+                dest = Statistics.Runner(index);
                 luggageAndDequeueDelta.Add(new Tuple<int, LuggageBag>(elem, new LuggageBag(airplanes[dest])));
                 //System.Threading.Thread.Sleep(1000);
             }
 
-            checkins.Add(new CheckInCounter(luggageAndDequeueDelta, new List<IProblem> { new Stuck(Genpop.FailProbability("CHECKIN"), new PersonnelController(personnel)), new StopWorking(Genpop.FailProbability("CHECKIN")) }, index));
+            checkins.Add(new CheckInCounter(luggageAndDequeueDelta, new List<IProblem> { new Stuck(Statistics.FailProbability("CHECKIN"), new PersonnelController(personnel)), new StopWorking(Statistics.FailProbability("CHECKIN")) }, index));
 
         }
 

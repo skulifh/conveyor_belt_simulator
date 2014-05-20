@@ -19,7 +19,7 @@ namespace UnitTest.SimulationTests
 
             for (int i = 0; i < noOfRuns; i++)
             {
-                int result = Genpop.Destination(0,likelyhoodVector);
+                int result = Statistics.Destination(0,likelyhoodVector);
                 if (result == 0)
                     counter0 += 1;
                 if (result == 1)
@@ -59,7 +59,7 @@ namespace UnitTest.SimulationTests
 
             for (int i = 0; i < noOfRuns; i++)
             {
-                int result = Genpop.Destination(1, likelyhoodVector);
+                int result = Statistics.Destination(1, likelyhoodVector);
                 if (result == 0)
                     counter0 += 1;
                 if (result == 1)
@@ -98,7 +98,7 @@ namespace UnitTest.SimulationTests
 
             for (int i = 0; i < noOfRuns; i++)
             {
-                int result = Genpop.Destination(2, likelyhoodVector);
+                int result = Statistics.Destination(2, likelyhoodVector);
                 if (result == 0)
                     counter0 += 1;
                 if (result == 1)

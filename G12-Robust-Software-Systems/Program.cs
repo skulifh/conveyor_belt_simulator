@@ -62,13 +62,13 @@ namespace G12_Robust_Software_Systems
                 }
             }
 
-            String result = Parser.validate(finalPathTest, finalPathProb);
+            String result = Initiator.validate(finalPathTest, finalPathProb);
             Console.WriteLine(result);
 
             Console.WriteLine("Initializing...");
 
             Program program = new Program();
-            Parser parser = new Parser(finalPathTest, finalPathProb);
+            Initiator parser = new Initiator(finalPathTest, finalPathProb);
 
             Console.WriteLine("Initialization finished");
 
