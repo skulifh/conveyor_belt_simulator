@@ -23,7 +23,40 @@ namespace G12_Robust_Software_Systems
             Console.WriteLine(" 88   88 88   88 88 88 88      88      88888P  88   88   88 88 88 88 88     88");
             Console.WriteLine(" 88   88 88   88 88 `8b88      88      88     d8888888b  88 `8b88 88 88   , \"\"");
             Console.WriteLine(" 88888P   `888P  88  `888      88      88     88     `8b 88  `888 88  `888P 88\n\n");
-            
+
+            Console.WriteLine("Enter path for the 'test.txt' and 'probabilities.txt' files (e.g. C:/Files/) or press Enter for the default path"); // Prompt
+            while (true)
+            {
+                string path = Console.ReadLine();
+                String finalPathTest;
+                String finalPathProb;
+
+                if (path.Equals(""))
+                {
+                    path = "../../../Files/";
+                }
+
+                finalPathTest = path + "test.txt";
+                finalPathProb = path + "probabilities.txt";
+
+                if (!System.IO.File.Exists(finalPathTest))
+                {
+                    Console.WriteLine("test.txt does not exist in the specified path");
+                    continue;
+                }
+
+                else if (!System.IO.File.Exists(finalPathProb))
+                {
+                    Console.WriteLine("probabilities.txt does not exist in the specified path");
+                    continue;
+                }
+                else
+                {
+                    Console.WriteLine("Path is okey!");
+                    break;
+                }
+            }
+
             Console.WriteLine("Initializing...");
 
             Program program = new Program();
