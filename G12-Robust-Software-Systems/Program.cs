@@ -26,22 +26,11 @@ namespace G12_Robust_Software_Systems
             Console.WriteLine(" 88   88 88   88 88 `8b88      88      88     d8888888b  88 `8b88 88 88   , \"\"");
             Console.WriteLine(" 88888P   `888P  88  `888      88      88     88     `8b 88  `888 88  `888P 88\n\n");
 
-            int scenarioNumber;
-            Console.WriteLine("What scenario do you want to run? (Enter 1-3)");
-            while (true)
-            {
-                scenarioNumber = Convert.ToInt32(Console.ReadLine());
-                if(scenarioNumber != 1 & scenarioNumber != 2 & scenarioNumber != 3)
-                {
-                    Console.WriteLine(scenarioNumber+ "You did not enter a number between 1 and 3, try again. \n");
-                    continue;
-                }
-                break;
-            }
+
             String finalPathTest;
             String finalPathProb;
             
-            Console.WriteLine("Enter path for the 'testX.txt' and 'probabilitiesX.txt' files (e.g. C:/Files/) or press Enter for the default path");
+            Console.WriteLine("Enter path for the 'system.txt' and 'scenario.txt' files (e.g. C:/Files/) or press Enter for the default path");
             while (true)
             {
                 string path = Console.ReadLine();
@@ -51,18 +40,18 @@ namespace G12_Robust_Software_Systems
                     path = "../../../Files/";
                 }
 
-                finalPathTest = path + "test" + scenarioNumber + ".txt";
-                finalPathProb = path + "probabilities" + scenarioNumber + ".txt";
+                finalPathTest = path + "system.txt";
+                finalPathProb = path + "scenario.txt";
 
                 if (!System.IO.File.Exists(finalPathTest))
                 {
-                    Console.WriteLine("test.txt does not exist in the specified path");
+                    Console.WriteLine("system.txt does not exist in the specified path");
                     continue;
                 }
 
                 else if (!System.IO.File.Exists(finalPathProb))
                 {
-                    Console.WriteLine("probabilities.txt does not exist in the specified path");
+                    Console.WriteLine("scenario.txt does not exist in the specified path");
                     continue;
                 }
                 else
