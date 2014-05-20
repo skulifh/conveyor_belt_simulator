@@ -34,7 +34,7 @@ namespace G12_Robust_Software_Systems.Simulation
             List<IRole> roles = new List<IRole> { new StuckLuggageRole(), new XRayRole(), new LoaderRole() };
 
             List<Personnel> personnel = new List<Personnel> { new Personnel(0, roles) };
-      //      string path = "../../../Files/test.txt";
+      //      string path = "../../../Files/system.txt";
             System.IO.StreamReader file = new System.IO.StreamReader(testPath);
 
         //    string val = validate();
@@ -371,7 +371,7 @@ namespace G12_Robust_Software_Systems.Simulation
         {
             System.IO.StreamReader file = new System.IO.StreamReader(testPath);
             string line;
-            string results = "ok!";
+            string results = "Validation complete!";
             string index0;
             string index2;
             string[] lineSplit;
@@ -519,7 +519,7 @@ namespace G12_Robust_Software_Systems.Simulation
 
                         if (probLineSplit.Length != airplaneCounter)
                         {
-                            results = "The number of destinations in 'probabilities.txt' are not the same as the number of airplanes";
+                            results = "The number of destinations in 'scenario.txt' are not the same as the number of airplanes";
                             breakOuter = true;
                             break;
                         }
@@ -540,7 +540,7 @@ namespace G12_Robust_Software_Systems.Simulation
                         break;
                     if (probCheckinCounter != checkinCounter)
                     {
-                        results = "The number of checkins in 'probabilities.txt' are not the same as the number of CHECKINs";
+                        results = "The number of checkins in 'scenario.txt' are not the same as the number of CHECKINs";
                         break;
                     }
                 }
