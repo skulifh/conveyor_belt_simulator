@@ -18,20 +18,36 @@ namespace UnitTest.ModelTests.Problem
             sw = new StopWorking(100);
             bool fail2 = sw.Fail();
 
+            sw = new StopWorking(-1);
 
-            sw = new StopWorking(101);
-            bool fail3;
+            bool fail3 = false;
             try
             {
-               fail3 = sw.Fail();
+                sw.Fail();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                Assert.IsFalse(false);
+                if (e.GetType().FullName == "System.Diagnostics.Contracts.__ContractsRuntime+ContractException")
+                    fail3 = true;
+            }
+
+            sw = new StopWorking(101);
+
+            bool fail4 = false;
+            try
+            {
+                sw.Fail();
+            }
+            catch (Exception e)
+            {
+                if (e.GetType().FullName == "System.Diagnostics.Contracts.__ContractsRuntime+ContractException")
+                    fail4 = true;
             }
 
             Assert.IsFalse(fail1);
             Assert.IsTrue(fail2);
+            Assert.IsTrue(fail3);
+            Assert.IsTrue(fail4);
         }
     }
 }
