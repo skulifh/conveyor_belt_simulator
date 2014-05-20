@@ -15,7 +15,7 @@ namespace UnitTest.SimulationTests
             int beltsCount = 9;
             int xraysCount = 4;
 
-            Parser parser = new Parser("../../../Files/system.txt", "../../../Files/scenario.txt");
+            Initiator parser = new Initiator("../../../Files/system.txt", "../../../Files/scenario.txt");
             
             int trueAirplanesCount = parser.airplanes.Count;
             int trueCheckinsCount = parser.checkins.Count;

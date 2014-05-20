@@ -108,8 +108,8 @@
     <Compile Include="Model\Problem\Stuck.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Simulation\Genpop.cs" />
-    <Compile Include="Simulation\Parser.cs" />
+    <Compile Include="Simulation\Statistics.cs" />
+    <Compile Include="Simulation\Initiator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

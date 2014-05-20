@@ -23,7 +23,7 @@ namespace G12_Robust_Software_Systems.Model
         }
         public bool Fail()
         {
-            return Simulation.Genpop.Failure(stuck_constant);
+            return Simulation.Statistics.Failure(stuck_constant);
         }
 
         public void HandleProblem()

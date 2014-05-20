@@ -7,14 +7,14 @@ using System.Diagnostics.Contracts;
 
 namespace G12_Robust_Software_Systems.Simulation
 {
-    public class Genpop
+    public class Statistics
     {
         static string line = "";
         public static Random random = new Random();
         static System.IO.StreamReader file = new System.IO.StreamReader("../../../Files/scenario.txt");
 
 
-        public Genpop()
+        public Statistics()
         {
             
         }
@@ -56,10 +56,10 @@ namespace G12_Robust_Software_Systems.Simulation
             List<int> bags = new List<int>();
             int tala;
             int sum = 0;
-            Genpop bla = new Genpop();
+            Statistics bla = new Statistics();
             while (sum < time)
             {
-                tala = Genpop.GetPoisson(lambda);
+                tala = Statistics.GetPoisson(lambda);
                 sum += tala;
                 bags.Add(sum);
                 System.Threading.Thread.Sleep(100);
