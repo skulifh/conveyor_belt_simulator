@@ -25,10 +25,24 @@ namespace UnitTest.ModelTests.PersonnelHandling
             p1.remove_role(new LoaderRole());
             p1.add_role(loaderrole);
             bool pass3 = roles == p1.get_roles();
+            
+            bool fail1 = false;
+            try
+            {
+                p1.add_role(new LoaderRole());
+            }
+            catch (Exception e)
+            {
+                if (e.GetType().FullName == "System.Diagnostics.Contracts.__ContractsRuntime+ContractException")
+                    fail1 = true;
+                
+            }
+            
 
             Assert.IsTrue(pass1);
             Assert.IsTrue(pass2);
             Assert.IsTrue(pass3);
+            Assert.IsTrue(fail1);
         }
 
         [TestMethod]

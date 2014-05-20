@@ -25,7 +25,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         {
             this.sinks = new List<IComponent>();
             this.queue = new FIFOQueue();
-            this.name = "Conveyor belt splitter number: " + id.ToString();
+            this.name = "Splitter number: " + id.ToString();
             this.enqueueBehaviour = new Receive(this.queue, dequeueDeltaMiliSeconds);
             this.initialized = false;
             this.initialized_thread = false;
