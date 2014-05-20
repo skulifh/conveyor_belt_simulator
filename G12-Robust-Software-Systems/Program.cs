@@ -24,6 +24,9 @@ namespace G12_Robust_Software_Systems
             Console.WriteLine(" 88   88 88   88 88 `8b88      88      88     d8888888b  88 `8b88 88 88   , \"\"");
             Console.WriteLine(" 88888P   `888P  88  `888      88      88     88     `8b 88  `888 88  `888P 88\n\n");
 
+            String result = Parser.validate();
+            Console.WriteLine(result);
+
             int scenarioNumber;
             Console.WriteLine("What scenario do you want to run? (Enter 1-3)");
             while (true)
