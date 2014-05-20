@@ -23,13 +23,16 @@ namespace UnitTest.ModelTests
             IComponent destination = xray;
             LuggageBag lb = new LuggageBag(destination);
 
+            bool fail1 = true;
             try {
                 xray.getSinks();
             }
-            catch(NullReferenceException)
+            catch (Exception e)
             {
-                Assert.IsTrue(false);
+                if (e.GetType().FullName == "System.Diagnostics.Contracts.__ContractsRuntime+ContractException")
+                    fail1 = false;
             }
+            Assert.IsTrue(fail1);
             /**
             // Check count() and enqueluggage with problem and without problem
             List<Personnel> plist = new List<Personnel>();

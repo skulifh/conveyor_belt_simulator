@@ -21,14 +21,17 @@ namespace UnitTest.ModelTests
             luggageAndDequeueDelta.Add(Tuple.Create(1, lb));
             CheckInCounter cic = new CheckInCounter(luggageAndDequeueDelta, problems, id);
             Assert.AreEqual(cic.name, "Check in number: "+id.ToString());
-
+            
+            bool fail1 = true;
             try { 
                 cic.getSinks();
             }
-            catch (NullReferenceException)
+            catch (Exception e)
             {
-                Assert.IsTrue(false);
+                if (e.GetType().FullName == "System.Diagnostics.Contracts.__ContractsRuntime+ContractException")
+                    fail1 = false;
             }
+            Assert.IsTrue(fail1);
 
         }
     }
