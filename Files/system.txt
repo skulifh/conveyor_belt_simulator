@@ -1,0 +1,96 @@
+INIT
+
+AIRPLANE plane_0 100
+AIRPLANE plane_1 100
+AIRPLANE plane_2 100
+AIRPLANE plane_3 100
+AIRPLANE plane_4 100
+
+CHECKIN check_0 100
+CHECKIN check_1 100
+CHECKIN check_2 100
+CHECKIN check_3 100
+CHECKIN check_4 100
+CHECKIN check_5 100
+CHECKIN check_6 100
+CHECKIN check_7 100
+CHECKIN check_8 100
+CHECKIN check_9 100
+CHECKIN check_10 100
+CHECKIN check_11 100
+
+XRAY x_0 100
+XRAY x_1 100
+XRAY x_2 100
+XRAY x_3 100
+
+SPLITTER splitter_0 100
+SPLITTER splitter_1 100
+
+BELT belt_0 100
+BELT belt_1 100
+BELT belt_2 100
+BELT belt_3 100
+BELT belt_4 100
+BELT belt_5 100
+BELT belt_6 100
+BELT belt_7 100
+BELT belt_8 100
+
+TRUCK truck_0 100
+TRUCK truck_1 100
+TRUCK truck_2 100
+
+SORTINGMACHINE sort_0 100
+
+BUFFER buffer_0 100
+BUFFER buffer_1 100
+BUFFER buffer_2 100
+
+ROUTING
+
+check_0,belt_0
+check_1,belt_0
+check_2,belt_0
+check_3,belt_1
+check_4,belt_1
+check_5,belt_1
+check_6,belt_2
+check_7,belt_2
+check_8,belt_2
+check_9,belt_3
+check_10,belt_3
+check_11,belt_3
+belt_0,x_0
+belt_1,x_1
+belt_2,x_2
+belt_3,x_3
+x_0,belt_4
+x_1,belt_4
+x_2,belt_5
+x_3,belt_5
+belt_4,sort_0
+belt_5,sort_0
+
+sort_0,splitter_0
+splitter_0,belt_7
+belt_7,plane_1
+splitter_0,belt_8
+belt_8,plane_0
+
+sort_0,belt_6
+belt_6,splitter_1
+splitter_1,buffer_1
+buffer_1,truck_0
+truck_0,plane_2
+splitter_1,buffer_2
+buffer_2,truck_1
+truck_1,plane_3
+
+sort_0,buffer_0
+buffer_0,truck_2
+truck_2,plane_4
+
+
+
+END

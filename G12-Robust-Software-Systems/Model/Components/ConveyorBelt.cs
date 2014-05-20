@@ -23,7 +23,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         public ConveyorBelt(int dequeueDeltaMiliSeconds, List<IProblem> problems, int id)
         {
             this.queue = new FIFOQueue();
-            this.name = "Conveyor belt number:" + id.ToString();
+            this.name = "Conveyor belt number: " + id.ToString();
             this.enqueueBehaviour = new Receive(this.queue, dequeueDeltaMiliSeconds);
             this.initialized = false;
             this.initialized_thread = false;
