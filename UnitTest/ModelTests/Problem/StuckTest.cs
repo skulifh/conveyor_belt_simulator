@@ -25,11 +25,11 @@ namespace UnitTest.ModelTests.Problem
             s = new Stuck(100, pc);
             bool fail2 = s.Fail();
 
-            s = new Stuck(-1, pc);
-
+            
             bool fail3 = false;
             try
             {
+                s = new Stuck(-1, pc);
                 s.Fail();
             }
             catch (Exception e)
@@ -38,11 +38,11 @@ namespace UnitTest.ModelTests.Problem
                     fail3 = true;
             }
 
-            s = new Stuck(101, pc);
 
             bool fail4 = false;
             try
             {
+                s = new Stuck(101, pc);
                 s.Fail();
             }
             catch (Exception e)
