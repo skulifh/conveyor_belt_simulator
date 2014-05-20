@@ -17,7 +17,7 @@ namespace UnitTest.ModelTests
             int id = 0;
             List<IProblem> problems = new List<IProblem>();
             Truck truck = new Truck(dequeueDeltaMiliSeconds, problems, id);
-            Assert.AreEqual(truck.name, "Truck number: " + id.ToString());
+            Assert.AreEqual(truck.name, "Trucky number: " + id.ToString());
 
             Assert.AreEqual(truck.stuck, false);
             IComponent destination = truck;

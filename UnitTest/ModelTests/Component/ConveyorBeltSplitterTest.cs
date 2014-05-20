@@ -22,7 +22,7 @@ namespace UnitTest.ModelTests
             Assert.AreEqual(cbs.stuck, false);
             IComponent destination = cbs;
             LuggageBag lb = new LuggageBag(destination);
-            /**
+            
             // Check count() and enqueluggage with problem and without problem
             List<Personnel> plist = new List<Personnel>();
             List<IRole> roles = new List<IRole>();
@@ -34,6 +34,7 @@ namespace UnitTest.ModelTests
             Stuck s = new Stuck(0, pc);
             problems.Add(s);
             cbs.EnqueueLuggage(lb);
+            /**
             Assert.AreEqual(1,cbs.Count());
 
             s = new Stuck(100, pc);

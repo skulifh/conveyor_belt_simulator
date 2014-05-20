@@ -5,6 +5,7 @@ using G12_Robust_Software_Systems.Model;
 using System.Collections.Generic;
 using G12_Robust_Software_Systems.Model.LuggageProcessing;
 using G12_Robust_Software_Systems.Model.PersonnelHandling;
+using System.Threading;
 
 namespace UnitTest.ModelTests
 {
@@ -37,7 +38,8 @@ namespace UnitTest.ModelTests
             Stuck s = new Stuck(0, pc);
             problems.Add(s);
             ap.EnqueueLuggage(lb);
-            Assert.AreEqual(1, ap.Count());
+            Thread.Sleep(1000);
+            Assert.AreEqual(0, ap.Count());
 
             s = new Stuck(100, pc);
             problems.Add(s);

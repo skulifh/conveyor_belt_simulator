@@ -17,7 +17,7 @@ namespace UnitTest.ModelTests
             int id = 0;
             List<IProblem> problems = new List<IProblem>();
             SortingMachine sm = new SortingMachine(dequeueDeltaMiliSeconds, problems, id);
-            Assert.AreEqual(sm.name, "Sorting machine number: " + id.ToString());
+            Assert.AreEqual(sm.name, "Sorting m. number: " + id.ToString());
 
             Assert.AreEqual(sm.stuck, false);
             IComponent destination = sm;
