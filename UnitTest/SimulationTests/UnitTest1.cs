@@ -15,7 +15,7 @@ namespace UnitTest.SimulationTests
             int beltsCount = 4;
             int xraysCount = 2;
 
-            Parser parser = new Parser();
+            Parser parser = new Parser("","");
             
             int trueAirplanesCount = parser.airplanes.Count;
             int trueCheckinsCount = parser.checkins.Count;
