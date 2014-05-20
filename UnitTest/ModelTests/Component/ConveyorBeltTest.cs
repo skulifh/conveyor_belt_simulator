@@ -17,19 +17,22 @@ namespace UnitTest.ModelTests
             int id = 0;
             List<IProblem> problems = new List<IProblem>();
             ConveyorBelt cb = new ConveyorBelt(dequeueDeltaMiliSeconds, problems, id);
-            Assert.AreEqual(cb.name, "Conveyor belt number:" + id.ToString());
+            Assert.AreEqual(cb.name, "Conveyor number: " + id.ToString());
 
             Assert.AreEqual(cb.stuck, false);
             IComponent destination = cb;
             LuggageBag lb = new LuggageBag(destination);
 
+            bool fail1 = true;
             try {
                 cb.getSinks();
             }
-            catch (NullReferenceException)
+            catch (Exception e)
             {
-                Assert.IsTrue(false);
+                if (e.GetType().FullName == "System.Diagnostics.Contracts.__ContractsRuntime+ContractException")
+                    fail1 = false;
             }
+            Assert.IsTrue(fail1);
 
 
             /**

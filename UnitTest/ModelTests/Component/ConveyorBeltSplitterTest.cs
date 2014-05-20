@@ -17,7 +17,7 @@ namespace UnitTest.ModelTests
             int id = 0;
             List<IProblem> problems = new List<IProblem>();
             ConveyorBeltSplitter cbs = new ConveyorBeltSplitter(dequeueDeltaMiliSeconds, problems, id);
-            Assert.AreEqual(cbs.name, "Conveyor belt splitter number: " + id.ToString());
+            Assert.AreEqual(cbs.name, "Splitter number: " + id.ToString());
 
             Assert.AreEqual(cbs.stuck, false);
             IComponent destination = cbs;
@@ -36,6 +36,18 @@ namespace UnitTest.ModelTests
             Stuck s = new Stuck(0, pc);
             problems.Add(s);
             cbs.EnqueueLuggage(lb);
+
+            bool fail1 = true;
+            try
+            {
+                cbs.getSinks();
+            }
+            catch (Exception e)
+            {
+                if (e.GetType().FullName == "System.Diagnostics.Contracts.__ContractsRuntime+ContractException")
+                    fail1 = false;
+            }
+            Assert.IsTrue(fail1);
             /**
             Assert.AreEqual(1,cbs.Count());
 

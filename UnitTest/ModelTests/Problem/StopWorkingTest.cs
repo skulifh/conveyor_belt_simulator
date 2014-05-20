@@ -18,11 +18,11 @@ namespace UnitTest.ModelTests.Problem
             sw = new StopWorking(100);
             bool fail2 = sw.Fail();
 
-            sw = new StopWorking(-1);
-
+            
             bool fail3 = false;
             try
             {
+                sw = new StopWorking(-1);
                 sw.Fail();
             }
             catch (Exception e)
@@ -31,11 +31,11 @@ namespace UnitTest.ModelTests.Problem
                     fail3 = true;
             }
 
-            sw = new StopWorking(101);
-
+            
             bool fail4 = false;
             try
             {
+                sw = new StopWorking(101);
                 sw.Fail();
             }
             catch (Exception e)
