@@ -17,6 +17,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         public Boolean initialized { get; private set; }
         public String name { get; private set; }
         private List<IComponent> sinks;
+        private List<IComponent> allSinks;
         private List<IProblem> problems;
         private Boolean initialized_thread;
         public Boolean stuck { get; private set; }
@@ -30,6 +31,7 @@ namespace G12_Robust_Software_Systems.Model.Components
             this.initialized_thread = false;
             this.problems = problems;
             this.stuck = false;
+            this.allSinks = null;
         }
         public void EnqueueLuggage(LuggageBag luggage)
         {
@@ -79,13 +81,18 @@ namespace G12_Robust_Software_Systems.Model.Components
 
         public List<IComponent> getSinks()
         {
-            // Merge getsinks from other components.
-            List<IComponent> allSinks = new List<IComponent>();
-            foreach (IComponent sink in this.sinks)
+            if (this.allSinks == null)
             {
-                allSinks.Concat(sink.getSinks());
+                // Merge getsinks from other components.
+                List<IComponent> allSinks = new List<IComponent>();
+                foreach (IComponent sink in this.sinks)
+                {
+                    allSinks.AddRange(sink.getSinks());
+                }
+                this.allSinks = allSinks;
+                return allSinks;
             }
-            return allSinks;
+            return this.allSinks;
         }
 
         public int Count()

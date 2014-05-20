@@ -24,20 +24,33 @@ namespace G12_Robust_Software_Systems
             Console.WriteLine(" 88   88 88   88 88 `8b88      88      88     d8888888b  88 `8b88 88 88   , \"\"");
             Console.WriteLine(" 88888P   `888P  88  `888      88      88     88     `8b 88  `888 88  `888P 88\n\n");
 
-            Console.WriteLine("Enter path for the 'test.txt' and 'probabilities.txt' files (e.g. C:/Files/) or press Enter for the default path"); // Prompt
+            int scenarioNumber;
+            Console.WriteLine("What scenario do you want to run? (Enter 1-3)");
+            while (true)
+            {
+                scenarioNumber = Convert.ToInt32(Console.ReadLine());
+                if(scenarioNumber != 1 & scenarioNumber != 2 & scenarioNumber != 3)
+                {
+                    Console.WriteLine(scenarioNumber+ "You did not enter a number between 1 and 3, try again. \n");
+                    continue;
+                }
+                break;
+            }
+            String finalPathTest;
+            String finalPathProb;
+            
+            Console.WriteLine("Enter path for the 'testX.txt' and 'probabilitiesX.txt' files (e.g. C:/Files/) or press Enter for the default path");
             while (true)
             {
                 string path = Console.ReadLine();
-                String finalPathTest;
-                String finalPathProb;
 
                 if (path.Equals(""))
                 {
                     path = "../../../Files/";
                 }
 
-                finalPathTest = path + "test.txt";
-                finalPathProb = path + "probabilities.txt";
+                finalPathTest = path + "test" + scenarioNumber + ".txt";
+                finalPathProb = path + "probabilities" + scenarioNumber + ".txt";
 
                 if (!System.IO.File.Exists(finalPathTest))
                 {
@@ -52,15 +65,18 @@ namespace G12_Robust_Software_Systems
                 }
                 else
                 {
-                    Console.WriteLine("Path is okey!");
+                    Console.WriteLine("Path is OK!");
                     break;
                 }
             }
 
+            String result = Parser.validate(finalPathTest, finalPathProb);
+            Console.WriteLine(result);
+
             Console.WriteLine("Initializing...");
 
             Program program = new Program();
-            Parser parser = new Parser();
+            Parser parser = new Parser(finalPathTest, finalPathProb);
 
             Console.WriteLine("Initialization finished");
 

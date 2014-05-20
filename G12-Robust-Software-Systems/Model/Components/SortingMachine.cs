@@ -19,6 +19,7 @@ namespace G12_Robust_Software_Systems.Model.Components
         private List<IComponent> sinks;
         private Boolean initialized_thread;
         private List<IProblem> problems;
+        private List<IComponent> allSinks;
         public Boolean stuck { get; private set; }
         public SortingMachine(int dequeueDeltaMiliSeconds, List<IProblem> problems, int id)
         {
@@ -29,6 +30,7 @@ namespace G12_Robust_Software_Systems.Model.Components
             this.initialized = false;
             this.problems = problems;
             this.stuck = false;
+            this.allSinks = null;
         }
         public void EnqueueLuggage(LuggageBag luggage)
         {
@@ -81,15 +83,18 @@ namespace G12_Robust_Software_Systems.Model.Components
 
         public List<IComponent> getSinks()
         {
-            //Contract.Requires(this.sinks.Count > 2, "Sorting machine needs at least three \"outputs\"");
-            //Contract.Requires(this.initialized != false, "Initialized must be true");
-            // Merge getsinks from other components.
-            List<IComponent> allSinks = new List<IComponent>();
-            foreach (IComponent sink in this.sinks)
+            if (this.allSinks == null)
             {
-                allSinks.Concat(sink.getSinks());
+                // Merge getsinks from other components.
+                List<IComponent> allSinks = new List<IComponent>();
+                foreach (IComponent sink in this.sinks)
+                {
+                    allSinks.AddRange(sink.getSinks());
+                }
+                this.allSinks = allSinks;
+                return allSinks;
             }
-            return allSinks;
+            return this.allSinks;
         }
 
         public int Count()
