@@ -1253,5 +1253,1660 @@
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="ce8846e5-1d44-4be1-8097-3dc39cf59e43"
+        name="IRole"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="bd844bd0-9731-4343-9313-39a0e01c4607"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DIRole"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="4c4b1eca-ec2e-4dfa-b13c-ab571807a379"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="dd74e2ac-d609-4c1d-92f4-0aee92e26d96">
+                <propertyInstance
+                  Id="66244ef9-95cd-460c-80ff-07ed71f61791"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="13b12456-1bb5-4d1e-90ee-02b3de7773ae">
+                <propertyInstance
+                  Id="312bbd20-b11a-4c38-944e-9604084a9952"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="00fea8a3-9986-4d49-968d-fc46bd5487cd">
+                <propertyInstance
+                  Id="b45426e2-55fe-48fd-b51c-c27b95746d50"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="27956385-42fb-4f89-98f1-7679b95b2902">
+                <propertyInstance
+                  Id="d021d2f2-41ee-494a-a714-d7420f0bf7fa"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="2d9d2256-525f-483a-86c8-1851313b80bb"
+        name="PersonnelController"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="4eaa55ed-4b4f-4d22-811b-5ccf9a0a9a80"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnelController"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="bd6c6ac3-aebe-4cb6-a4df-31692f01cd23"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4b3a0d70-505d-4250-99ce-33951a720670">
+                <propertyInstance
+                  Id="f7c328c6-df45-4904-b0e2-f20de2961b44"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9ed86f69-e10a-4187-91d2-68666e91b1cf">
+                <propertyInstance
+                  Id="6a6a4efb-7106-43bc-a1a9-eaee3bfbeea9"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e5f86479-05a7-4dbc-bd34-632eddea2237">
+                <propertyInstance
+                  Id="05510431-413f-4e42-8816-af28264a9c65"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5fef170b-dbc2-4217-bbe5-60e8b896d2c2">
+                <propertyInstance
+                  Id="14457d72-060f-4350-aa8f-aa305177962a"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1639a606-1090-4791-a663-fc33d7c9b094">
+                <propertyInstance
+                  Id="5450f756-d077-413f-b058-0b91c4acff2c"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="47d17d30-ed44-4367-bfd7-fe3b6fe2a5fd"
+            name="personnel"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="7155daf5-9fd6-46e2-90d6-ae0c07aa8cc0"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnelController Member%3Dpersonnel"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e00e6036-080a-4261-93c1-70a929e9e728"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ac7e10ae-d107-49d8-b42b-dcbf96a50926">
+                    <propertyInstance
+                      Id="87bdb702-2264-4266-958b-cc90470e3667"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9e5f1eae-c3cd-487c-9aea-18fcde9ae6c8">
+                    <propertyInstance
+                      Id="e8df57aa-7a88-4b25-b84f-d50b640a7f43"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="41155a1b-e5bf-4cac-81cc-fde0be8298be">
+                    <propertyInstance
+                      Id="a1cb1370-fea1-45ba-86fd-72d17257990b"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="26718557-aa2c-415e-a76e-73e40947a8fd">
+                    <propertyInstance
+                      Id="bd44f40b-c772-4705-8712-82f3064d6a51"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="37e89200-2c12-421b-b368-de6cba7270e0">
+                    <propertyInstance
+                      Id="eb7ea25a-44d3-4273-90e3-15bb64f1e1b3"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="9e667c8e-83e1-4880-9595-5549746446d9"
+                LastKnownName="List&lt;Personnel‎&gt;"
+                LastKnownLocation="Package5_1049.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="e442e1b6-61b8-4016-8ce1-37f7897af69d"
+            name="PersonnelController"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="5bbb9be3-496d-41c7-8e35-81f7ed630680"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnelController Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnel)]))])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d25ba5c7-85d5-4583-9311-25d6ea55968c"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="36a985e8-1751-4aa9-aed3-ecad2454f0f6">
+                    <propertyInstance
+                      Id="0605bc81-b3f4-40a8-a3d4-2e65015a5513"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f445d5f2-09c5-45d2-b765-e6e744e19dda">
+                    <propertyInstance
+                      Id="54c1fa1b-b3cb-42e7-b3f6-1e4d0290faba"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="154f82c9-6e85-4152-a947-1717eb2c3edd">
+                    <propertyInstance
+                      Id="5cab2158-5a1a-4cc7-a882-656890e6fc62"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d123a6b6-4ffb-4d01-91e6-059bbb24a4f9">
+                    <propertyInstance
+                      Id="8115aa1e-ebec-49ca-bc13-88df09d0489d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="22a552e7-96d5-4627-b2fb-e037cfcaadc8">
+                    <propertyInstance
+                      Id="a3efe0a1-f5a6-40ab-9886-ceda7bb4f136"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="95d7b644-1bff-483f-bf86-3a17f6adfe7c">
+                    <propertyInstance
+                      Id="990d0175-0dff-424d-ae0e-e0f8cb8073df"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="58adbc0e-7d52-4a17-a978-2dcd75d1fa2d"
+                  name="personnel"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="76c901cc-0f92-473d-8b05-a219038ee663"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnelController Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnel)]))]) ParameterIdentifier%3Dpersonnel"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="9e667c8e-83e1-4880-9595-5549746446d9"
+                      LastKnownName="List&lt;Personnel‎&gt;"
+                      LastKnownLocation="Package5_1049.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="3af50d47-7a48-4495-b6f9-7d756584869e"
+            name="acquirePersonWithRole"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="176be493-57bb-4ff4-aacf-29a96b7820b1"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnelController Member%3D(Name%3DacquirePersonWithRole OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DIRole)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="18ce8bc7-075d-44d3-91c9-a4a8db4731ab"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3b495305-a502-4ba6-828f-bf96a152af09">
+                    <propertyInstance
+                      Id="a35dc3e6-42b9-4a54-a4fc-dc2b7a0304e5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2ddce70b-183b-407d-a290-ab8de184063b">
+                    <propertyInstance
+                      Id="04499147-2aee-42ee-a38b-c4419779e31e"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b76347cb-d60e-4a01-8479-e173a5526505">
+                    <propertyInstance
+                      Id="b476641d-a6db-4050-a512-1321a62d2ef4"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7b2e7b71-5a16-40ba-9f80-c4dfa501b7de">
+                    <propertyInstance
+                      Id="93dc0393-6758-44d6-9cd1-2584ff735f37"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9447c556-8b71-4c0d-8316-92bdbfa6251c">
+                    <propertyInstance
+                      Id="611f1af0-e45c-44d8-8ad4-8b0e0e5d55b0"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ca299047-28d0-464c-8423-0c787037f50e">
+                    <propertyInstance
+                      Id="11aa5300-ea07-401e-820f-476fdfc84d0a"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dcbbcf7a-12d0-4840-af0b-736ce0815de2"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="6648e0d0-ffaf-4793-920d-ca273a88b9d8"
+                      LastKnownName="Personnel"
+                      LastKnownLocation="Package_1054.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cb70716c-19a8-43a2-8712-ceaeb36e33b6"
+                  name="role"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="60833780-7f0d-436a-8c39-80886140e87a"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnelController Member%3D(Name%3DacquirePersonWithRole OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DIRole)]) ParameterIdentifier%3Drole"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="deda7a17-5e8a-44cc-b207-689acadf92df"
+                      LastKnownName="IRole"
+                      LastKnownLocation="Package_1054.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="216d3e49-0518-4072-8883-e054d4ea6db8"
+            name="returnPerson"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="a0477fae-7ee0-4a62-a7b7-d398e0916462"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnelController Member%3D(Name%3DreturnPerson OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnel)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d2ace0af-764a-435d-80b6-6a37a2672265"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ee03201d-397d-42e4-9802-f4b7af6b648f">
+                    <propertyInstance
+                      Id="eea80f71-3d96-4193-ba73-dfb31aaee25a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1550a316-027e-4ef6-9db7-550b0615ba08">
+                    <propertyInstance
+                      Id="aba51e71-abdd-4699-a2c9-97d92382b52d"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b9c69b37-c0f9-4294-9a83-e420062cf97f">
+                    <propertyInstance
+                      Id="ee9dbda0-ba8d-4fb5-a6ed-06c9af09e760"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="69804d61-4bd6-499f-a929-b81e1fc9275e">
+                    <propertyInstance
+                      Id="69e9e7da-b42b-4900-845c-4df2385b5eb8"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="54eb46fd-98b5-440a-aa6d-65ea61e45f5d">
+                    <propertyInstance
+                      Id="89734fc3-c224-4a57-81fe-facf2487c506"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9d46405f-61fd-47a5-b341-bbcc9d1b4aed">
+                    <propertyInstance
+                      Id="1dd96f80-e198-4b52-aeb5-0dc1c1f80f28"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="07ec4cc4-4549-4dd1-9526-b589948ab85f"
+                  name="person"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="954f3e18-9593-4772-ac26-4b7e806bd973"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnelController Member%3D(Name%3DreturnPerson OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnel)]) ParameterIdentifier%3Dperson"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="6648e0d0-ffaf-4793-920d-ca273a88b9d8"
+                      LastKnownName="Personnel"
+                      LastKnownLocation="Package_1054.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="deda7a17-5e8a-44cc-b207-689acadf92df"
+        name="IRole"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="61f44891-a4a4-477b-8100-983eff00e93c"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DIRole"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="dcf653f3-94d1-444b-9d30-5ab9c99660f4"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ca284da5-d8b0-4210-ac27-693dcd6847d3">
+                <propertyInstance
+                  Id="1f1de834-00a6-45cf-b159-6007846a0436"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8c4ebea1-64b4-4823-8fba-88fe735f819f">
+                <propertyInstance
+                  Id="10ffa0ae-a2e0-4976-9c91-dca46cd6d5b3"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0440428a-e831-4be6-af0a-fc7657182e03">
+                <propertyInstance
+                  Id="333a5bc6-f8bf-41ae-b10d-7093d6edb6b1"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e36b03be-f70b-4b48-821b-0fee4cf6c781">
+                <propertyInstance
+                  Id="1ecb1f5c-92ad-4796-a0ff-65ff9d6c3e39"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6648e0d0-ffaf-4793-920d-ca273a88b9d8"
+        name="Personnel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="e6bce585-9e9f-480b-97f5-5e482c62a5a7"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnel"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="b375252d-f31f-4ab7-992b-a95a9c0fb2be"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bf7bcb59-2874-4e95-892f-1107e31047bb">
+                <propertyInstance
+                  Id="75e61c8d-fa4d-4752-970c-d37295396533"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="81d7e6fb-efe8-49cb-afac-1e310260e54f">
+                <propertyInstance
+                  Id="7265d161-8706-45b5-ab29-9e98b84a2041"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="befb8ea0-7e8f-4d51-93a4-3e55c3b48d46">
+                <propertyInstance
+                  Id="28e24674-f80f-40d1-beae-c90b3a0f9ac8"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bb12202a-0f2e-4774-a1b5-0919930f89a4">
+                <propertyInstance
+                  Id="47b9aa75-7bbc-4336-a31f-097a0ad6fcf1"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ccb5697a-9ad1-4e3e-8897-b6cc27c97b87">
+                <propertyInstance
+                  Id="78c92eb3-13e2-4f41-93de-0943b70468b7"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="6c5dd8bd-a7d6-458e-bb4b-d9bb25688fb0"
+            name="id"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="6df19def-35c8-438f-8cba-896f588e2633"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnel Member%3Did"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="cb26f389-96ae-49e3-aae6-0c08cdefb62b"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f3127d13-7612-4630-8dec-b494a89724fa">
+                    <propertyInstance
+                      Id="9eb2de80-8b6a-45af-8bdd-699e9c9453a8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2e1eeedf-46e0-4ff3-a2b8-285e66ff60de">
+                    <propertyInstance
+                      Id="3dd578e2-59cc-4196-9c20-29507b893f6a"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5ed7e1db-849e-4240-8bbf-cc07ef388986">
+                    <propertyInstance
+                      Id="fc0cb350-5188-4bc4-9b03-9c80387cf0d0"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="54b636e5-71a8-45ea-8624-fa1489ed1736">
+                    <propertyInstance
+                      Id="b6a4985e-8d29-48fa-b0e4-e53c42bc3fb1"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b7dbeb77-64d5-4110-8d94-832c1ddad902">
+                    <propertyInstance
+                      Id="df8deb7b-410b-4636-afd3-53229f702972"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="5fd87104-7357-4c9a-88d6-eb44632fcf8c"
+            name="roles"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="6f6e830d-2494-4557-a109-636b8aa526d0"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnel Member%3Droles"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="3d9fbe18-4df3-4797-9d46-e906330407d2"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e9351359-8b53-422c-85bc-3aad1598efa3">
+                    <propertyInstance
+                      Id="76501c2f-d859-445b-9348-32d340a6f8c0"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="04898e3e-cb49-4996-be0c-f2f5c6e8d1f7">
+                    <propertyInstance
+                      Id="2da9efb5-faa9-42ae-bb7e-a1d5c5257a95"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="556c950e-7a40-4a57-9b51-3e99136ce154">
+                    <propertyInstance
+                      Id="f745d672-e2e2-42ff-9920-96cf1094ea20"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="06a5c6f8-df38-4473-945d-7bab3585a327">
+                    <propertyInstance
+                      Id="b82e2263-7cf9-44c8-a41a-4fdce391a505"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6bcbc99a-7302-4a13-944d-42d89d1f76af">
+                    <propertyInstance
+                      Id="a42c752b-64a3-4a1f-9894-9cefa60ae7a6"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="6908f2c5-a222-422b-90ad-fa866c905ccc"
+                LastKnownName="List&lt;IRole‎&gt;"
+                LastKnownLocation="Package5_1049.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="bc6cf2a5-2ee1-40b6-9b7a-bea922bb45fb"
+            name="Personnel"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="1c5499be-b652-488c-bfd9-2a65e6e24ada"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnel Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DIRole)]))])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8f42b38f-aade-4885-bfa6-ef8097c48b7c"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d8d2e9ba-30d3-4b41-bf35-922834f30d96">
+                    <propertyInstance
+                      Id="94d89098-85e8-4907-bbab-23285092e78c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ef248ef2-a819-4cdc-9318-916d573683ce">
+                    <propertyInstance
+                      Id="47bb7901-bfd1-43a4-b8a7-a15d2a6550cf"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dee5149c-9b86-401c-aa32-63586e7221e2">
+                    <propertyInstance
+                      Id="a102f46d-6959-4a0b-a922-ad68c48cafb3"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="46620623-1afc-4cc4-b133-964ae0e4dc9b">
+                    <propertyInstance
+                      Id="93a9aee4-f7c9-4dbb-9a1c-1d06b1e97492"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ff7e8ff8-ee6e-40a0-b08d-fc542833eb99">
+                    <propertyInstance
+                      Id="7b556e99-69b8-4b45-ba81-4a7693a38ad0"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8c3dd07d-4c3f-457d-bf08-e2662e310728">
+                    <propertyInstance
+                      Id="cbb3b680-7720-4cab-87b8-d74f8fc764d5"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f60f1094-7313-4b01-83c7-f2400b3d45e5"
+                  name="id"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="631ee033-e8ea-4769-9c79-7ad23e1a4d58"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnel Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DIRole)]))]) ParameterIdentifier%3Did"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f38c1c45-a7e7-4761-9a7c-3e50ace4c409"
+                  name="roles"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="ddbf0b91-04e0-44fa-b1d9-b6d5c439d10e"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnel Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DIRole)]))]) ParameterIdentifier%3Droles"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="6908f2c5-a222-422b-90ad-fa866c905ccc"
+                      LastKnownName="List&lt;IRole‎&gt;"
+                      LastKnownLocation="Package5_1049.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="1d97f438-7233-45b1-bbe9-0d1ead3caa8d"
+            name="get_roles"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="10f717e6-e28d-4e04-94d8-afd8cf769b68"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnel Member%3Dget_roles"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b791e67a-7c69-4da7-a9b0-bc09bcaf8c70"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bfd0ae16-3016-445f-8f5d-72df7a51340a">
+                    <propertyInstance
+                      Id="b226aa99-ecd0-4080-8070-917aac30713a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5efa3c6e-1760-434a-99d7-8b9ed8e8717c">
+                    <propertyInstance
+                      Id="00bd0039-6178-4b28-8605-2914854b4bca"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cd9923fb-7c13-49e3-9e3c-fea739f8281e">
+                    <propertyInstance
+                      Id="50222f98-9469-444e-9375-151097a2c52c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e3906c99-8582-4f28-9787-27c1bfe8784b">
+                    <propertyInstance
+                      Id="6dcf2b52-3106-43f2-9b90-852bc40d85c7"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4c8805af-5e13-461a-a014-fc6b7745c8e8">
+                    <propertyInstance
+                      Id="16c4df08-14bb-4b55-8fab-c7adab827340"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="73b4c934-8a8e-499d-ba63-61d7eed9a438">
+                    <propertyInstance
+                      Id="353a0e70-2170-4184-a10b-b25a6a029fef"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="147dda78-b73b-41e9-9801-b5f33b23dfaf"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="6908f2c5-a222-422b-90ad-fa866c905ccc"
+                      LastKnownName="List&lt;IRole‎&gt;"
+                      LastKnownLocation="Package5_1049.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="8115b247-1945-4121-9ac1-80a24602539d"
+            name="add_role"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="108ded3b-bd13-489e-94ff-8a242d23efdf"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnel Member%3D(Name%3Dadd_role OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DIRole)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c6fa9332-b00d-486e-9d8f-03432db69285"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="eafd7368-cf8b-4db9-82dc-b56aaf0199c5">
+                    <propertyInstance
+                      Id="071bd2f3-4d38-46c4-9583-8040aae506ad"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1d17eb90-d736-4c1a-834f-e70259b44498">
+                    <propertyInstance
+                      Id="52e68ac6-6a5b-4349-9315-40685ea61c45"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aff29aa6-24fa-43d5-b4f8-b26b5a08a393">
+                    <propertyInstance
+                      Id="78bc9abe-227b-4c07-b04b-a8879d3e1371"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b69ca1ba-e5cd-495b-ab21-16a682729051">
+                    <propertyInstance
+                      Id="d30830fe-6486-48c2-82cd-11a20a1b206f"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dff99e67-6558-4c2c-8e80-abbd5c7f0a87">
+                    <propertyInstance
+                      Id="91832b74-d5b7-4bce-ad27-819106589b09"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b8109b03-43b8-4212-950c-85c4c1dd7388">
+                    <propertyInstance
+                      Id="b6a24a6d-8859-4367-bbf8-cd9b29d19a55"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="11684adc-5402-48fe-b129-03caa5d2e9bb"
+                  name="role"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="c9b69957-1607-4e22-86f4-58c1bb3a39d2"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnel Member%3D(Name%3Dadd_role OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DIRole)]) ParameterIdentifier%3Drole"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="deda7a17-5e8a-44cc-b207-689acadf92df"
+                      LastKnownName="IRole"
+                      LastKnownLocation="Package_1054.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="8b4e37d8-3a11-4d71-8e4a-f85c3c971363"
+            name="remove_role"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="25df8217-4bc3-47e2-ac62-684d1339bdb6"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnel Member%3D(Name%3Dremove_role OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DIRole)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f376dce9-23a9-4253-9043-d5bfe96439df"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="af64158e-ec68-4c97-83e5-6443e5dbab8a">
+                    <propertyInstance
+                      Id="5a581f64-b978-480d-9548-b1067a12413d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6e4a6829-6fd2-4f43-b279-61da3e5f3291">
+                    <propertyInstance
+                      Id="2dd92d54-8adb-4b2a-932a-60de77de7028"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2970c461-b750-4766-907b-9ef53936ff25">
+                    <propertyInstance
+                      Id="64678e76-7971-491e-94d4-051751209d6e"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6495ca2d-776e-4c37-ac61-f576d32c476a">
+                    <propertyInstance
+                      Id="9e730351-f2ed-44fc-95ec-4329809cdc73"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8a64ddcf-c786-465a-aa55-835ca371b53d">
+                    <propertyInstance
+                      Id="ffe54d5f-8746-4c62-b017-94c73c3a2386"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="57c55885-73df-4167-b050-4f783e555e80">
+                    <propertyInstance
+                      Id="fbfbb3a5-5874-4ad9-8b5f-0abbb992f540"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bb129ec6-b89b-466a-a723-21748fb7a5c6"
+                  name="role"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="c6b8eb3d-3707-419e-9d65-be5ff163d775"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnel Member%3D(Name%3Dremove_role OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DIRole)]) ParameterIdentifier%3Drole"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="deda7a17-5e8a-44cc-b207-689acadf92df"
+                      LastKnownName="IRole"
+                      LastKnownLocation="Package_1054.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2f21d387-ebb9-4cff-996a-28a99a999b89"
+            name="HasRole"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="6dc856ab-4048-4e32-b8d7-df115b5bbf57"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnel Member%3D(Name%3DHasRole OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DIRole)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1da41484-61a3-46ee-92c8-4a4ce859599f"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="04267236-f3a7-4079-b905-e38252dc7cc3">
+                    <propertyInstance
+                      Id="4c25bf91-97c1-48ac-a288-d6729ac735f5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f8cf8482-8969-43af-90af-320b7a8beb39">
+                    <propertyInstance
+                      Id="dda90035-4f6d-4c2d-ad2b-560ca7604a9d"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bdc7a287-511b-45ea-9319-1c9767029390">
+                    <propertyInstance
+                      Id="259afb46-1cf3-40eb-b0fc-1c19348feac2"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ceb0d95d-f4bd-4edc-b35d-830c4fff8350">
+                    <propertyInstance
+                      Id="5ab6d69d-7166-4d5e-a52e-28a5bdc07ec8"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bd817cf2-4532-4604-b825-d7c904256745">
+                    <propertyInstance
+                      Id="7dea9c2f-7980-4a0d-8acc-cf54bd1c3a33"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="88b9b588-e43d-44e3-bb37-eb177a7a39df">
+                    <propertyInstance
+                      Id="67ac626e-a728-48a7-9d58-2f3c9e41f1a8"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="87dbdb3d-aa1a-49d4-83ff-4f1a98d0bd9f"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="346c14be-4bad-4863-bd9c-aa6b3406c368"
+                  name="role"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="ce2db81d-c94e-4e61-9e93-bc8b0e336331"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DPersonnel Member%3D(Name%3DHasRole OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DIRole)]) ParameterIdentifier%3Drole"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="deda7a17-5e8a-44cc-b207-689acadf92df"
+                      LastKnownName="IRole"
+                      LastKnownLocation="Package_1054.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="749b32b9-adfb-48d4-9d99-0879c4944d4e"
+        name="XRayRole"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="96bc9b0b-bdaf-4557-8e20-80c2a249717e"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DXRayRole"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="4a41812f-a915-4a46-8f2c-c50c88fc1cee"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="db694300-7701-444f-9edd-0060b63d32fe">
+                <propertyInstance
+                  Id="fd5f5cda-2cdd-499d-bf8b-2f2da6b8a663"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c1404a61-a959-4213-bd95-3e5089155d56">
+                <propertyInstance
+                  Id="87cad13d-4506-4e4c-a897-011713dfc3b0"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="824cdf45-4abe-4490-9af1-0c5e9404fcb9">
+                <propertyInstance
+                  Id="56146553-5b13-481d-a97d-686994148860"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="254eb01a-4c90-4290-b57f-44dd10b2f855">
+                <propertyInstance
+                  Id="a2a8d639-e1a6-4a90-a017-55f300847c14"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="dec72789-095d-4c90-8acd-5a61eadf9d5b">
+                <propertyInstance
+                  Id="c8f8ce3e-f60b-4526-92d6-3e0ef16a0efb"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="d9002b43-d2d7-4ef9-8fab-44eec5463dcd">
+            <interfaceMoniker
+              Id="deda7a17-5e8a-44cc-b207-689acadf92df"
+              LastKnownName="IRole"
+              LastKnownLocation="Package_1054.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="be3397f6-05f3-43a0-b1f5-73aa01756c0b"
+            name="XRayRole"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="c037fe8c-f18c-4196-b14d-aade5d68040b"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DXRayRole Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8d1e9ea8-040f-4185-8351-4f7c8351192f"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="511d2f0b-8b59-45b5-a325-b156a3881906">
+                    <propertyInstance
+                      Id="9e4c8acb-021f-46ce-892d-7ebe765236e6"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b1e01e4d-8345-46c6-a532-1ce843f14785">
+                    <propertyInstance
+                      Id="9f33f685-0d9f-49d5-9a08-02dbae483c07"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="97bb4e45-f68f-4f18-9868-8e37edc409f6">
+                    <propertyInstance
+                      Id="1b1f2f1c-265e-4951-8916-65002c162854"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1220ce25-b358-4642-aae5-90ba3c40982e">
+                    <propertyInstance
+                      Id="fa6627f4-f054-4ff2-8812-6088b0724d06"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f99a6f3e-3a70-4ddd-9709-c4e75f883fb0">
+                    <propertyInstance
+                      Id="930614e3-3ab5-480e-9045-f60860aa8860"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dcea52db-1fa8-4723-aad5-894129589d12">
+                    <propertyInstance
+                      Id="efe21323-43b2-47d0-a03f-1b38d55ed0aa"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="baaa028e-f665-47b9-a18d-423bfe3e1cd9"
+        name="StuckLuggageRole"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="0674538e-8778-4a29-923e-4bcd014bfffd"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DStuckLuggageRole"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="b4992526-7557-407c-aa1e-7bd6e223092e"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="34173838-8ce7-496c-894b-3f3480722b20">
+                <propertyInstance
+                  Id="a8337398-97d0-4855-9c84-b5d70b9760e0"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6096153e-4d96-4f65-a5ea-45be138d5d40">
+                <propertyInstance
+                  Id="d5923fcd-a444-4d18-b670-865de390d64f"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="405fa2f4-dddb-48fa-ba3f-0a112ebf7c0b">
+                <propertyInstance
+                  Id="674a02fc-a676-4de1-9df7-743d1a4523f0"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7f9f07f4-e335-4ae3-b26f-0ce29ae8780f">
+                <propertyInstance
+                  Id="53b5645b-3522-4485-b327-19f0217f2275"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7d5101ed-1959-4804-a2b8-743b4b0e81b9">
+                <propertyInstance
+                  Id="dcaf552f-41c5-419b-975c-b07c05762e19"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="5ced9726-df9c-487f-9a4d-57f353a9ea00">
+            <interfaceMoniker
+              Id="deda7a17-5e8a-44cc-b207-689acadf92df"
+              LastKnownName="IRole"
+              LastKnownLocation="Package_1054.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="40a2b33a-ae8a-45fb-b986-857d44ec1995"
+            name="StuckLuggageRole"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="a1d35ad4-9497-491f-bab6-0c23601d79ae"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DStuckLuggageRole Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="fa134328-d353-4778-a740-be9665524614"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dc49c202-2fd0-4c24-b26c-546411aa410e">
+                    <propertyInstance
+                      Id="f0dc65dc-1adb-4c01-9115-acde9280e906"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ac22fedb-ea1b-4f23-80ea-e247607e30d8">
+                    <propertyInstance
+                      Id="6d11380c-017b-4f79-b37c-0c2b09099824"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9d4b37c0-eab5-425c-b66d-78003146de4b">
+                    <propertyInstance
+                      Id="c48ddef9-dea0-4024-a88f-7fee51882e4d"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dcef51c6-4ace-41f2-88a6-abe245a799cb">
+                    <propertyInstance
+                      Id="7c810615-a18c-4345-a163-f0077e7d3943"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cd8099c6-60a1-4bb0-956c-5331207a36a6">
+                    <propertyInstance
+                      Id="e3ada88c-c07a-4565-b413-ad38e54c9ade"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cbdf5eb6-c2eb-4360-8540-fb6050382c0c">
+                    <propertyInstance
+                      Id="dc696f72-84ba-40de-b518-f05f6ed26fb7"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ec2bb020-917a-48bd-b4b3-0a96d673d19b"
+        name="LoaderRole"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="8ef3746f-e7d0-40a0-9e27-0f4e6fd8e038"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DLoaderRole"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="beb67496-d551-4ae2-9743-cc51133598c2"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="baf51f3a-e4f9-4a4d-b49b-ffdbedf9e770">
+                <propertyInstance
+                  Id="7770626d-02a8-468a-9280-644aea51d40c"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="60d9d18c-8037-4240-9338-a1e203bbfdd2">
+                <propertyInstance
+                  Id="6f0a8c2c-33c0-4895-b1bb-f27894f305d4"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e76e77d0-29a1-4659-af05-bf07cbfd8f27">
+                <propertyInstance
+                  Id="158b367e-37dc-4d50-b872-18cb5fab2d7a"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="767627f3-6b7c-487b-82de-341d7302ef93">
+                <propertyInstance
+                  Id="9a145de1-c4d4-491c-8cb5-4e25c2c7bcd5"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5e779d8a-8404-4f24-9ab7-279bf0f9b5b0">
+                <propertyInstance
+                  Id="cd019820-9599-4f2b-b65a-900b1e68a49b"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="fd27fd49-01ad-46a3-947c-e94983e76c4b">
+            <interfaceMoniker
+              Id="deda7a17-5e8a-44cc-b207-689acadf92df"
+              LastKnownName="IRole"
+              LastKnownLocation="Package_1054.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="5780db42-b00a-4b57-929c-4ebf01721100"
+            name="Equals"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="a5a57354-3ef5-46ea-865d-0059e73ef0f7"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DLoaderRole Member%3D(Name%3DEquals OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DIRole)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c2dd4e81-06f3-476c-8e47-e82a54a7e1ad"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e8383cde-3f20-4f25-8c86-666ce3611ffa">
+                    <propertyInstance
+                      Id="34f5cc59-4029-44fe-9e05-d741404ce916"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dfe8cd08-c54a-4ce1-9568-32f872e699c8">
+                    <propertyInstance
+                      Id="bd64999f-8d39-4f8a-b2b4-e0c626f73406"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b8c53ea8-db4b-4224-8279-6a90fbec3a13">
+                    <propertyInstance
+                      Id="2395374c-2e09-4c74-8ded-1cdfc0658efb"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="64e5c3d7-5e45-4bd4-a64b-a904e6976f8f">
+                    <propertyInstance
+                      Id="c53540b1-3483-499c-8600-bf10c72c55fd"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8c186bf8-0bd3-4c47-9fd6-4503ffadda45">
+                    <propertyInstance
+                      Id="7b03eaca-cbfe-4840-a7de-b0b5aa0deb89"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d2c8f2b7-544b-4c8e-aadb-f9c14c199d51">
+                    <propertyInstance
+                      Id="6334388f-ee4b-4353-837b-0df008ec79cc"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5a3209eb-5c2c-4ee2-89d5-1a84c1b17797"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0e68ac45-4140-42fb-87f8-4d0d21206ce7"
+                  name="role"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="27f970ca-4aa3-445b-80e5-fa96d69c9350"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DLoaderRole Member%3D(Name%3DEquals OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DIRole)]) ParameterIdentifier%3Drole"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="deda7a17-5e8a-44cc-b207-689acadf92df"
+                      LastKnownName="IRole"
+                      LastKnownLocation="Package_1054.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2ed81682-2be8-4b95-85fa-02bdc62aa2c6"
+            name="LoaderRole"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="f8c5e221-cab8-41dc-84f2-b5a8f0fa1a47"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FP%2FSource%2FRepos%2Fg12-main-application%2FG12-Robust-Software-Systems%2Fbin%2FDebug%2FG12-Robust-Software-Systems.exe Namespace%3DG12_Robust_Software_Systems.Model.PersonnelHandling Type%3DLoaderRole Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5931efbf-b69e-4722-97cb-aaf522ca09a2"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4090daeb-2d84-4535-bbd9-87ec6cbcecd2">
+                    <propertyInstance
+                      Id="db04cb43-ca52-4ae6-aceb-af8dcb95f313"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3dc2ea39-c7fb-49a4-9cbe-1d58ba51f9a9">
+                    <propertyInstance
+                      Id="2a1ea372-6c0d-4a2a-ba06-018dad33e08c"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c5b04db2-4dbf-49f5-a7a5-a636be8a90f0">
+                    <propertyInstance
+                      Id="e9e7fb84-7688-4a3e-b20c-61336b3cfdb2"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7a9fff71-ec91-49d2-b02e-7085870f8e94">
+                    <propertyInstance
+                      Id="7978e3a1-72ed-4e1b-a55b-02a16251cc7b"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="029f4355-1378-412d-8791-630b1e271042">
+                    <propertyInstance
+                      Id="ad815313-951b-476f-80a1-4870ee319517"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="256e738f-6576-422c-9575-3bba02348144">
+                    <propertyInstance
+                      Id="13ac8437-170d-40f2-bdb3-dd0de10683e4"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="d3306cc5-723b-41fa-ba84-6d5541986be9"
+        LastKnownName="LuggageProcessing"
+        LastKnownLocation="Package6_1049.uml" />
+    </packageHasNamedElement>
   </packagedElements>
 </package>
